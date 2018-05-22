@@ -115,6 +115,10 @@ class DashboardViewController: BaseViewController {
         self.navigationController?.pushViewController(addListingsVcObj, animated: true)
     }
     
+    @IBAction func storeBtnTapped(_ sender: UIButton){
+        
+    }
+    
     // MARK:- Common Methods
     
     func configureComponentLayout() {

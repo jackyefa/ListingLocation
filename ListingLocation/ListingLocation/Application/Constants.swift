@@ -21,6 +21,7 @@ let appTitle: String = "Listing Location"
 
 let INVALID_USER_ACCESS_TOKEN_NOTIFICATION = Notification.Name("InvalidUserAccessToken")
 let LOGOUT_USER_NOTIFICATION = Notification.Name("LogoutUser")
+let UPDATE_USER_DETAILS_NOTIFICATION = Notification.Name("UpdateDetails")
 
 // MARK: - Common Error Objects
 

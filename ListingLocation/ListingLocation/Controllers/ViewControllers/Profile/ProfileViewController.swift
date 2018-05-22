@@ -15,6 +15,7 @@ class ProfileViewController: BaseViewController {
     @IBOutlet var userProfileTable: UITableView?
     @IBOutlet var nameLbl: UILabel?
     @IBOutlet var shortNameLbl: UILabel?
+    @IBOutlet var addressLbl: UILabel?
     
     // MARK:- Life Cycle Methods.
 
@@ -25,6 +26,9 @@ class ProfileViewController: BaseViewController {
         self.showIconBackOnNavigationBar()
         self.configureComponentsLayout()
         self.showEditBtnOnNavigationBar()
+        
+        //Notifications
+        NotificationCenter.default.addObserver(self, selector: #selector(configureComponentsLayout), name: UPDATE_USER_DETAILS_NOTIFICATION, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,29 +51,35 @@ class ProfileViewController: BaseViewController {
     // MARK:- NavigationBar Bar button Methods
     
     func showEditBtnOnNavigationBar() {
-        let searchBtn: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: ""), style: .plain, target: self, action: #selector(editBtnTapped))
+        let searchBtn: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: ""), style: .plain, target: self, action: #selector(showUpdateProfileVc))
         searchBtn.title = "Edit"
         searchBtn.tintColor = UIColor.white
         self.navigationItem.rightBarButtonItem = searchBtn
     }
     
-    @objc func editBtnTapped(){
-    
-    }
-    
     // MARK:- Common methods.
     
-    func configureComponentsLayout(){
+    @objc func configureComponentsLayout(){
         self.title = "My Profile"
         self.userProfileTable?.tableFooterView = UIView()
         self.shortNameLable?.layer.cornerRadius = (self.shortNameLable?.frame.size.height)!/2
         self.shortNameLable?.layer.masksToBounds = true
         
-        //Name
+        //Name and address
         if !(name.isEmpty){
-            nameLbl?.text = name
-            shortNameLbl?.text = String(describing: name.first!).uppercased()
+            self.nameLbl?.text = name
+            self.shortNameLbl?.text = String(describing: name.first!).uppercased()
         }
+        if !(address.isEmpty){
+            self.addressLbl?.text = address
+        }
+    }
+    
+    @objc func showUpdateProfileVc(){
+        let updateProfileVcObj: UpdateProfileViewController = self.storyboard?.instantiateViewController(withIdentifier: "UpdateProfileVc") as! UpdateProfileViewController
+        updateProfileVcObj.modalPresentationStyle = .overCurrentContext
+        updateProfileVcObj.modalTransitionStyle = .crossDissolve
+        self.navigationController?.present(updateProfileVcObj, animated: true, completion: nil)
     }
 
 }
@@ -119,10 +129,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
         switch indexPath.row{
             
         case 0:
-            let updateProfileVcObj: UpdateProfileViewController = self.storyboard?.instantiateViewController(withIdentifier: "UpdateProfileVc") as! UpdateProfileViewController
-            updateProfileVcObj.modalPresentationStyle = .overCurrentContext
-            updateProfileVcObj.modalTransitionStyle = .crossDissolve
-            self.navigationController?.present(updateProfileVcObj, animated: true, completion: nil)
+            self.showUpdateProfileVc()
             
         case 1:
             let updatePasswordVcObj: UpdatePasswordViewController = self.storyboard?.instantiateViewController(withIdentifier: "UpdatePasswordVc") as! UpdatePasswordViewController

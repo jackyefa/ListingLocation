@@ -16,7 +16,7 @@ let emptyParams: NSDictionary = NSDictionary()
 
 // MARK: - NETWORKING BASE URL & API END POINTS
 
-var DOMAIN = "https://78e79395.ngrok.io"
+var DOMAIN = "http://ed7b463e.ngrok.io"
 var API_ROOT = DOMAIN + "/api/v1/"
 
 var API_LOGIN = API_ROOT + "sign_in"
@@ -24,6 +24,7 @@ var API_SIGNUP = API_ROOT + "sign_up"
 var API_FORGOTPWD = API_ROOT + "forgot_password"
 var API_LOGOUT = API_ROOT + "sign_out"
 var API_CHANGEPWD = API_ROOT + "update_password"
+var API_UPDATEPROFILE = API_ROOT + "profile_update"
 
 // MARK: - LOADING POPUP TEXT ADN MESSAGE CONSTANTS
 
@@ -42,3 +43,5 @@ let LOGOUT_SUSSESS_MESSAGE = "Thanks! You are successfully logout."
 
 let UPDATE_PASSWORD_POPUP_TEXT = "Updating.."
 let UPDATE_PASSWORD_SUCCESS_MESSAGE = "Thanks! Your password has been updated."
+
+let UPDATE_PROFILE_SUCCESS_MESSAGE = "Thanks! Your profile has been updated."

@@ -16,6 +16,7 @@ class User: Mappable {
     var name: String?
     var phone: Int64?
     var id: Int64?
+    var address_response: String?
     
     required init?(map: Map) {
     }
@@ -25,7 +26,7 @@ class User: Mappable {
         email <- map["email"]
         phone <- map["phone"]
         id <- map["id"]
-        
+        address_response <- map["address"]
     }
 }
 

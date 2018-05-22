@@ -45,6 +45,8 @@
 		18B3CBF420A9B1F90051A9D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B3CBF320A9B1F90051A9D4 /* ProfileViewController.swift */; };
 		18B3CBF620A9B2140051A9D4 /* AddListingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B3CBF520A9B2140051A9D4 /* AddListingsViewController.swift */; };
 		18E11BFC20AC7323000FF23A /* LockOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E11BFB20AC7323000FF23A /* LockOrientation.swift */; };
+		18F0D12420B401E100606764 /* PropertyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0D12320B401E100606764 /* PropertyCollectionViewCell.swift */; };
+		18F0D12620B4277A00606764 /* ListingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0D12520B4277A00606764 /* ListingDetailsViewController.swift */; };
 		18FB6FAC20AAAD3C006626D7 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB6FAB20AAAD3C006626D7 /* LeftMenuViewController.swift */; };
 		18FB6FAE20AB06E5006626D7 /* UserDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB6FAD20AB06E5006626D7 /* UserDetailsCell.swift */; };
 		18FB6FB020AB0713006626D7 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB6FAF20AB0713006626D7 /* LocationCell.swift */; };
@@ -114,6 +116,8 @@
 		18B3CBF320A9B1F90051A9D4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		18B3CBF520A9B2140051A9D4 /* AddListingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListingsViewController.swift; sourceTree = "<group>"; };
 		18E11BFB20AC7323000FF23A /* LockOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockOrientation.swift; sourceTree = "<group>"; };
+		18F0D12320B401E100606764 /* PropertyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCollectionViewCell.swift; sourceTree = "<group>"; };
+		18F0D12520B4277A00606764 /* ListingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailsViewController.swift; sourceTree = "<group>"; };
 		18FB6FAB20AAAD3C006626D7 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		18FB6FAD20AB06E5006626D7 /* UserDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsCell.swift; sourceTree = "<group>"; };
 		18FB6FAF20AB0713006626D7 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
@@ -361,6 +365,8 @@
 			children = (
 				18B3CBF520A9B2140051A9D4 /* AddListingsViewController.swift */,
 				184D3A7C20AC0AEF0087DC6F /* ListingFormViewController.swift */,
+				18F0D12320B401E100606764 /* PropertyCollectionViewCell.swift */,
+				18F0D12520B4277A00606764 /* ListingDetailsViewController.swift */,
 			);
 			path = Listings;
 			sourceTree = "<group>";
@@ -682,6 +688,8 @@
 				181D762E20A71BC90083F2B9 /* LocationSearchViewController.swift in Sources */,
 				180F35D820B2CAB500934987 /* UpdateProfileViewController.swift in Sources */,
 				181D75E020A57C330083F2B9 /* LLTextField.swift in Sources */,
+				18F0D12420B401E100606764 /* PropertyCollectionViewCell.swift in Sources */,
+				18F0D12620B4277A00606764 /* ListingDetailsViewController.swift in Sources */,
 				181D75D420A568A60083F2B9 /* Date+Additions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

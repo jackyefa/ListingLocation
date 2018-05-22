@@ -66,6 +66,20 @@ var name: String {
     }
 }
 
+var address: String {
+    get{
+        var address: String = String()
+        if (UserDefaults.standard.object(forKey: "user_address") != nil){
+            address = UserDefaults.standard.object(forKey: "user_address") as! String
+        }
+        return address
+    }
+    set(newValue){
+        UserDefaults.standard.set(newValue, forKey: "user_address")
+        UserDefaults.standard.synchronize()
+    }
+}
+
 var phone: Int64{
     get{
         var phone: Int64 = Int64()

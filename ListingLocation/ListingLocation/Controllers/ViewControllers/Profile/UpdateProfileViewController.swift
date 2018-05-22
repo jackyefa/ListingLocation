@@ -42,10 +42,35 @@ class UpdateProfileViewController: BaseViewController {
         
     }
     
-    // MARK:- Button tap actions.
+    // MARK:- Button tap actions and update_profile API_call
     
     @IBAction func cancelBtnTapped(_ sender: UIButton){
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func updateBtnTapped(_ sender: UIButton){
+        let apiParams: NSDictionary = ["name": self.nameTxt!.text!, "phone": self.phoneTxt!.text!, "address": self.addressTxt!.text!]
+        
+        if(self.nameTxt?.text?.isEmpty)!{
+            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: "Please input name.")
+            self.present(self.alertListingLocation!, animated: true, completion: nil)
+        }
+        else{
+            APIManager.sharedAPIManager.user_updateProfile_apiCall(apiParams, success:{(responseDictionary: NSDictionary) -> () in
+                
+                self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: UPDATE_PROFILE_SUCCESS_MESSAGE, handler: {(objAlertAction: UIAlertAction!) -> Void in
+                    name = (self.nameTxt?.text)!
+                    phone = Int64((self.phoneTxt?.text)!)!
+                    address = (self.addressTxt?.text)!
+                    NotificationCenter.default.post(name: UPDATE_USER_DETAILS_NOTIFICATION, object: nil)
+                    self.dismiss(animated: true, completion: nil)
+                })
+                self.present(self.alertListingLocation!, animated: true, completion: nil)
+                
+            },failure:{(error: NSError) -> () in
+                self.showPopupWith_title_message(strTitle: appTitle, strMessage: error.localizedDescription)
+            })
+        }
     }
     
     // MARK:- Common methods.
@@ -58,13 +83,15 @@ class UpdateProfileViewController: BaseViewController {
         self.phoneTxt?.initializeCustomTextFieldWith_BottomLineView(withSecuredEntery: false)
         self.addressTxt?.initializeCustomTextFieldWith_BottomLineView(withSecuredEntery: false)
         
-        //Default name, email and phone
+        //Default name, address and phone
         if !(name.isEmpty){
             self.nameTxt?.text = name
         }
-        
         if(phone != 0){
             phoneTxt?.text = String(phone)
+        }
+        if !(address.isEmpty){
+            self.addressTxt?.text = address
         }
     }
 

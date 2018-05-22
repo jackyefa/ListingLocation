@@ -141,6 +141,7 @@ class BaseViewController: UIViewController {
         phone = Int64()
         auth_token = ""
         user_email = ""
+        address = ""
         self.navigationController?.popToRootViewController(animated: true)
     }
     

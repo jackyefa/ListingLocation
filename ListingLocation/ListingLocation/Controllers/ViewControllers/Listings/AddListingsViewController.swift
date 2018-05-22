@@ -11,6 +11,8 @@ import Foundation
 
 class AddListingsViewController: BaseViewController {
     
+    @IBOutlet var propertyCollection: UICollectionView?
+    
     // MARK:- Life Cycle Methods.
 
     override func viewDidLoad() {
@@ -61,3 +63,38 @@ class AddListingsViewController: BaseViewController {
     }
 
 }
+
+// MARK: - CollectionView delegate and data source methods.
+
+extension AddListingsViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 40
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let propertyColllectionCell = propertyCollection?.dequeueReusableCell(withReuseIdentifier: "propertyCollectionView", for: indexPath) as! PropertyCollectionViewCell
+        propertyColllectionCell.configureComponentsLayout()
+        propertyColllectionCell.propertyDelegate = self
+        return propertyColllectionCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let listingDetailsVcObj: ListingDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ListingDetailsVc") as! ListingDetailsViewController
+        self.navigationController?.pushViewController(listingDetailsVcObj, animated: true)
+    }
+}
+
+// MARK: - Property cell delegate method.
+
+extension AddListingsViewController: PropertyCollectionViewCellDelegate{
+    
+    func deleteProperty() {
+        self.alertListingLocation = UIAlertController.confirmAlertWithTwoButtonTitles(title: appTitle, message: "Are you sure you want to delete this property?", btnTitle1:"Yes", btnTitle2: "No", handler:{(objAlertAction : UIAlertAction!) -> Void in
+            
+        })
+        self.present(self.alertListingLocation!, animated:true, completion:nil)
+    }
+    
+}
+

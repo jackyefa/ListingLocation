@@ -22,6 +22,8 @@ class LeftMenuViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.configureComponentsLayout()
+        //Notifications
+        NotificationCenter.default.addObserver(self, selector: #selector(configureComponentsLayout), name: UPDATE_USER_DETAILS_NOTIFICATION, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,7 +61,7 @@ class LeftMenuViewController: UIViewController {
     
     // MARK:- Common methods.
     
-    func configureComponentsLayout(){
+    @objc func configureComponentsLayout(){
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.userImage?.layer.cornerRadius = (self.userImage?.frame.size.width)!/2
         self.userImage?.layer.masksToBounds = true
