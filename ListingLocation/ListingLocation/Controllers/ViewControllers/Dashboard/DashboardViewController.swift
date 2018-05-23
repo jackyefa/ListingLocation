@@ -15,7 +15,10 @@ class DashboardViewController: BaseViewController {
     
     @IBOutlet var mapView: MKMapView?
     @IBOutlet var segmentControl: UISegmentedControl?
+    @IBOutlet var storeView: UIView?
     let longPressRecognizer = UILongPressGestureRecognizer()
+    var locationCoordinate = CLLocationCoordinate2D()
+    var span = MKCoordinateSpanMake(0.05, 0.05)
     
     // MARK:- Life Cycle Methods.
     
@@ -37,12 +40,12 @@ class DashboardViewController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-      //  AppUtility.lockOrientation(.landscape)
+        //  AppUtility.lockOrientation(.landscape)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-      //  AppUtility.lockOrientation(.all)
+        //  AppUtility.lockOrientation(.all)
     }
     
     override func didReceiveMemoryWarning() {
@@ -116,7 +119,32 @@ class DashboardViewController: BaseViewController {
     }
     
     @IBAction func storeBtnTapped(_ sender: UIButton){
+        var screenshotImage :UIImage?
+        let layer = UIApplication.shared.keyWindow!.layer
+        let scale = UIScreen.main.scale
         
+        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return
+        }
+        layer.render(in:context)
+        screenshotImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        if let image = screenshotImage {
+            UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
+        }
+    }
+    
+    // Method for storing image in photos library with error handling.
+    
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: error.localizedDescription)
+            self.present(self.alertListingLocation!, animated:true, completion:nil)
+        } else {
+            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: "The property has been stored in photos.")
+            self.present(self.alertListingLocation!, animated: true, completion: nil)
+        }
     }
     
     // MARK:- Common Methods
@@ -127,7 +155,9 @@ class DashboardViewController: BaseViewController {
             self.showCurrentLocationOnMapView(currentLocation)
         }
         self.title = "Home"
-        
+        self.storeView?.layer.cornerRadius = (self.storeView?.frame.size.width)!/2
+        self.storeView?.layer.borderColor = UIColor.appBlueThemeColor().cgColor
+        self.storeView?.layer.borderWidth = 1.5
         //Notifications
         NotificationCenter.default.addObserver(self, selector: #selector(logoutUser_Api_call), name: LOGOUT_USER_NOTIFICATION, object: nil)
         
@@ -161,12 +191,11 @@ class DashboardViewController: BaseViewController {
             return
         }
         let touchPoint: CGPoint = gestureRecognizer.location(in: mapView!)
-        let touchMapCoordinate: CLLocationCoordinate2D? = mapView?.convert(touchPoint, toCoordinateFrom: mapView)
-        let span = MKCoordinateSpanMake(0.05, 0.05)
-        let region = MKCoordinateRegion(center: touchMapCoordinate!, span: span)
+        locationCoordinate = (mapView?.convert(touchPoint, toCoordinateFrom: mapView))!
+        let region = MKCoordinateRegion(center: locationCoordinate, span: span)
         mapView?.setRegion(region, animated: true)
         let annotation = MKPointAnnotation()
-        annotation.coordinate = touchMapCoordinate!
+        annotation.coordinate = locationCoordinate
         mapView?.addAnnotation(annotation)
     }
 }
@@ -190,15 +219,12 @@ extension DashboardViewController: LocationSearchDelegate{
     
     func send_location_with_coordinate(coordinate: CLLocationCoordinate2D) {
         let annotation = MKPointAnnotation()
-        
-        let location = CLLocationCoordinate2D(latitude: coordinate.latitude,longitude: coordinate.longitude)
-        let span = MKCoordinateSpanMake(0.05, 0.05)
-        let region = MKCoordinateRegion(center: location, span: span)
+        locationCoordinate = CLLocationCoordinate2D(latitude: coordinate.latitude,longitude: coordinate.longitude)
+        let region = MKCoordinateRegion(center: locationCoordinate, span: span)
         mapView?.setRegion(region, animated: true)
         annotation.coordinate = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
         mapView?.addAnnotation(annotation)
     }
-    
 }
 
 // MARK: - Mapview deleagte methods.
@@ -232,6 +258,14 @@ extension DashboardViewController: MKMapViewDelegate{
             view.dragState = .none
         default: break
         }
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        let listingFormVcObj: ListingFormViewController = self.storyboard?.instantiateViewController(withIdentifier: "ListingFormVc") as! ListingFormViewController
+        listingFormVcObj.selectedAnnotation = view.annotation as? MKPointAnnotation
+        listingFormVcObj.modalPresentationStyle = .overCurrentContext
+        listingFormVcObj.modalTransitionStyle = .crossDissolve
+        self.navigationController?.present(listingFormVcObj, animated: true, completion: nil)
     }
 }
 

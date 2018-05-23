@@ -111,6 +111,26 @@ public class APIManager {
         })
     }
     
+    func user_forgotPassword_apiCall(_ apiParams: NSDictionary, success:@escaping (_ responseDictionary: NSDictionary) ->(), failure:@escaping (_ error: NSError) ->()) {
+        
+        sharedAPIClient.baseApiCallWith_HttpHeader(API_FORGOTPWD, method: .post, apiParameters: apiParams, loadingViewText: LOADING_POPUP_TEXT, baseSuccessBlock: { (responseObject: DataResponse) -> () in
+            
+            let emptyDataError: NSError = getFailureError(["error": "empty error."])
+            guard let responseDictionary: NSDictionary = responseObject.result.value as? NSDictionary else{
+                failure(emptyDataError)
+                return
+            }
+            guard let isSuccess: Int = responseDictionary["success"] as? Int, isSuccess == 1 else{
+                failure(emptyDataError)
+                return
+            }
+            success(responseDictionary)
+            
+        }, baseFailureBlock:{ (error: NSError?) -> () in
+            failure(error!)
+        })
+    }
+    
     func user_updatePassword_apiCall(_ apiParams: NSDictionary, success:@escaping (_ responseDictionary: NSDictionary) ->(), failure:@escaping (_ error: NSError) ->()) {
         
         sharedAPIClient.baseApiCallWith_HttpHeader(API_CHANGEPWD, method: .put, apiParameters: apiParams, loadingViewText: UPDATE_PASSWORD_POPUP_TEXT, baseSuccessBlock: { (responseObject: DataResponse) -> () in

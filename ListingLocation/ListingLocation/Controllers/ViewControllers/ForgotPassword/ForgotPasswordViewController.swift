@@ -52,6 +52,18 @@ class ForgotPasswordViewController: BaseViewController {
     
     func userForgotPassword_apiCall() {
         
+        let apiParams: NSDictionary = ["email": self.txtEmail!.text!]
+        
+        APIManager.sharedAPIManager.user_forgotPassword_apiCall(apiParams, success:{(responseDictionary: NSDictionary) -> () in
+            
+            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: FORGOT_PASSWORD_SUCCESS_MESSAGE, handler: {(objAlertAction: UIAlertAction!) -> Void in
+                self.navigationController?.popViewController(animated: true)
+            })
+            self.present(self.alertListingLocation!, animated: true, completion: nil)
+            
+        },failure:{(error: NSError) -> () in
+            self.showPopupWith_title_message(strTitle: appTitle, strMessage: error.localizedDescription)
+        })
     }
     
     // MARK:- Button Tap Action

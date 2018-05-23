@@ -16,7 +16,7 @@ let emptyParams: NSDictionary = NSDictionary()
 
 // MARK: - NETWORKING BASE URL & API END POINTS
 
-var DOMAIN = "http://ed7b463e.ngrok.io"
+var DOMAIN = "http://e58ec53e.ngrok.io"
 var API_ROOT = DOMAIN + "/api/v1/"
 
 var API_LOGIN = API_ROOT + "sign_in"
@@ -45,3 +45,4 @@ let UPDATE_PASSWORD_POPUP_TEXT = "Updating.."
 let UPDATE_PASSWORD_SUCCESS_MESSAGE = "Thanks! Your password has been updated."
 
 let UPDATE_PROFILE_SUCCESS_MESSAGE = "Thanks! Your profile has been updated."
+let FORGOT_PASSWORD_SUCCESS_MESSAGE = "Thanks! Reset password link has been sent to your email."
