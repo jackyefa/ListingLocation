@@ -19,6 +19,8 @@ class DashboardViewController: BaseViewController {
     let longPressRecognizer = UILongPressGestureRecognizer()
     var locationCoordinate = CLLocationCoordinate2D()
     var span = MKCoordinateSpanMake(0.05, 0.05)
+    var allProperties: [Listings]?
+    var userProperties: [Listings]?
     
     // MARK:- Life Cycle Methods.
     
@@ -31,6 +33,7 @@ class DashboardViewController: BaseViewController {
         self.showMenuIconOnNavigationBar()
         self.setUpSideMenuAndDefaults()
         self.mapView?.delegate = self
+        self.dashboard_Api_call()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,6 +72,26 @@ class DashboardViewController: BaseViewController {
             })
         })
         self.present(self.alertListingLocation!, animated:true, completion:nil)
+    }
+    
+    func dashboard_Api_call(){
+        
+        APIManager.sharedAPIManager.user_dashboard_apiCall( success: {(responseDictionary: DashboardResponse) -> () in
+            self.allProperties = responseDictionary.allProperties
+            self.userProperties = responseDictionary.userProperties
+        //    self.dropPinsFromApiFResponse()
+            
+        },failure: { (error: NSError) -> () in
+            self.showPopupWith_title_message(strTitle: appTitle, strMessage: error.localizedDescription)
+        })
+    }
+    
+    func dropPinsFromApiFResponse(){
+        for location in allProperties!{
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude as! Double, longitude: location.longitude as! Double)
+            mapView?.addAnnotation(annotation)
+        }
     }
     
     // MARK:- NavigationBar Bar button Methods

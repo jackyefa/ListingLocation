@@ -47,6 +47,8 @@
 		18E11BFC20AC7323000FF23A /* LockOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E11BFB20AC7323000FF23A /* LockOrientation.swift */; };
 		18F0D12420B401E100606764 /* PropertyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0D12320B401E100606764 /* PropertyCollectionViewCell.swift */; };
 		18F0D12620B4277A00606764 /* ListingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0D12520B4277A00606764 /* ListingDetailsViewController.swift */; };
+		18F730ED20B697F70070EF9E /* Listings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F730EC20B697F60070EF9E /* Listings.swift */; };
+		18F730EF20B6E6680070EF9E /* DashboardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F730EE20B6E6680070EF9E /* DashboardResponse.swift */; };
 		18FB6FAC20AAAD3C006626D7 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB6FAB20AAAD3C006626D7 /* LeftMenuViewController.swift */; };
 		18FB6FAE20AB06E5006626D7 /* UserDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB6FAD20AB06E5006626D7 /* UserDetailsCell.swift */; };
 		18FB6FB020AB0713006626D7 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB6FAF20AB0713006626D7 /* LocationCell.swift */; };
@@ -118,6 +120,8 @@
 		18E11BFB20AC7323000FF23A /* LockOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockOrientation.swift; sourceTree = "<group>"; };
 		18F0D12320B401E100606764 /* PropertyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCollectionViewCell.swift; sourceTree = "<group>"; };
 		18F0D12520B4277A00606764 /* ListingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailsViewController.swift; sourceTree = "<group>"; };
+		18F730EC20B697F60070EF9E /* Listings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listings.swift; sourceTree = "<group>"; };
+		18F730EE20B6E6680070EF9E /* DashboardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardResponse.swift; sourceTree = "<group>"; };
 		18FB6FAB20AAAD3C006626D7 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		18FB6FAD20AB06E5006626D7 /* UserDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsCell.swift; sourceTree = "<group>"; };
 		18FB6FAF20AB0713006626D7 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
@@ -303,6 +307,8 @@
 			isa = PBXGroup;
 			children = (
 				181D75DD20A578400083F2B9 /* User.swift */,
+				18F730EE20B6E6680070EF9E /* DashboardResponse.swift */,
+				18F730EC20B697F60070EF9E /* Listings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -660,6 +666,7 @@
 				181D75C820A568460083F2B9 /* Constants.swift in Sources */,
 				181D75C620A568370083F2B9 /* APIConstants.swift in Sources */,
 				181D75D620A568A60083F2B9 /* String+Additions.swift in Sources */,
+				18F730ED20B697F70070EF9E /* Listings.swift in Sources */,
 				18E11BFC20AC7323000FF23A /* LockOrientation.swift in Sources */,
 				181D75DE20A578400083F2B9 /* User.swift in Sources */,
 				18B3CBF420A9B1F90051A9D4 /* ProfileViewController.swift in Sources */,
@@ -670,6 +677,7 @@
 				180F35D420B29E6400934987 /* PasswordCell.swift in Sources */,
 				181D75E220A57C440083F2B9 /* LLButton.swift in Sources */,
 				18FB6FAE20AB06E5006626D7 /* UserDetailsCell.swift in Sources */,
+				18F730EF20B6E6680070EF9E /* DashboardResponse.swift in Sources */,
 				181D75DB20A578010083F2B9 /* APIManager.swift in Sources */,
 				18122B5820A4CD07006DD8BC /* AppDelegate.swift in Sources */,
 				181D75DC20A578010083F2B9 /* APIClient.swift in Sources */,

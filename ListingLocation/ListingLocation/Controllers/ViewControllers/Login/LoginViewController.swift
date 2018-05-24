@@ -75,7 +75,6 @@ class LoginViewController: BaseViewController {
             
             self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: LOGIN_SUCCESS_MESSAGE, handler: {(objAlertAction: UIAlertAction!) -> Void in
                 self.navigateToDashboard()
-                
                 remember_email = self.rememberMeBtn?.tag == 1 ? (self.txtEmail?.text)! : ""
             })
             self.present(self.alertListingLocation!, animated: true, completion: nil)

@@ -94,7 +94,7 @@ public class APIManager {
     func user_signOut_apiCall( success:@escaping (_ responseDictionary: NSDictionary) ->(), failure:@escaping (_ error: NSError) ->()) {
         
         sharedAPIClient.baseApiCallWith_HttpHeader(API_LOGOUT, method: .delete, apiParameters: emptyParams, loadingViewText: LOGOUT_POPUP_TEXT, baseSuccessBlock: { (responseObject: DataResponse) -> () in
-                        
+            
             let emptyDataError: NSError = getFailureError(["error": "empty error."])
             guard let responseDictionary: NSDictionary = responseObject.result.value as? NSDictionary else{
                 failure(emptyDataError)
@@ -164,6 +164,44 @@ public class APIManager {
                 failure(emptyDataError)
                 return
             }
+            success(responseDictionary)
+            
+        }, baseFailureBlock:{ (error: NSError?) -> () in
+            failure(error!)
+        })
+    }
+    
+    //MARK:- PROPERTY_RELATED_API'S
+    
+    func user_dashboard_apiCall( success:@escaping (_ responseDictionary: DashboardResponse) ->(), failure:@escaping (_ error: NSError) ->()) {
+        
+        sharedAPIClient.baseApiCallWith_HttpHeader(API_DASHBOARD, method: .get, apiParameters: emptyParams, loadingViewText: LOADING_POPUP_TEXT, baseSuccessBlock: { (responseObject: DataResponse) -> () in
+            
+            let emptyDataError: NSError = getFailureError(["error": "empty error."])
+            guard let responseDictionary: NSDictionary = responseObject.result.value as? NSDictionary else{
+                failure(emptyDataError)
+                return
+            }
+            
+            if let dashboardResponse: DashboardResponse = Mapper<DashboardResponse>().map(JSONObject: responseDictionary){
+                success(dashboardResponse)
+            }
+            
+        }, baseFailureBlock:{ (error: NSError?) -> () in
+            failure(error!)
+        })
+    }
+    
+    func user_addListing_apiCall(_ apiParams: NSDictionary, success:@escaping (_ responseDictionary: NSDictionary) ->(), failure:@escaping (_ error: NSError) ->()) {
+        
+        sharedAPIClient.baseApiCallWith_HttpHeader(API_ADDLISTING, method: .post, apiParameters: apiParams, loadingViewText: ADD_LISTING_POPUP_TEXT, baseSuccessBlock: { (responseObject: DataResponse) -> () in
+            
+            let emptyDataError: NSError = getFailureError(["error": "empty error."])
+            guard let responseDictionary: NSDictionary = responseObject.result.value as? NSDictionary else{
+                failure(emptyDataError)
+                return
+            }
+            
             success(responseDictionary)
             
         }, baseFailureBlock:{ (error: NSError?) -> () in
