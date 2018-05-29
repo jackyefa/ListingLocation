@@ -132,6 +132,8 @@ class LoginViewController: BaseViewController {
         if self.view.frame.size.width != 320 {
             self.topImageHeight?.constant = 300.0
         }
+        self.rememberMeBtn?.layer.cornerRadius = 4
+        self.rememberMeBtn?.layer.masksToBounds = false
     }
     
     func validateTextFiedText() -> String {

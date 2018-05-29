@@ -65,6 +65,7 @@ class ListingFormViewController: BaseViewController {
         APIManager.sharedAPIManager.user_addListing_apiCall(apiParams!, success:{(responseDictionary: NSDictionary) -> () in
             self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: LISTING_ADDED_MESSAGE, handler: {(objAlertAction: UIAlertAction!) -> Void in
                 self.dismiss(animated: true, completion: nil)
+                NotificationCenter.default.post(name: UPDATE_DASHBOARD_NOTIFICATION, object: nil)
             })
             self.present(self.alertListingLocation!, animated: true, completion: nil)
             
@@ -192,6 +193,20 @@ class ListingFormViewController: BaseViewController {
             validateError = "Please mention property type."
         }
         return validateError
+    }
+    
+    func addressToLatLong(){
+        let geocoder = CLGeocoder()
+        let addressString = "\(String(describing: self.proprtyAddressTxt?.text!)), \(String(describing: self.cityTxt?.text!)), \(String(describing: self.stateTxt?.text!))"
+        geocoder.geocodeAddressString(addressString){
+            placemarks, error in
+            let placemark = placemarks?.first
+            if (placemark?.location?.coordinate.latitude == nil){
+                print("no!!")
+            }else{
+                print("yes!!")
+            }
+        }
     }
     
 }

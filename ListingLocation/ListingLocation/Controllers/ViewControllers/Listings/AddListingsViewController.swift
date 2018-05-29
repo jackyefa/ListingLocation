@@ -12,6 +12,8 @@ import Foundation
 class AddListingsViewController: BaseViewController {
     
     @IBOutlet var propertyCollection: UICollectionView?
+    var allProperties: [Listings]?
+    var userProperties: [Listings]?
     
     // MARK:- Life Cycle Methods.
 
@@ -69,7 +71,30 @@ class AddListingsViewController: BaseViewController {
 extension AddListingsViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 40
+        if section == 0{
+            return (userProperties?.count)!
+        }else{
+            return (allProperties?.count)!
+        }
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        var reusableview: UICollectionReusableView? = nil
+        if kind == UICollectionElementKindSectionHeader{
+            let headerView = propertyCollection?.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerView", for: indexPath) as! HeaderReusableView
+            
+            if indexPath.section == 0{
+                headerView.headerLbl?.text = "User Properties"
+            }else{
+                headerView.headerLbl?.text = "All Properties"
+            }
+            reusableview = headerView
+        }
+        return reusableview!
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

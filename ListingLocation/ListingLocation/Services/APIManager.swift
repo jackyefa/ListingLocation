@@ -211,7 +211,7 @@ public class APIManager {
     
     // Update user auth token
     func update_user_authToken(_ response: HTTPURLResponse) {
-        if let token: String = response.allHeaderFields["X-AUTH-TOKEN"] as? String {
+        if let token: String = response.allHeaderFields["X-Auth-Token"] as? String {
             auth_token = token
         }
     }

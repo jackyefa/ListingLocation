@@ -74,12 +74,12 @@ class DashboardViewController: BaseViewController {
         self.present(self.alertListingLocation!, animated:true, completion:nil)
     }
     
-    func dashboard_Api_call(){
+    @objc func dashboard_Api_call(){
         
         APIManager.sharedAPIManager.user_dashboard_apiCall( success: {(responseDictionary: DashboardResponse) -> () in
             self.allProperties = responseDictionary.allProperties
             self.userProperties = responseDictionary.userProperties
-        //    self.dropPinsFromApiFResponse()
+            self.dropPinsFromApiFResponse()
             
         },failure: { (error: NSError) -> () in
             self.showPopupWith_title_message(strTitle: appTitle, strMessage: error.localizedDescription)
@@ -87,11 +87,34 @@ class DashboardViewController: BaseViewController {
     }
     
     func dropPinsFromApiFResponse(){
-        for location in allProperties!{
+        for all_location in allProperties!{
             let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude as! Double, longitude: location.longitude as! Double)
-            mapView?.addAnnotation(annotation)
+            if (all_location.latitude != nil){
+                annotation.coordinate = CLLocationCoordinate2D(latitude: all_location.latitude!, longitude: all_location.longitude!)
+                mapView?.addAnnotation(annotation)
+            }
         }
+        for user_location in userProperties!{
+            let annotation = MKPointAnnotation()
+            if (user_location.latitude != nil){
+                annotation.coordinate = CLLocationCoordinate2D(latitude: user_location.latitude!, longitude: user_location.longitude!)
+                mapView?.addAnnotation(annotation)
+            }
+        }
+    }
+    
+    // Address to lat-long conversion and add annotation
+    
+    func addressToAnnotation(address_string: String){
+        let geocoder = CLGeocoder()
+        let annotation = MKPointAnnotation()
+        geocoder.geocodeAddressString(address_string){
+            placemarks, error in
+            let placemark = placemarks?.first
+            annotation.coordinate = CLLocationCoordinate2D(latitude: (placemark?.location?.coordinate.latitude)! , longitude: (placemark?.location?.coordinate.longitude)!)
+            self.mapView?.addAnnotation(annotation)
+        }
+        
     }
     
     // MARK:- NavigationBar Bar button Methods
@@ -138,6 +161,8 @@ class DashboardViewController: BaseViewController {
     
     @IBAction func addListingsBtnTapped(_ sender: UIButton){
         let addListingsVcObj: AddListingsViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddListingsVc") as! AddListingsViewController
+        addListingsVcObj.allProperties = allProperties
+        addListingsVcObj.userProperties = userProperties
         self.navigationController?.pushViewController(addListingsVcObj, animated: true)
     }
     
@@ -154,19 +179,11 @@ class DashboardViewController: BaseViewController {
         screenshotImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         if let image = screenshotImage {
-            UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
-        }
-    }
-    
-    // Method for storing image in photos library with error handling.
-    
-    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-        if let error = error {
-            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: error.localizedDescription)
-            self.present(self.alertListingLocation!, animated:true, completion:nil)
-        } else {
-            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: "The property has been stored in photos.")
-            self.present(self.alertListingLocation!, animated: true, completion: nil)
+            let saveImgVcObj: SaveImageViewController = self.storyboard?.instantiateViewController(withIdentifier: "SaveImageVc") as! SaveImageViewController
+            saveImgVcObj.screenshot_image = image
+            saveImgVcObj.modalPresentationStyle = .overCurrentContext
+            saveImgVcObj.modalTransitionStyle = .crossDissolve
+            self.navigationController?.present(saveImgVcObj, animated: true, completion: nil)
         }
     }
     
@@ -183,6 +200,7 @@ class DashboardViewController: BaseViewController {
         self.storeView?.layer.borderWidth = 1.5
         //Notifications
         NotificationCenter.default.addObserver(self, selector: #selector(logoutUser_Api_call), name: LOGOUT_USER_NOTIFICATION, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(dashboard_Api_call), name: UPDATE_DASHBOARD_NOTIFICATION, object: nil)
         
         //Long tap gesture __ drop pin
         self.longPressRecognizer.addTarget(self, action: #selector(dropPinOnLongPress))
@@ -241,12 +259,10 @@ extension DashboardViewController : LocationServiceDelegate {
 extension DashboardViewController: LocationSearchDelegate{
     
     func send_location_with_coordinate(coordinate: CLLocationCoordinate2D) {
-        let annotation = MKPointAnnotation()
+        let span = MKCoordinateSpanMake(0.003, 0.003)
         locationCoordinate = CLLocationCoordinate2D(latitude: coordinate.latitude,longitude: coordinate.longitude)
         let region = MKCoordinateRegion(center: locationCoordinate, span: span)
         mapView?.setRegion(region, animated: true)
-        annotation.coordinate = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        mapView?.addAnnotation(annotation)
     }
 }
 

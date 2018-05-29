@@ -9,19 +9,22 @@
 import UIKit
 import Foundation
 
-class LeftMenuViewController: UIViewController {
+class LeftMenuViewController: BaseViewController {
     
     @IBOutlet var userImage: UIImageView?
     @IBOutlet var logoutBtn: UIButton?
     @IBOutlet var emailLbl: UILabel?
     @IBOutlet var nameLbl: UILabel?
+    var allProperties: [Listings]?
+    var userProperties: [Listings]?
     
     // MARK:- Life Cycle Methods.
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.configureComponentsLayout()
+        self.dashboard_Api_call()
         //Notifications
         NotificationCenter.default.addObserver(self, selector: #selector(configureComponentsLayout), name: UPDATE_USER_DETAILS_NOTIFICATION, object: nil)
     }
@@ -33,7 +36,7 @@ class LeftMenuViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -42,10 +45,25 @@ class LeftMenuViewController: UIViewController {
     override func viewDidLayoutSubviews() {
     }
     
+    // MARK: - API_call
+    
+    func dashboard_Api_call(){
+        
+        APIManager.sharedAPIManager.user_dashboard_apiCall( success: {(responseDictionary: DashboardResponse) -> () in
+            self.allProperties = responseDictionary.allProperties
+            self.userProperties = responseDictionary.userProperties
+            
+        },failure: { (error: NSError) -> () in
+            self.showPopupWith_title_message(strTitle: appTitle, strMessage: error.localizedDescription)
+        })
+    }
+    
     // MARK:- Button tap actions.
     
     @IBAction func addListingsBtnTapped(_ sender: UIButton){
         let addListingsVcObj: AddListingsViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddListingsVc") as! AddListingsViewController
+        addListingsVcObj.allProperties = self.allProperties
+        addListingsVcObj.userProperties = self.userProperties
         self.navigationController?.pushViewController(addListingsVcObj, animated: true)
     }
     
@@ -78,5 +96,5 @@ class LeftMenuViewController: UIViewController {
             nameLbl?.text = name
         }
     }
-
+    
 }
