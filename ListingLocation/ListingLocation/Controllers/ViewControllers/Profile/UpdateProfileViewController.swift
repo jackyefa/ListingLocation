@@ -59,9 +59,18 @@ class UpdateProfileViewController: BaseViewController {
             APIManager.sharedAPIManager.user_updateProfile_apiCall(apiParams, success:{(responseDictionary: NSDictionary) -> () in
                 
                 self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: UPDATE_PROFILE_SUCCESS_MESSAGE, handler: {(objAlertAction: UIAlertAction!) -> Void in
-                    name = (self.nameTxt?.text)!
-                    phone = Int64((self.phoneTxt?.text)!)!
-                    address = (self.addressTxt?.text)!
+                    
+                    if let user_name = self.nameTxt?.text{
+                        name = user_name
+                    }
+                    if (self.phoneTxt?.text?.count == 0){
+                        phone = Int64()
+                    }else{
+                        phone = Int64((self.phoneTxt?.text)!)!
+                    }
+                    if let user_adddress = self.addressTxt?.text{
+                        address = user_adddress
+                    }
                     NotificationCenter.default.post(name: UPDATE_USER_DETAILS_NOTIFICATION, object: nil)
                     self.dismiss(animated: true, completion: nil)
                 })

@@ -43,12 +43,10 @@ class DashboardViewController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //  AppUtility.lockOrientation(.landscape)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        //  AppUtility.lockOrientation(.all)
     }
     
     override func didReceiveMemoryWarning() {
@@ -218,7 +216,7 @@ class DashboardViewController: BaseViewController {
         SideMenuManager.default.menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? UISideMenuNavigationController
         SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
         SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
-        SideMenuManager.default.menuWidth = self.view.frame.width - 100
+        SideMenuManager.default.menuWidth = self.view.frame.width/3 + 20
         SideMenuManager.default.menuFadeStatusBar = false
         SideMenuManager.default.menuPresentMode = .menuSlideIn
         SideMenuManager.default.menuPushStyle = .defaultBehavior

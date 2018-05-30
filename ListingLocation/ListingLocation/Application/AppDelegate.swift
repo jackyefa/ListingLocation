@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         LocationManager.sharedInstance.startUpdatingLocation()
         self.setUpDefaultSettingsOfSVProgessHUD()
+        AppUtility.lockOrientation(.landscape)
         return true
     }
 

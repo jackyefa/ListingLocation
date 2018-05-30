@@ -43,12 +43,11 @@ class LoginViewController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        AppUtility.lockOrientation(.portrait)
+        AppUtility.lockOrientation(.landscape)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        AppUtility.lockOrientation(.all)
         self.txtEmail?.text = ""
         self.txtPassword?.text = ""
     }
