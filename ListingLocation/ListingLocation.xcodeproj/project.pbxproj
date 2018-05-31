@@ -502,7 +502,7 @@
 				TargetAttributes = {
 					18122B5320A4CD07006DD8BC = {
 						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -809,7 +809,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -860,7 +860,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -873,12 +873,16 @@
 			baseConfigurationReference = DE9783FA693433A56745E5EE /* Pods-ListingLocation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer: sanjay vishwakarma (455ABG6MLH)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = QV328RZ9KL;
 				INFOPLIST_FILE = ListingLocation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.apps.ListingLocation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apps.listinglocation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "14e122da-586c-48cb-a92d-14cc16077c3e";
+				PROVISIONING_PROFILE_SPECIFIER = ListingLocation_Dev_Prov;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -889,12 +893,16 @@
 			baseConfigurationReference = 790B45B1837C81C955C7FC69 /* Pods-ListingLocation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer: sanjay vishwakarma (455ABG6MLH)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = QV328RZ9KL;
 				INFOPLIST_FILE = ListingLocation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.apps.ListingLocation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apps.listinglocation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "14e122da-586c-48cb-a92d-14cc16077c3e";
+				PROVISIONING_PROFILE_SPECIFIER = ListingLocation_Dev_Prov;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

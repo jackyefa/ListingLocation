@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         LocationManager.sharedInstance.startUpdatingLocation()
         self.setUpDefaultSettingsOfSVProgessHUD()
         AppUtility.lockOrientation(.landscape)
+        AppUtility.lockOrientation(.landscape, andRotateTo: .landscapeLeft)
         return true
     }
 

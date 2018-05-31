@@ -25,7 +25,7 @@ class ListingFormViewController: BaseViewController {
     var selectedAnnotation: MKPointAnnotation?
     var geocoder = CLGeocoder()
     
-    var propertTypeArray = ["Sale", "Rent", "Lease"]
+    var propertTypeArray = ["Sale", "Rent"]
     var propertyIndex: Int = 0
     var propertyPicker: UIPickerView = UIPickerView()
     

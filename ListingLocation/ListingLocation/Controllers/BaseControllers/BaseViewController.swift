@@ -32,7 +32,7 @@ class BaseViewController: UIViewController {
         super.viewDidAppear(animated)
         // Do any additional setup after appear the view.
         AppUtility.lockOrientation(.landscape)
-        AppUtility.lockOrientation(.landscape, andRotateTo: .landscapeLeft)
+       // AppUtility.lockOrientation(.landscape, andRotateTo: .landscapeLeft)
     }
     
     

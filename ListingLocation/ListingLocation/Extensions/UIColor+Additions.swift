@@ -175,9 +175,9 @@ extension UIColor {
     
     func convertHexStringToColor (hexString: String) -> UIColor {
         
-        var hexColorString = hexString.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        let hexColorString = hexString.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
-        if hexColorString.characters.count != 6 {
+        if hexColorString.count != 6 {
             NSException.raise(NSExceptionName(rawValue: "convertHexStringToColor Exception"), format: "Error: Invalid hex color string. Please ensure hex color string has 6 elements. Common error: Hashtag symbol is also included as part of the hex color string, that is not required. Ex. #4286f4 should be 4286f4", arguments: getVaList(["nil"]))
         }
         
