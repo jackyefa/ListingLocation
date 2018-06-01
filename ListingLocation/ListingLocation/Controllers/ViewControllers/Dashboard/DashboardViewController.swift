@@ -15,8 +15,7 @@ class DashboardViewController: BaseViewController {
     
     @IBOutlet var mapView: MKMapView?
     @IBOutlet var segmentControl: UISegmentedControl?
-    @IBOutlet var storeView: UIView?
-    let longPressRecognizer = UILongPressGestureRecognizer()
+    
     var locationCoordinate = CLLocationCoordinate2D()
     var span = MKCoordinateSpanMake(0.05, 0.05)
     var allProperties: [Listings]?
@@ -101,20 +100,6 @@ class DashboardViewController: BaseViewController {
         }
     }
     
-    // Address to lat-long conversion and add annotation
-    
-    func addressToAnnotation(address_string: String){
-        let geocoder = CLGeocoder()
-        let annotation = MKPointAnnotation()
-        geocoder.geocodeAddressString(address_string){
-            placemarks, error in
-            let placemark = placemarks?.first
-            annotation.coordinate = CLLocationCoordinate2D(latitude: (placemark?.location?.coordinate.latitude)! , longitude: (placemark?.location?.coordinate.longitude)!)
-            self.mapView?.addAnnotation(annotation)
-        }
-        
-    }
-    
     // MARK:- NavigationBar Bar button Methods
     
     func showSearchIconOnNavigationBar() {
@@ -158,31 +143,23 @@ class DashboardViewController: BaseViewController {
     }
     
     @IBAction func addListingsBtnTapped(_ sender: UIButton){
-        let addListingsVcObj: AddListingsViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddListingsVc") as! AddListingsViewController
-        addListingsVcObj.allProperties = allProperties
-        addListingsVcObj.userProperties = userProperties
-        self.navigationController?.pushViewController(addListingsVcObj, animated: true)
-    }
-    
-    @IBAction func storeBtnTapped(_ sender: UIButton){
-        var screenshotImage :UIImage?
-        let layer = UIApplication.shared.keyWindow!.layer
-        let scale = UIScreen.main.scale
-        
-        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
-        guard let context = UIGraphicsGetCurrentContext() else {
-            return
-        }
-        layer.render(in:context)
-        screenshotImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        if let image = screenshotImage {
-            let saveImgVcObj: SaveImageViewController = self.storyboard?.instantiateViewController(withIdentifier: "SaveImageVc") as! SaveImageViewController
-            saveImgVcObj.screenshot_image = image
-            saveImgVcObj.modalPresentationStyle = .overCurrentContext
-            saveImgVcObj.modalTransitionStyle = .crossDissolve
-            self.navigationController?.present(saveImgVcObj, animated: true, completion: nil)
-        }
+         var screenshotImage :UIImage?
+         let layer = UIApplication.shared.keyWindow!.layer
+         let scale = UIScreen.main.scale
+         UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
+         guard let context = UIGraphicsGetCurrentContext() else {
+         return
+         }
+         layer.render(in:context)
+         screenshotImage = UIGraphicsGetImageFromCurrentImageContext()
+         UIGraphicsEndImageContext()
+         if let image = screenshotImage {
+         let listingFormVcObj: ListingFormViewController = self.storyboard?.instantiateViewController(withIdentifier: "ListingFormVc") as! ListingFormViewController
+            listingFormVcObj.propertyImage = image
+         listingFormVcObj.modalPresentationStyle = .overCurrentContext
+         listingFormVcObj.modalTransitionStyle = .crossDissolve
+         self.navigationController?.present(listingFormVcObj, animated: true, completion: nil)
+         }
     }
     
     // MARK:- Common Methods
@@ -193,17 +170,9 @@ class DashboardViewController: BaseViewController {
             self.showCurrentLocationOnMapView(currentLocation)
         }
         self.title = "Home"
-        self.storeView?.layer.cornerRadius = (self.storeView?.frame.size.width)!/2
-        self.storeView?.layer.borderColor = UIColor.appBlueThemeColor().cgColor
-        self.storeView?.layer.borderWidth = 1.5
         //Notifications
         NotificationCenter.default.addObserver(self, selector: #selector(logoutUser_Api_call), name: LOGOUT_USER_NOTIFICATION, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(dashboard_Api_call), name: UPDATE_DASHBOARD_NOTIFICATION, object: nil)
-        
-        //Long tap gesture __ drop pin
-        self.longPressRecognizer.addTarget(self, action: #selector(dropPinOnLongPress))
-        self.longPressRecognizer.minimumPressDuration = 1
-        self.mapView?.addGestureRecognizer(longPressRecognizer)
     }
     
     func showCurrentLocationOnMapView(_ location: CLLocation) {
@@ -223,20 +192,6 @@ class DashboardViewController: BaseViewController {
         SideMenuManager.default.menuAnimationFadeStrength = 0.5
     }
     
-    // MARK: - Drop pin on long press (1 sec)
-    
-    @objc func dropPinOnLongPress(_ gestureRecognizer : UIGestureRecognizer){
-        if gestureRecognizer.state != .began {
-            return
-        }
-        let touchPoint: CGPoint = gestureRecognizer.location(in: mapView!)
-        locationCoordinate = (mapView?.convert(touchPoint, toCoordinateFrom: mapView))!
-        let region = MKCoordinateRegion(center: locationCoordinate, span: span)
-        mapView?.setRegion(region, animated: true)
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = locationCoordinate
-        mapView?.addAnnotation(annotation)
-    }
 }
 
 // MARK: - LocationServiceDelegate Delegate methods

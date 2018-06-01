@@ -12,7 +12,8 @@ import MapKit
 
 class ListingFormViewController: BaseViewController {
     
-    @IBOutlet var container_view: UIView?
+    @IBOutlet var property_image: UIImageView?
+    var propertyImage: UIImage?
     @IBOutlet var custom_header_view: UIView?
     @IBOutlet var proprtyAddressTxt: LLTextField?
     @IBOutlet var unitTxt: LLTextField?
@@ -115,6 +116,12 @@ class ListingFormViewController: BaseViewController {
         validationError.isEmpty ? self.addListing_api_call() : self.showPopupWith_title_message(strTitle: appTitle, strMessage: validationError)
     }
     
+    @IBAction func panAnnotation(sender: UIPanGestureRecognizer){
+        let translation = sender.translation(in: self.view)
+        sender.view!.center = CGPoint(x: sender.view!.center.x + translation.x, y: sender.view!.center.y + translation.y)
+        sender.setTranslation(CGPoint.zero, in: self.view)
+    }
+    
     // MARK: - Geocoding to make address from lat/long
     
     func userFriendlyAddress(){
@@ -168,8 +175,6 @@ class ListingFormViewController: BaseViewController {
     }
     
     func configureComponentsLayout(){
-        self.container_view?.layer.cornerRadius = 8
-        self.container_view?.clipsToBounds = true
         self.proprtyAddressTxt?.initializeCustomTextFieldWith_BottomLineView(withSecuredEntery: false)
         self.unitTxt?.initializeCustomTextFieldWith_BottomLineView(withSecuredEntery: false)
         self.cityTxt?.initializeCustomTextFieldWith_BottomLineView(withSecuredEntery: false)
@@ -177,6 +182,14 @@ class ListingFormViewController: BaseViewController {
         self.zipcodeTxt?.initializeCustomTextFieldWith_BottomLineView(withSecuredEntery: false)
         self.sale_rent_txt?.initializeCustomTextFieldWith_BottomLineView(withSecuredEntery: false)
         self.idNumberTxt?.initializeCustomTextFieldWith_BottomLineView(withSecuredEntery: false)
+        
+        self.property_image?.layer.cornerRadius = 4
+        self.property_image?.layer.borderWidth = 1
+        self.property_image?.layer.borderColor = UIColor.lightGray.cgColor
+        
+        if (propertyImage != nil){
+            self.property_image?.image = propertyImage
+        }
     }
     
     func validateTextFiedText() -> String {

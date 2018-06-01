@@ -42,13 +42,9 @@
 		181D762A20A6C48F0083F2B9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D762920A6C48F0083F2B9 /* LocationManager.swift */; };
 		181D762E20A71BC90083F2B9 /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D762D20A71BC90083F2B9 /* LocationSearchViewController.swift */; };
 		184D3A7D20AC0AEF0087DC6F /* ListingFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D3A7C20AC0AEF0087DC6F /* ListingFormViewController.swift */; };
-		187F6A0E20BC1BE600EF1A68 /* HeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F6A0D20BC1BE600EF1A68 /* HeaderReusableView.swift */; };
 		187F6A1020BC4F0400EF1A68 /* SaveImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F6A0F20BC4F0300EF1A68 /* SaveImageViewController.swift */; };
 		18B3CBF420A9B1F90051A9D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B3CBF320A9B1F90051A9D4 /* ProfileViewController.swift */; };
-		18B3CBF620A9B2140051A9D4 /* AddListingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B3CBF520A9B2140051A9D4 /* AddListingsViewController.swift */; };
 		18E11BFC20AC7323000FF23A /* LockOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E11BFB20AC7323000FF23A /* LockOrientation.swift */; };
-		18F0D12420B401E100606764 /* PropertyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0D12320B401E100606764 /* PropertyCollectionViewCell.swift */; };
-		18F0D12620B4277A00606764 /* ListingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0D12520B4277A00606764 /* ListingDetailsViewController.swift */; };
 		18F730ED20B697F70070EF9E /* Listings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F730EC20B697F60070EF9E /* Listings.swift */; };
 		18F730EF20B6E6680070EF9E /* DashboardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F730EE20B6E6680070EF9E /* DashboardResponse.swift */; };
 		18FB6FAC20AAAD3C006626D7 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB6FAB20AAAD3C006626D7 /* LeftMenuViewController.swift */; };
@@ -117,13 +113,9 @@
 		181D762920A6C48F0083F2B9 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		181D762D20A71BC90083F2B9 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
 		184D3A7C20AC0AEF0087DC6F /* ListingFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingFormViewController.swift; sourceTree = "<group>"; };
-		187F6A0D20BC1BE600EF1A68 /* HeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderReusableView.swift; sourceTree = "<group>"; };
 		187F6A0F20BC4F0300EF1A68 /* SaveImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveImageViewController.swift; sourceTree = "<group>"; };
 		18B3CBF320A9B1F90051A9D4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		18B3CBF520A9B2140051A9D4 /* AddListingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListingsViewController.swift; sourceTree = "<group>"; };
 		18E11BFB20AC7323000FF23A /* LockOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockOrientation.swift; sourceTree = "<group>"; };
-		18F0D12320B401E100606764 /* PropertyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCollectionViewCell.swift; sourceTree = "<group>"; };
-		18F0D12520B4277A00606764 /* ListingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailsViewController.swift; sourceTree = "<group>"; };
 		18F730EC20B697F60070EF9E /* Listings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listings.swift; sourceTree = "<group>"; };
 		18F730EE20B6E6680070EF9E /* DashboardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardResponse.swift; sourceTree = "<group>"; };
 		18FB6FAB20AAAD3C006626D7 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
@@ -374,11 +366,7 @@
 		18B3CBF120A9B1C70051A9D4 /* Listings */ = {
 			isa = PBXGroup;
 			children = (
-				18B3CBF520A9B2140051A9D4 /* AddListingsViewController.swift */,
 				184D3A7C20AC0AEF0087DC6F /* ListingFormViewController.swift */,
-				18F0D12320B401E100606764 /* PropertyCollectionViewCell.swift */,
-				18F0D12520B4277A00606764 /* ListingDetailsViewController.swift */,
-				187F6A0D20BC1BE600EF1A68 /* HeaderReusableView.swift */,
 			);
 			path = Listings;
 			sourceTree = "<group>";
@@ -668,7 +656,6 @@
 			files = (
 				181D75D820A576DB0083F2B9 /* ReachabilityManager.swift in Sources */,
 				181D75EB20A5BD840083F2B9 /* DashboardViewController.swift in Sources */,
-				187F6A0E20BC1BE600EF1A68 /* HeaderReusableView.swift in Sources */,
 				180F35D620B2A2D100934987 /* UpdatePasswordViewController.swift in Sources */,
 				181D75C820A568460083F2B9 /* Constants.swift in Sources */,
 				181D75C620A568370083F2B9 /* APIConstants.swift in Sources */,
@@ -694,7 +681,6 @@
 				181D762A20A6C48F0083F2B9 /* LocationManager.swift in Sources */,
 				18FB6FB020AB0713006626D7 /* LocationCell.swift in Sources */,
 				181D75CC20A5686B0083F2B9 /* BaseViewController.swift in Sources */,
-				18B3CBF620A9B2140051A9D4 /* AddListingsViewController.swift in Sources */,
 				181D75E920A5B2010083F2B9 /* SignUpViewController.swift in Sources */,
 				181D75CA20A568580083F2B9 /* AppDefaults.swift in Sources */,
 				184D3A7D20AC0AEF0087DC6F /* ListingFormViewController.swift in Sources */,
@@ -704,8 +690,6 @@
 				181D762E20A71BC90083F2B9 /* LocationSearchViewController.swift in Sources */,
 				180F35D820B2CAB500934987 /* UpdateProfileViewController.swift in Sources */,
 				181D75E020A57C330083F2B9 /* LLTextField.swift in Sources */,
-				18F0D12420B401E100606764 /* PropertyCollectionViewCell.swift in Sources */,
-				18F0D12620B4277A00606764 /* ListingDetailsViewController.swift in Sources */,
 				181D75D420A568A60083F2B9 /* Date+Additions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
