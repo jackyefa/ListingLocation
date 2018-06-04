@@ -142,6 +142,12 @@ class DashboardViewController: BaseViewController {
         self.navigationController?.pushViewController(profileVcObj, animated: true)
     }
     
+    @IBAction func panAnnotation(sender: UIPanGestureRecognizer){
+        let translation = sender.translation(in: self.view)
+        sender.view!.center = CGPoint(x: sender.view!.center.x + translation.x, y: sender.view!.center.y + translation.y)
+        sender.setTranslation(CGPoint.zero, in: self.view)
+    }
+    
     @IBAction func addListingsBtnTapped(_ sender: UIButton){
          var screenshotImage :UIImage?
          let layer = UIApplication.shared.keyWindow!.layer

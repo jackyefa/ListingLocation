@@ -20,6 +20,7 @@ class Listings: Mappable {
     var id_number: Int64?
     var latitude: Double?
     var longitude: Double?
+    var property_image: String?
     
     required init?(map: Map) {
     }
@@ -34,5 +35,6 @@ class Listings: Mappable {
         id_number <- map["id"]
         latitude <- map["latitude"]
         longitude <- map["longitude"]
+        property_image <- map["image"]
     }
 }

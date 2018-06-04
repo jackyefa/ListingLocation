@@ -36,7 +36,6 @@ class ListingFormViewController: BaseViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.configureComponentsLayout()
-        self.userFriendlyAddress()
         self.setupPropertyTypePickerView()
     }
     
@@ -116,44 +115,22 @@ class ListingFormViewController: BaseViewController {
         validationError.isEmpty ? self.addListing_api_call() : self.showPopupWith_title_message(strTitle: appTitle, strMessage: validationError)
     }
     
-    @IBAction func panAnnotation(sender: UIPanGestureRecognizer){
-        let translation = sender.translation(in: self.view)
-        sender.view!.center = CGPoint(x: sender.view!.center.x + translation.x, y: sender.view!.center.y + translation.y)
-        sender.setTranslation(CGPoint.zero, in: self.view)
+    @IBAction func downloadBtnTapped(_ sender: UIButton){
+        UIImageWriteToSavedPhotosAlbum((property_image?.image)!, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
-    // MARK: - Geocoding to make address from lat/long
+    // Method for storing image in photos library with error handling.
     
-    func userFriendlyAddress(){
-        guard let lat = selectedAnnotation?.coordinate.latitude else { return }
-        guard let lng = selectedAnnotation?.coordinate.longitude else { return }
-        let location = CLLocation(latitude: lat, longitude: lng)
-        geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
-            self.processResponse(withPlacemarks: placemarks, error: error)
-        }
-    }
-    
-    func processResponse(withPlacemarks placemarks: [CLPlacemark]?, error: Error?) {
-        if error != nil {
-            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: "Unable to fetch location. Please enter desired fields for listing.")
-            self.present(alertListingLocation!, animated: true, completion: nil)
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: error.localizedDescription)
+            self.present(self.alertListingLocation!, animated:true, completion:nil)
         } else {
-            if let placemarks = placemarks, let placemark = placemarks.first {
-                if let city = placemark.locality{
-                    self.cityTxt?.text = city
-                }
-                if let localAddress = placemark.name{
-                    self.proprtyAddressTxt?.text = localAddress
-                }
-                if let state = placemark.administrativeArea{
-                    self.stateTxt?.text = state
-                }
-                if let zipcode = placemark.postalCode{
-                    self.zipcodeTxt?.text = zipcode
-                }
-            }
+            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: "The property has been stored in photos.")
+            self.present(self.alertListingLocation!, animated: true, completion: nil)
         }
     }
+    
     
     // MARK:- Common Methods
     
@@ -170,6 +147,13 @@ class ListingFormViewController: BaseViewController {
         if (selectedAnnotation?.coordinate != nil){
             dictParams["latitude"] = self.selectedAnnotation?.coordinate.latitude
             dictParams["longitude"] = self.selectedAnnotation?.coordinate.longitude
+        }
+        if let image: UIImage = self.property_image?.image {
+            let imageData: NSData = UIImagePNGRepresentation(image)! as NSData
+            let strBase64:String = imageData.base64EncodedString(options: .lineLength64Characters)
+            dictParams["image"] = strBase64
+        }else {
+            dictParams["image"] = ""
         }
         return ["property": dictParams]
     }
@@ -208,20 +192,6 @@ class ListingFormViewController: BaseViewController {
         return validateError
     }
     
-    func addressToLatLong(){
-        let geocoder = CLGeocoder()
-        let addressString = "\(String(describing: self.proprtyAddressTxt?.text!)), \(String(describing: self.cityTxt?.text!)), \(String(describing: self.stateTxt?.text!))"
-        geocoder.geocodeAddressString(addressString){
-            placemarks, error in
-            let placemark = placemarks?.first
-            if (placemark?.location?.coordinate.latitude == nil){
-                print("no!!")
-            }else{
-                print("yes!!")
-            }
-        }
-    }
-    
 }
 
 // MARK: - Pickerview delegate and data source
@@ -245,3 +215,4 @@ extension ListingFormViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         self.propertyIndex = row
     }
 }
+
