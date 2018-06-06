@@ -26,7 +26,7 @@ class ListingFormViewController: BaseViewController {
     var selectedAnnotation: MKPointAnnotation?
     var geocoder = CLGeocoder()
     
-    var propertTypeArray = ["Sale", "Rent"]
+    var propertTypeArray = ["Sale","Rent"]
     var propertyIndex: Int = 0
     var propertyPicker: UIPickerView = UIPickerView()
     
@@ -188,6 +188,8 @@ class ListingFormViewController: BaseViewController {
             validateError = "Please input estate."
         }else if self.sale_rent_txt!.text!.isEmpty{
             validateError = "Please mention property type."
+        }else if self.zipcodeTxt!.text!.isEmpty{
+            validateError = "Please enter zipcode."
         }
         return validateError
     }

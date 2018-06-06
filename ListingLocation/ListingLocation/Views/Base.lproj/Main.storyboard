@@ -389,7 +389,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2042.9577464788733" y="159.375"/>
+            <point key="canvasLocation" x="1954" y="156"/>
         </scene>
         <!--Location Search View Controller-->
         <scene sceneID="f5k-p2-7kU">
@@ -467,7 +467,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xf4-b2-PL8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2807" y="156"/>
+            <point key="canvasLocation" x="2705" y="159"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="qnB-cB-BdB">
@@ -550,7 +550,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L5D-2r-baU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1165.1408450704225" y="1194.375"/>
+            <point key="canvasLocation" x="1163" y="915"/>
         </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="wxd-f9-2cX">
@@ -569,7 +569,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTQ-tz-bH0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2044" y="915"/>
+            <point key="canvasLocation" x="1954" y="915"/>
         </scene>
         <!--Left Menu View Controller-->
         <scene sceneID="ojA-az-wp6">
@@ -726,7 +726,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dxX-7G-qi5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2807" y="915"/>
+            <point key="canvasLocation" x="2706" y="915"/>
         </scene>
         <!--Listing Form View Controller-->
         <scene sceneID="8og-j9-tQU">
@@ -988,7 +988,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npj-fg-7fR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2817" y="-615"/>
+            <point key="canvasLocation" x="2704" y="-615"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="vrd-sg-C6u">
@@ -1159,7 +1159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1zH-2U-ZUk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1140.8450704225352" y="-909.375"/>
+            <point key="canvasLocation" x="1163" y="-615"/>
         </scene>
         <!--Update Password View Controller-->
         <scene sceneID="kKT-rw-Y0c">
@@ -1288,7 +1288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l1j-JG-La9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2043.75" y="-1356.338028169014"/>
+            <point key="canvasLocation" x="1952" y="-1416"/>
         </scene>
         <!--Update Profile View Controller-->
         <scene sceneID="h9j-yO-PcY">
@@ -1452,7 +1452,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8IT-lh-v5v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2818" y="-1358"/>
+            <point key="canvasLocation" x="2703" y="-1418"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="cXT-Qv-pO7">
@@ -1637,7 +1637,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Locations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OyB-FY-ksn">
-                                                    <rect key="frame" x="20" y="13" width="528" height="18"/>
+                                                    <rect key="frame" x="20" y="13" width="280" height="18"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.29803921570000003" green="0.61960784310000006" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1659,10 +1659,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X3P-8R-ydG">
-                                                    <rect key="frame" x="8" y="5" width="552" height="79"/>
+                                                    <rect key="frame" x="8" y="5" width="304" height="79"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6up-Dr-v8v">
-                                                            <rect key="frame" x="12" y="5" width="528" height="18"/>
+                                                            <rect key="frame" x="12" y="5" width="280" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="h3S-Zy-4eG"/>
                                                             </constraints>
@@ -1672,7 +1672,7 @@
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rI-JV-jQj">
-                                                            <rect key="frame" x="12" y="31" width="528" height="18"/>
+                                                            <rect key="frame" x="12" y="31" width="280" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="l1l-uA-KJg"/>
                                                             </constraints>
@@ -1682,7 +1682,7 @@
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lkz-Xa-aEt">
-                                                            <rect key="frame" x="12" y="57" width="528" height="18"/>
+                                                            <rect key="frame" x="12" y="57" width="280" height="18"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                             <state key="normal" title="Send Feedback/Report a bug">
                                                                 <color key="titleColor" red="0.29803921570000003" green="0.61960784310000006" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1719,10 +1719,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h2s-no-MH9">
-                                                    <rect key="frame" x="8" y="5" width="552" height="79"/>
+                                                    <rect key="frame" x="8" y="5" width="304" height="79"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaM-io-fif">
-                                                            <rect key="frame" x="12" y="31" width="528" height="18"/>
+                                                            <rect key="frame" x="12" y="31" width="280" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="liR-d0-Sjr"/>
                                                             </constraints>
@@ -1732,7 +1732,7 @@
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZd-Vc-vRa">
-                                                            <rect key="frame" x="12" y="5" width="528" height="18"/>
+                                                            <rect key="frame" x="12" y="5" width="280" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="kLQ-fW-Ono"/>
                                                             </constraints>
@@ -1742,7 +1742,7 @@
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKd-mf-CzS">
-                                                            <rect key="frame" x="12" y="57" width="528" height="18"/>
+                                                            <rect key="frame" x="12" y="57" width="280" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="3c7-VS-g1v"/>
                                                             </constraints>
@@ -1803,7 +1803,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pei-qI-unb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2043.75" y="-612.67605633802816"/>
+            <point key="canvasLocation" x="1953" y="-615"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QCy-ga-NfL">
@@ -1818,7 +1818,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OMF-LU-7aG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="350" y="160"/>
+            <point key="canvasLocation" x="416" y="156"/>
         </scene>
     </scenes>
     <resources>
