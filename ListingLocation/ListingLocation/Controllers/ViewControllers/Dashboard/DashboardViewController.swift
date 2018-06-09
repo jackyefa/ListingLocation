@@ -175,10 +175,10 @@ class DashboardViewController: BaseViewController {
         if let currentLocation = LocationManager.sharedInstance.currentLocation {
             self.showCurrentLocationOnMapView(currentLocation)
         }
-        self.title = "Home"
         //Notifications
         NotificationCenter.default.addObserver(self, selector: #selector(logoutUser_Api_call), name: LOGOUT_USER_NOTIFICATION, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(dashboard_Api_call), name: UPDATE_DASHBOARD_NOTIFICATION, object: nil)
+        self.mapView?.showsUserLocation = false
     }
     
     func showCurrentLocationOnMapView(_ location: CLLocation) {

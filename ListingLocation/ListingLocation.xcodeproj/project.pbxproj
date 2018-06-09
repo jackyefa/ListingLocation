@@ -861,7 +861,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apps.listinglocation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "14e122da-586c-48cb-a92d-14cc16077c3e";
+				PROVISIONING_PROFILE = "9878962b-3fcd-465d-b00e-b99ce53054ff";
 				PROVISIONING_PROFILE_SPECIFIER = ListingLocation_Dev_Prov;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -881,7 +881,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apps.listinglocation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "14e122da-586c-48cb-a92d-14cc16077c3e";
+				PROVISIONING_PROFILE = "9878962b-3fcd-465d-b00e-b99ce53054ff";
 				PROVISIONING_PROFILE_SPECIFIER = ListingLocation_Dev_Prov;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
