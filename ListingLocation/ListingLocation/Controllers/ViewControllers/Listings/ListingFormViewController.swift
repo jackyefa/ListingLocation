@@ -115,23 +115,6 @@ class ListingFormViewController: BaseViewController {
         validationError.isEmpty ? self.addListing_api_call() : self.showPopupWith_title_message(strTitle: appTitle, strMessage: validationError)
     }
     
-    @IBAction func downloadBtnTapped(_ sender: UIButton){
-        UIImageWriteToSavedPhotosAlbum((property_image?.image)!, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
-    }
-    
-    // Method for storing image in photos library with error handling.
-    
-    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-        if let error = error {
-            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: error.localizedDescription)
-            self.present(self.alertListingLocation!, animated:true, completion:nil)
-        } else {
-            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: "The property has been stored in photos.")
-            self.present(self.alertListingLocation!, animated: true, completion: nil)
-        }
-    }
-    
-    
     // MARK:- Common Methods
     
     func getApiParamsToAddListing() -> NSDictionary{
