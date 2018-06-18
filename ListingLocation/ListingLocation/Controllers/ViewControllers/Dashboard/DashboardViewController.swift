@@ -17,6 +17,7 @@ class DashboardViewController: BaseViewController {
     @IBOutlet var segmentControl: UISegmentedControl?
     @IBOutlet var downloadBtn: UIButton?
     @IBOutlet var downloadView: UIView?
+    @IBOutlet var annotationImage: UIImageView?
     
     var locationCoordinate = CLLocationCoordinate2D()
     var span = MKCoordinateSpanMake(0.05, 0.05)
@@ -74,7 +75,6 @@ class DashboardViewController: BaseViewController {
     }
     
     @objc func dashboard_Api_call(){
-        
         APIManager.sharedAPIManager.user_dashboard_apiCall( success: {(responseDictionary: DashboardResponse) -> () in
             self.allProperties = responseDictionary.allProperties
             self.userProperties = responseDictionary.userProperties
@@ -131,11 +131,11 @@ class DashboardViewController: BaseViewController {
     
     @IBAction func mapTypeChanged(segControl: UISegmentedControl) {
         if segControl.selectedSegmentIndex == 0 {
-            self.mapView?.mapType = .standard
-            self.segmentControl?.tintColor = UIColor.appBlueThemeColor()
-        }else {
             self.mapView?.mapType = .satelliteFlyover
             self.segmentControl?.tintColor = UIColor.white
+        }else {            
+            self.mapView?.mapType = .standard
+            self.segmentControl?.tintColor = UIColor.appBlueThemeColor()
         }
     }
     
@@ -201,6 +201,8 @@ class DashboardViewController: BaseViewController {
         self.downloadView?.layer.cornerRadius = (self.downloadView?.frame.size.width)!/2
         self.downloadView?.layer.borderColor = UIColor.appBlueThemeColor().cgColor
         self.downloadView?.layer.borderWidth = 1.5
+        self.downloadBtn?.blink()
+        self.annotationImage?.blink()
     }
     
     func showCurrentLocationOnMapView(_ location: CLLocation) {
@@ -298,6 +300,13 @@ extension DashboardViewController: MKMapViewDelegate{
         listingFormVcObj.modalPresentationStyle = .overCurrentContext
         listingFormVcObj.modalTransitionStyle = .crossDissolve
         self.navigationController?.present(listingFormVcObj, animated: true, completion: nil)
+    }
+}
+
+extension UIView{
+    func blink() {
+        self.alpha = 0.4
+        UIView.animate(withDuration: 1, delay: 0.0, options: [.curveLinear, .repeat, .autoreverse], animations: {self.alpha = 1.0}, completion: nil)
     }
 }
 

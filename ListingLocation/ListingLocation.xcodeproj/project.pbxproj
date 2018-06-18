@@ -41,6 +41,7 @@
 		181D75EB20A5BD840083F2B9 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D75EA20A5BD840083F2B9 /* DashboardViewController.swift */; };
 		181D762A20A6C48F0083F2B9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D762920A6C48F0083F2B9 /* LocationManager.swift */; };
 		181D762E20A71BC90083F2B9 /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D762D20A71BC90083F2B9 /* LocationSearchViewController.swift */; };
+		1821D50F20CFC3870029F5AA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1821D50E20CFC3870029F5AA /* Images.xcassets */; };
 		184D3A7D20AC0AEF0087DC6F /* ListingFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D3A7C20AC0AEF0087DC6F /* ListingFormViewController.swift */; };
 		18B3CBF420A9B1F90051A9D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B3CBF320A9B1F90051A9D4 /* ProfileViewController.swift */; };
 		18E11BFC20AC7323000FF23A /* LockOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E11BFB20AC7323000FF23A /* LockOrientation.swift */; };
@@ -111,6 +112,7 @@
 		181D75EA20A5BD840083F2B9 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		181D762920A6C48F0083F2B9 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		181D762D20A71BC90083F2B9 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
+		1821D50E20CFC3870029F5AA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		184D3A7C20AC0AEF0087DC6F /* ListingFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingFormViewController.swift; sourceTree = "<group>"; };
 		18B3CBF320A9B1F90051A9D4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		18E11BFB20AC7323000FF23A /* LockOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockOrientation.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				18122B9C20A4CFE7006DD8BC /* Views */,
 				18122B6120A4CD07006DD8BC /* Assets.xcassets */,
 				18122B6620A4CD07006DD8BC /* Info.plist */,
+				1821D50E20CFC3870029F5AA /* Images.xcassets */,
 			);
 			path = ListingLocation;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18122B6520A4CD07006DD8BC /* LaunchScreen.storyboard in Resources */,
+				1821D50F20CFC3870029F5AA /* Images.xcassets in Resources */,
 				18122B6220A4CD07006DD8BC /* Assets.xcassets in Resources */,
 				18122B5D20A4CD07006DD8BC /* Main.storyboard in Resources */,
 			);
@@ -853,6 +857,7 @@
 			baseConfigurationReference = DE9783FA693433A56745E5EE /* Pods-ListingLocation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: sanjay vishwakarma (455ABG6MLH)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = QV328RZ9KL;
@@ -873,6 +878,7 @@
 			baseConfigurationReference = 790B45B1837C81C955C7FC69 /* Pods-ListingLocation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: sanjay vishwakarma (455ABG6MLH)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = QV328RZ9KL;
