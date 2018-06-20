@@ -295,11 +295,7 @@ extension DashboardViewController: MKMapViewDelegate{
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        let listingFormVcObj: ListingFormViewController = self.storyboard?.instantiateViewController(withIdentifier: "ListingFormVc") as! ListingFormViewController
-        listingFormVcObj.selectedAnnotation = view.annotation as? MKPointAnnotation
-        listingFormVcObj.modalPresentationStyle = .overCurrentContext
-        listingFormVcObj.modalTransitionStyle = .crossDissolve
-        self.navigationController?.present(listingFormVcObj, animated: true, completion: nil)
+        
     }
 }
 
