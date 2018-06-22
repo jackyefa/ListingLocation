@@ -60,7 +60,9 @@ class LeftMenuViewController: BaseViewController {
     
     // MARK:- Button tap actions.
     
-    @IBAction func addListingsBtnTapped(_ sender: UIButton){
+    @IBAction func myListingsBtnTapped(_ sender: UIButton){
+        let myListingsVcObj: MyListingsViewController = self.storyboard?.instantiateViewController(withIdentifier: "MyListingsVc") as! MyListingsViewController
+        self.navigationController?.pushViewController(myListingsVcObj, animated: true)
     }
     
     @IBAction func profileBtnTapped(_ sender: UIButton){

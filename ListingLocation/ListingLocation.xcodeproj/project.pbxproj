@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0BA488BB71084ECA3480B617 /* Pods_ListingLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31AA5BCEC3AE6BAAED25886E /* Pods_ListingLocation.framework */; };
 		0EBCDADAD66EB616C2A1EF3C /* Pods_ListingLocationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E50E68BCCDC1D052C74D6EC /* Pods_ListingLocationUITests.framework */; };
+		1802E1DB20DD1693007CDFAC /* MyListingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802E1DA20DD1692007CDFAC /* MyListingsViewController.swift */; };
+		1802E1DD20DD1CC3007CDFAC /* MyListingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802E1DC20DD1CC3007CDFAC /* MyListingsCell.swift */; };
 		180F35D420B29E6400934987 /* PasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180F35D320B29E6400934987 /* PasswordCell.swift */; };
 		180F35D620B2A2D100934987 /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180F35D520B2A2D100934987 /* UpdatePasswordViewController.swift */; };
 		180F35D820B2CAB500934987 /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180F35D720B2CAB500934987 /* UpdateProfileViewController.swift */; };
@@ -41,7 +43,6 @@
 		181D75EB20A5BD840083F2B9 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D75EA20A5BD840083F2B9 /* DashboardViewController.swift */; };
 		181D762A20A6C48F0083F2B9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D762920A6C48F0083F2B9 /* LocationManager.swift */; };
 		181D762E20A71BC90083F2B9 /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D762D20A71BC90083F2B9 /* LocationSearchViewController.swift */; };
-		1821D50F20CFC3870029F5AA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1821D50E20CFC3870029F5AA /* Images.xcassets */; };
 		184D3A7D20AC0AEF0087DC6F /* ListingFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D3A7C20AC0AEF0087DC6F /* ListingFormViewController.swift */; };
 		18B3CBF420A9B1F90051A9D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B3CBF320A9B1F90051A9D4 /* ProfileViewController.swift */; };
 		18E11BFC20AC7323000FF23A /* LockOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E11BFB20AC7323000FF23A /* LockOrientation.swift */; };
@@ -74,6 +75,8 @@
 
 /* Begin PBXFileReference section */
 		1068DCCC6524A3501D458C33 /* Pods-ListingLocationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListingLocationUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ListingLocationUITests/Pods-ListingLocationUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		1802E1DA20DD1692007CDFAC /* MyListingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListingsViewController.swift; sourceTree = "<group>"; };
+		1802E1DC20DD1CC3007CDFAC /* MyListingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListingsCell.swift; sourceTree = "<group>"; };
 		180F35D320B29E6400934987 /* PasswordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCell.swift; sourceTree = "<group>"; };
 		180F35D520B2A2D100934987 /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
 		180F35D720B2CAB500934987 /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
@@ -112,7 +115,6 @@
 		181D75EA20A5BD840083F2B9 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		181D762920A6C48F0083F2B9 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		181D762D20A71BC90083F2B9 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
-		1821D50E20CFC3870029F5AA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		184D3A7C20AC0AEF0087DC6F /* ListingFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingFormViewController.swift; sourceTree = "<group>"; };
 		18B3CBF320A9B1F90051A9D4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		18E11BFB20AC7323000FF23A /* LockOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockOrientation.swift; sourceTree = "<group>"; };
@@ -198,7 +200,6 @@
 				18122B9C20A4CFE7006DD8BC /* Views */,
 				18122B6120A4CD07006DD8BC /* Assets.xcassets */,
 				18122B6620A4CD07006DD8BC /* Info.plist */,
-				1821D50E20CFC3870029F5AA /* Images.xcassets */,
 			);
 			path = ListingLocation;
 			sourceTree = "<group>";
@@ -367,6 +368,8 @@
 			isa = PBXGroup;
 			children = (
 				184D3A7C20AC0AEF0087DC6F /* ListingFormViewController.swift */,
+				1802E1DA20DD1692007CDFAC /* MyListingsViewController.swift */,
+				1802E1DC20DD1CC3007CDFAC /* MyListingsCell.swift */,
 			);
 			path = Listings;
 			sourceTree = "<group>";
@@ -535,7 +538,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				18122B6520A4CD07006DD8BC /* LaunchScreen.storyboard in Resources */,
-				1821D50F20CFC3870029F5AA /* Images.xcassets in Resources */,
 				18122B6220A4CD07006DD8BC /* Assets.xcassets in Resources */,
 				18122B5D20A4CD07006DD8BC /* Main.storyboard in Resources */,
 			);
@@ -669,6 +671,7 @@
 				18122BA820A4D04E006DD8BC /* LoginViewController.swift in Sources */,
 				181D75E720A5B1D70083F2B9 /* ForgotPasswordViewController.swift in Sources */,
 				18FB6FAC20AAAD3C006626D7 /* LeftMenuViewController.swift in Sources */,
+				1802E1DB20DD1693007CDFAC /* MyListingsViewController.swift in Sources */,
 				180F35D420B29E6400934987 /* PasswordCell.swift in Sources */,
 				181D75E220A57C440083F2B9 /* LLButton.swift in Sources */,
 				18FB6FAE20AB06E5006626D7 /* UserDetailsCell.swift in Sources */,
@@ -684,6 +687,7 @@
 				181D75E920A5B2010083F2B9 /* SignUpViewController.swift in Sources */,
 				181D75CA20A568580083F2B9 /* AppDefaults.swift in Sources */,
 				184D3A7D20AC0AEF0087DC6F /* ListingFormViewController.swift in Sources */,
+				1802E1DD20DD1CC3007CDFAC /* MyListingsCell.swift in Sources */,
 				181D75D520A568A60083F2B9 /* UIFont+Additions.swift in Sources */,
 				18FB6FB220AB075D006626D7 /* RateUsCell.swift in Sources */,
 				181D75D320A568A60083F2B9 /* UIColor+Additions.swift in Sources */,

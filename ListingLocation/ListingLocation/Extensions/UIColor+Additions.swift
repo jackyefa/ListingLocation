@@ -207,6 +207,10 @@ extension UIColor {
         return UIColor().convertHexStringToColor(hexString: "4c9edf")
     }
     
+    class func textFieldBackgroundBlueColor() -> UIColor{
+        return UIColor().convertHexStringToColor(hexString: "15008B")
+    }
+    
     class func appRedButtonColor() -> UIColor{
         return UIColor().convertHexStringToColor(hexString: "d1573f")
     }

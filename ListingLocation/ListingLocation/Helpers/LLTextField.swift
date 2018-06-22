@@ -26,6 +26,18 @@ class LLTextField : UITextField {
         }
     }
     
+    func initiliase_customTextField_with_blue_background(){
+        let vwImage = UIView(frame:CGRect(x: 0, y: 0, width: 10, height: 5))
+        self.leftView = vwImage
+        self.returnKeyType = UIReturnKeyType.done
+        self.leftViewMode = UITextFieldViewMode.always
+        self.backgroundColor = UIColor.appBlueThemeColor()
+        self.borderStyle = .none
+        self.font = UIFont.normalFontOfSize(size: 15.0)
+        self.textColor = UIColor.white
+        self.clearButtonMode = UITextFieldViewMode.whileEditing
+    }
+    
     func initialize_customTextFieldWith_letfImage(_ imageName: String, withSecuredEntery: Bool) {
         if !imageName.isEmpty {
             let imageView = UIImageView(image: UIImage(named:imageName))

@@ -31,7 +31,7 @@ class DashboardViewController: BaseViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.configureComponentLayout()
         self.setupNavigationBarDefaulyLayoutView()
-        self.showSearchIconOnNavigationBar()
+        self.showSearchIconAndAddIcon()
         self.showMenuIconOnNavigationBar()
         self.setUpSideMenuAndDefaults()
         self.mapView?.delegate = self
@@ -103,17 +103,20 @@ class DashboardViewController: BaseViewController {
     }
     
     // MARK:- NavigationBar Bar button Methods
-    
-    func showSearchIconOnNavigationBar() {
-        let searchBtn: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_search"), style: .plain, target: self, action: #selector(showSearchLocationVc))
-        searchBtn.tintColor = UIColor.white
-        self.navigationItem.rightBarButtonItem = searchBtn
-    }
-    
+        
     func showMenuIconOnNavigationBar(){
         let menuBtn: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_menu"), style: .plain, target: self, action: #selector(showLeftMenu))
         menuBtn.tintColor = UIColor.white
         self.navigationItem.leftBarButtonItem = menuBtn
+    }
+    
+    func showSearchIconAndAddIcon(){
+        let searchBtn: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_search"), style: .plain, target: self, action: #selector(showSearchLocationVc))
+        searchBtn.tintColor = UIColor.white
+        
+        let addBtn: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "plus"), style: .plain, target: self, action: #selector(openaddListingVc))
+        addBtn.tintColor = UIColor.white
+        self.navigationItem.rightBarButtonItems = [searchBtn, addBtn]
     }
     
     @objc func showSearchLocationVc() {
@@ -166,7 +169,7 @@ class DashboardViewController: BaseViewController {
         sender.setTranslation(CGPoint.zero, in: self.view)
     }
     
-    @IBAction func addListingsBtnTapped(_ sender: UIButton){
+    @objc func openaddListingVc(){
          var screenshotImage :UIImage?
          let layer = UIApplication.shared.keyWindow!.layer
          let scale = UIScreen.main.scale
@@ -201,8 +204,7 @@ class DashboardViewController: BaseViewController {
         self.downloadView?.layer.cornerRadius = (self.downloadView?.frame.size.width)!/2
         self.downloadView?.layer.borderColor = UIColor.appBlueThemeColor().cgColor
         self.downloadView?.layer.borderWidth = 1.5
-        self.downloadBtn?.blink()
-        self.annotationImage?.blink()
+        
     }
     
     func showCurrentLocationOnMapView(_ location: CLLocation) {
@@ -299,10 +301,4 @@ extension DashboardViewController: MKMapViewDelegate{
     }
 }
 
-extension UIView{
-    func blink() {
-        self.alpha = 0.4
-        UIView.animate(withDuration: 1, delay: 0.0, options: [.curveLinear, .repeat, .autoreverse], animations: {self.alpha = 1.0}, completion: nil)
-    }
-}
 

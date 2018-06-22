@@ -12,6 +12,7 @@ import MapKit
 
 class ListingFormViewController: BaseViewController {
     
+    @IBOutlet var listing_scroll_view: UIScrollView?
     @IBOutlet var property_image: UIImageView?
     var propertyImage: UIImage?
     @IBOutlet var custom_header_view: UIView?
@@ -20,7 +21,7 @@ class ListingFormViewController: BaseViewController {
     @IBOutlet var cityTxt: LLTextField?
     @IBOutlet var stateTxt: LLTextField?
     @IBOutlet var zipcodeTxt: LLTextField?
-    @IBOutlet var sale_rent_txt: LLTextField?
+    @IBOutlet var segmentControl: UISegmentedControl?
     @IBOutlet var idNumberTxt: LLTextField?
     var apiParams: NSDictionary?
     var selectedAnnotation: MKPointAnnotation?
@@ -36,7 +37,6 @@ class ListingFormViewController: BaseViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.configureComponentsLayout()
-        self.setupPropertyTypePickerView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,31 +74,6 @@ class ListingFormViewController: BaseViewController {
         })
     }
     
-    //MARK: - Setup property type picker view.
-    
-    func setupPropertyTypePickerView(){
-        self.propertyPicker.delegate = self
-        self.propertyPicker.dataSource = self
-        //Done button & Cancel button
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        toolbar.setItems([
-            UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donePropertyPicker)),
-            UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelPicker))],
-                         animated: false)
-        // add toolbar and textField
-        self.sale_rent_txt?.inputAccessoryView = toolbar
-        self.sale_rent_txt?.inputView = self.propertyPicker
-    }
-    
-    @objc func donePropertyPicker(){
-        self.view.endEditing(true)
-        if self.propertyIndex < self.propertTypeArray.count {
-            self.sale_rent_txt?.text = self.propertTypeArray[self.propertyIndex]
-        }
-    }
-    
     @objc func cancelPicker(){
         self.view.endEditing(true)
     }
@@ -115,6 +90,14 @@ class ListingFormViewController: BaseViewController {
         validationError.isEmpty ? self.addListing_api_call() : self.showPopupWith_title_message(strTitle: appTitle, strMessage: validationError)
     }
     
+    @IBAction func sale_rent_Changed(segControl: UISegmentedControl) {
+        if segControl.selectedSegmentIndex == 0 {
+            self.segmentControl?.tag = 10
+        }else {
+            self.segmentControl?.tag = 20
+        }
+    }
+    
     // MARK:- Common Methods
     
     func getApiParamsToAddListing() -> NSDictionary{
@@ -125,7 +108,12 @@ class ListingFormViewController: BaseViewController {
         dictParams["state"] = self.stateTxt!.text!
         dictParams["zipcode"] = self.zipcodeTxt!.text!
         dictParams["id_number"] = self.idNumberTxt!.text!
-        dictParams["property_type"] = self.sale_rent_txt!.text!
+        if (self.segmentControl?.tag == 10){
+            dictParams["property_type"] = "sale"
+        }
+        else{
+            dictParams["property_type"] = "rent"
+        }
         
         if (selectedAnnotation?.coordinate != nil){
             dictParams["latitude"] = self.selectedAnnotation?.coordinate.latitude
@@ -142,21 +130,25 @@ class ListingFormViewController: BaseViewController {
     }
     
     func configureComponentsLayout(){
-        self.proprtyAddressTxt?.initializeCustomTextFieldWith_BottomLineView(withSecuredEntery: false)
-        self.unitTxt?.initializeCustomTextFieldWith_BottomLineView(withSecuredEntery: false)
-        self.cityTxt?.initializeCustomTextFieldWith_BottomLineView(withSecuredEntery: false)
-        self.stateTxt?.initializeCustomTextFieldWith_BottomLineView(withSecuredEntery: false)
-        self.zipcodeTxt?.initializeCustomTextFieldWith_BottomLineView(withSecuredEntery: false)
-        self.sale_rent_txt?.initializeCustomTextFieldWith_BottomLineView(withSecuredEntery: false)
-        self.idNumberTxt?.initializeCustomTextFieldWith_BottomLineView(withSecuredEntery: false)
-        
         self.property_image?.layer.cornerRadius = 4
-        self.property_image?.layer.borderWidth = 1
+        self.property_image?.layer.borderWidth = 0.4
         self.property_image?.layer.borderColor = UIColor.lightGray.cgColor
         
         if (propertyImage != nil){
             self.property_image?.image = propertyImage
         }
+        //Scroll view
+        self.listing_scroll_view?.layer.cornerRadius = 8
+        self.listing_scroll_view?.layer.borderColor = UIColor.appBlueThemeColor().cgColor
+        self.listing_scroll_view?.layer.borderWidth = 2
+        
+        //TextFields
+        self.proprtyAddressTxt?.initiliase_customTextField_with_blue_background()
+        self.unitTxt?.initiliase_customTextField_with_blue_background()
+        self.cityTxt?.initiliase_customTextField_with_blue_background()
+        self.stateTxt?.initiliase_customTextField_with_blue_background()
+        self.zipcodeTxt?.initiliase_customTextField_with_blue_background()
+        self.idNumberTxt?.initiliase_customTextField_with_blue_background()
     }
     
     func validateTextFiedText() -> String {
@@ -169,8 +161,6 @@ class ListingFormViewController: BaseViewController {
             validateError = "Please input city."
         }else if self.stateTxt!.text!.isEmpty{
             validateError = "Please input estate."
-        }else if self.sale_rent_txt!.text!.isEmpty{
-            validateError = "Please mention property type."
         }else if self.zipcodeTxt!.text!.isEmpty{
             validateError = "Please enter zipcode."
         }
