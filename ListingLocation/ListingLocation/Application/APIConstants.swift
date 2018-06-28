@@ -17,6 +17,7 @@ let emptyParams: NSDictionary = NSDictionary()
 // MARK: - NETWORKING BASE URL & API END POINTS
 
 var DOMAIN = "https://location-listing.herokuapp.com"
+//var DOMAIN = "http://e8d3b6d0.ngrok.io"
 var API_ROOT = DOMAIN + "/api/v1/"
 
 var API_LOGIN = API_ROOT + "sign_in"
@@ -50,4 +51,4 @@ let UPDATE_PROFILE_SUCCESS_MESSAGE = "Thanks! Your profile has been updated."
 let FORGOT_PASSWORD_SUCCESS_MESSAGE = "Thanks! Reset password link has been sent to your email."
 
 let ADD_LISTING_POPUP_TEXT = "Adding.."
-let LISTING_ADDED_MESSAGE = "Thanks! The property has been added successfully."
+let LISTING_ADDED_MESSAGE = "Thanks! The property added successfully."

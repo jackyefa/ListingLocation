@@ -32,6 +32,7 @@ class MyListingsCell: UITableViewCell {
         if let imageUrl: String = userProperty.property_image, !imageUrl.isEmpty {
             self.propertyImage?.sd_setImage(with: NSURL(string: imageUrl)! as URL, placeholderImage: UIImage(named: "property"), completed: nil)
         }
+ 
     }
 
 }

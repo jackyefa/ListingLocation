@@ -42,7 +42,7 @@ class ForgotPasswordViewController: BaseViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        self.txtEmail?.setupCustomTextFieldWith_ImageName("icon_email", withSecuredEntery: false)
+        self.txtEmail?.initiliase_customTextField_with_blue_background()
         self.btnForgotPass?.initializeButton_withRedTheme()
     }
     

@@ -58,10 +58,14 @@ class LoginViewController: BaseViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        self.txtEmail?.setupCustomTextFieldWith_ImageName("icon_email", withSecuredEntery: false)
-        self.txtPassword?.setupCustomTextFieldWith_ImageName("icon_password", withSecuredEntery: true)
         self.btnSignIn?.initializeButton_withRedTheme()
         self.btnSignUp?.initializeButton_withRedTheme()
+        
+        self.txtEmail?.initiliase_customTextField_with_blue_background()
+        self.txtPassword?.initiliase_customTextField_with_blue_background()
+        self.rememberMeBtn?.layer.borderColor = UIColor.darkGray.cgColor
+        self.rememberMeBtn?.layer.borderWidth = 2
+        self.rememberMeBtn?.layer.cornerRadius = 2
     }
     
     // MARK:- API CALL - USER LOGIN
@@ -133,6 +137,7 @@ class LoginViewController: BaseViewController {
         }
         self.rememberMeBtn?.layer.cornerRadius = 4
         self.rememberMeBtn?.layer.masksToBounds = false
+        
     }
     
     func validateTextFiedText() -> String {

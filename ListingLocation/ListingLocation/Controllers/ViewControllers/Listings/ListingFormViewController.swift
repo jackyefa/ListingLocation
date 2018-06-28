@@ -64,7 +64,7 @@ class ListingFormViewController: BaseViewController {
         
         APIManager.sharedAPIManager.user_addListing_apiCall(apiParams!, success:{(responseDictionary: NSDictionary) -> () in
             self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: LISTING_ADDED_MESSAGE, handler: {(objAlertAction: UIAlertAction!) -> Void in
-                self.dismiss(animated: true, completion: nil)
+                self.openAlertToStorePropertyImage()
                 NotificationCenter.default.post(name: UPDATE_DASHBOARD_NOTIFICATION, object: nil)
             })
             self.present(self.alertListingLocation!, animated: true, completion: nil)
@@ -72,6 +72,17 @@ class ListingFormViewController: BaseViewController {
         }, failure: {(error: NSError) -> () in
             self.showPopupWith_title_message(strTitle: appTitle, strMessage: error.localizedDescription)
         })
+    }
+    
+    func openAlertToStorePropertyImage(){
+        self.alertListingLocation = UIAlertController.confirmAlertWithTwoButtonTitles(title: appTitle, message: "Do you want to store property's image. You can store it later from Listings screen.", btnTitle1: "Yes", btnTitle2: "No", handler:
+            {(objAlertAction : UIAlertAction!) -> Void in
+                if let image = self.propertyImage {
+                    UIImageWriteToSavedPhotosAlbum((image), self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
+                }
+                NotificationCenter.default.post(name: UPDATE_DASHBOARD_NOTIFICATION, object: nil)
+        })
+        self.present(self.alertListingLocation!, animated: true, completion: nil)
     }
     
     @objc func cancelPicker(){
@@ -167,6 +178,18 @@ class ListingFormViewController: BaseViewController {
         return validateError
     }
     
+    // Method for storing image in photos library with error handling.
+    
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: error.localizedDescription)
+            self.present(self.alertListingLocation!, animated:true, completion:nil)
+        } else {
+            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: "The property has been stored in photos.")
+            self.present(self.alertListingLocation!, animated: true, completion: nil)
+        }
+    }
+    
 }
 
 // MARK: - Pickerview delegate and data source
@@ -190,4 +213,21 @@ extension ListingFormViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         self.propertyIndex = row
     }
 }
+/*
+ @IBAction func downloadBtnTapped(_ sender: UIButton){
+ var screenshotImage :UIImage?
+ let layer = UIApplication.shared.keyWindow!.layer
+ let scale = UIScreen.main.scale
+ UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
+ guard let context = UIGraphicsGetCurrentContext() else {
+ return
+ }
+ layer.render(in:context)
+ screenshotImage = UIGraphicsGetImageFromCurrentImageContext()
+ UIGraphicsEndImageContext()
+ if let image = screenshotImage {
+ UIImageWriteToSavedPhotosAlbum((image), self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
+ }
+ }
+ */
 

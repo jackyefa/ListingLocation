@@ -25,6 +25,7 @@ class LocationSearchViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         searchCompleter.delegate = self
+        self.configureComponentsLayout()
     }
     
     // MARK:- Button Tap Action
@@ -54,6 +55,12 @@ class LocationSearchViewController: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             }
         })
+    }
+    
+    // MARK: - Common methods
+    
+    func configureComponentsLayout(){
+        UILabel.appearance(whenContainedInInstancesOf: [UISearchBar.self]).textColor = UIColor.white
     }
 }
 

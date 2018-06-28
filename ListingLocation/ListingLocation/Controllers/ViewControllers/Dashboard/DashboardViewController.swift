@@ -15,8 +15,7 @@ class DashboardViewController: BaseViewController {
     
     @IBOutlet var mapView: MKMapView?
     @IBOutlet var segmentControl: UISegmentedControl?
-    @IBOutlet var downloadBtn: UIButton?
-    @IBOutlet var downloadView: UIView?
+    
     @IBOutlet var annotationImage: UIImageView?
     
     var locationCoordinate = CLLocationCoordinate2D()
@@ -142,22 +141,6 @@ class DashboardViewController: BaseViewController {
         }
     }
     
-    @IBAction func downloadBtnTapped(_ sender: UIButton){
-        var screenshotImage :UIImage?
-        let layer = UIApplication.shared.keyWindow!.layer
-        let scale = UIScreen.main.scale
-        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
-        guard let context = UIGraphicsGetCurrentContext() else {
-            return
-        }
-        layer.render(in:context)
-        screenshotImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        if let image = screenshotImage {
-            UIImageWriteToSavedPhotosAlbum((image), self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
-        }
-    }
-    
     @IBAction func profileBtnTapped(_ sender: UIButton){
         let profileVcObj: ProfileViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileVc") as! ProfileViewController
         self.navigationController?.pushViewController(profileVcObj, animated: true)
@@ -200,10 +183,6 @@ class DashboardViewController: BaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(logoutUser_Api_call), name: LOGOUT_USER_NOTIFICATION, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(dashboard_Api_call), name: UPDATE_DASHBOARD_NOTIFICATION, object: nil)
         self.mapView?.showsUserLocation = false
-        //Download button
-        self.downloadView?.layer.cornerRadius = (self.downloadView?.frame.size.width)!/2
-        self.downloadView?.layer.borderColor = UIColor.appBlueThemeColor().cgColor
-        self.downloadView?.layer.borderWidth = 1.5
         
     }
     
@@ -222,18 +201,6 @@ class DashboardViewController: BaseViewController {
         SideMenuManager.default.menuPresentMode = .menuSlideIn
         SideMenuManager.default.menuPushStyle = .defaultBehavior
         SideMenuManager.default.menuAnimationFadeStrength = 0.5
-    }
-    
-    // Method for storing image in photos library with error handling.
-    
-    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-        if let error = error {
-            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: error.localizedDescription)
-            self.present(self.alertListingLocation!, animated:true, completion:nil)
-        } else {
-            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: "The property has been stored in photos.")
-            self.present(self.alertListingLocation!, animated: true, completion: nil)
-        }
     }
     
 }
@@ -297,7 +264,6 @@ extension DashboardViewController: MKMapViewDelegate{
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        
     }
 }
 

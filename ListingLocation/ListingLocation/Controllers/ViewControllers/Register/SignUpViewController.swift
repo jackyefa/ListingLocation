@@ -49,9 +49,9 @@ class SignUpViewController: BaseViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        self.txtName?.setupCustomTextFieldWith_ImageName("icon_user", withSecuredEntery: false)
-        self.txtEmail?.setupCustomTextFieldWith_ImageName("icon_email", withSecuredEntery: false)
-        self.txtPassword?.setupCustomTextFieldWith_ImageName("icon_password", withSecuredEntery: true)
+        self.txtName?.initiliase_customTextField_with_blue_background()
+        self.txtEmail?.initiliase_customTextField_with_blue_background()
+        self.txtPassword?.initiliase_customTextField_with_blue_background()
         self.btnSignUp?.initializeButton_withRedTheme()
     }
     
