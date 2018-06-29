@@ -17,7 +17,7 @@ let emptyParams: NSDictionary = NSDictionary()
 // MARK: - NETWORKING BASE URL & API END POINTS
 
 var DOMAIN = "https://location-listing.herokuapp.com"
-//var DOMAIN = "http://e8d3b6d0.ngrok.io"
+//var DOMAIN = "http://ea83c966.ngrok.io"
 var API_ROOT = DOMAIN + "/api/v1/"
 
 var API_LOGIN = API_ROOT + "sign_in"

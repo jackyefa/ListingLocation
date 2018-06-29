@@ -107,11 +107,7 @@ public class APIClient {
                             break
                             
                         case 401:
-                            if response.result.value is NSDictionary {
-                                baseFailureBlock(getFailureError(response.result.value as! NSDictionary))
-                            }else {
                                 NotificationCenter.default.post(name: INVALID_USER_ACCESS_TOKEN_NOTIFICATION, object: nil)
-                            }
                             break
                             
                         default:

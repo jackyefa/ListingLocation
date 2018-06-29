@@ -77,7 +77,7 @@ class DashboardViewController: BaseViewController {
         APIManager.sharedAPIManager.user_dashboard_apiCall( success: {(responseDictionary: DashboardResponse) -> () in
             self.allProperties = responseDictionary.allProperties
             self.userProperties = responseDictionary.userProperties
-            self.dropPinsFromApiFResponse()
+         //   self.dropPinsFromApiFResponse()
             
         },failure: { (error: NSError) -> () in
             self.showPopupWith_title_message(strTitle: appTitle, strMessage: error.localizedDescription)
@@ -154,16 +154,20 @@ class DashboardViewController: BaseViewController {
     
     @objc func openaddListingVc(){
          var screenshotImage :UIImage?
-         let layer = UIApplication.shared.keyWindow!.layer
-         let scale = UIScreen.main.scale
-         UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
+         UIGraphicsBeginImageContext(view.bounds.size)
          guard let context = UIGraphicsGetCurrentContext() else {
          return
          }
-         layer.render(in:context)
+         view.layer.render(in:context)
          screenshotImage = UIGraphicsGetImageFromCurrentImageContext()
          UIGraphicsEndImageContext()
-         if let image = screenshotImage {
+        
+        UIGraphicsBeginImageContext((mapView?.frame.size)!)
+        screenshotImage?.draw(at: CGPoint(x: 0, y: 0))
+        let croppedImage: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+         if let image = croppedImage {
          let listingFormVcObj: ListingFormViewController = self.storyboard?.instantiateViewController(withIdentifier: "ListingFormVc") as! ListingFormViewController
             listingFormVcObj.propertyImage = image
          listingFormVcObj.modalPresentationStyle = .overCurrentContext
@@ -266,5 +270,4 @@ extension DashboardViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
     }
 }
-
 

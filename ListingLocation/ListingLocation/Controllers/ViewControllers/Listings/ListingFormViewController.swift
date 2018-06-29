@@ -80,7 +80,6 @@ class ListingFormViewController: BaseViewController {
                 if let image = self.propertyImage {
                     UIImageWriteToSavedPhotosAlbum((image), self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
                 }
-                NotificationCenter.default.post(name: UPDATE_DASHBOARD_NOTIFICATION, object: nil)
         })
         self.present(self.alertListingLocation!, animated: true, completion: nil)
     }

@@ -24,7 +24,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Yb-kg-3Vg">
                                         <rect key="frame" x="54" y="269" width="460" height="280"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Email Address" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ICo-qU-382" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Email Address" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ICo-qU-382" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="14" width="218" height="45"/>
                                                 <color key="backgroundColor" red="0.29803921568627451" green="0.61960784313725492" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -37,9 +37,12 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                                         <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Password" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uya-Us-okZ" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Password" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uya-Us-okZ" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
                                                 <rect key="frame" x="234" y="14" width="218" height="45"/>
                                                 <color key="backgroundColor" red="0.29803921570000003" green="0.61960784310000006" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -51,6 +54,9 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                                         <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="4"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
@@ -259,7 +265,7 @@
                                     <segment title="Flyover 3D"/>
                                     <segment title="Standard 2D"/>
                                 </segments>
-                                <color key="tintColor" red="0.29803921570000003" green="0.61960784310000006" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="mapTypeChangedWithSegControl:" destination="hmn-CW-n19" eventType="valueChanged" id="fBz-jU-rzB"/>
                                 </connections>
@@ -390,7 +396,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pza-Ct-axw">
                                         <rect key="frame" x="54" y="280" width="460" height="150"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Email Address" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kT7-b4-DOY" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Email Address" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kT7-b4-DOY" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
                                                 <rect key="frame" x="110" y="26" width="240" height="45"/>
                                                 <color key="backgroundColor" red="0.29803921570000003" green="0.61960784310000006" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -402,6 +408,9 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                                         <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="4"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
@@ -646,7 +655,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dxX-7G-qi5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2701" y="1667"/>
+            <point key="canvasLocation" x="2702" y="1883"/>
         </scene>
         <!--Listing Form View Controller-->
         <scene sceneID="8og-j9-tQU">
@@ -659,7 +668,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LFa-lu-yWp">
                                 <rect key="frame" x="20" y="80" width="528" height="221"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Unit# [0 if n0ne]" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="flc-aS-F7Z" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Unit# [0 if n0ne]" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="flc-aS-F7Z" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
                                         <rect key="frame" x="265" y="55" width="243" height="30"/>
                                         <color key="backgroundColor" red="0.29803921570000003" green="0.61960784310000006" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -672,6 +681,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                                 <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="4"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
@@ -689,6 +701,9 @@
                                             <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                                 <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="property" translatesAutoresizingMaskIntoConstraints="NO" id="PAT-w1-b9W">
@@ -698,7 +713,7 @@
                                             <constraint firstAttribute="height" constant="301" id="dBU-pc-Tam"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Enter property address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HCA-S4-oup" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Enter property address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HCA-S4-oup" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
                                         <rect key="frame" x="20" y="55" width="243" height="30"/>
                                         <color key="backgroundColor" red="0.29803921570000003" green="0.61960784310000006" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -711,6 +726,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                                 <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="4"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
@@ -750,7 +768,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CCg-05-4vH">
                                         <rect key="frame" x="20" y="93" width="488" height="30"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Zipcode" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Djl-xm-AFO" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Zipcode" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Djl-xm-AFO" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
                                                 <rect key="frame" x="326" y="0.0" width="162" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.29803921570000003" green="0.61960784310000006" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -761,9 +779,12 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                                         <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  City" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TPR-g1-fc3" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" City" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TPR-g1-fc3" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="162" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.29803921570000003" green="0.61960784310000006" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -774,9 +795,12 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                                         <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Estate" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e8M-e8-vyW" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Estate" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e8M-e8-vyW" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
                                                 <rect key="frame" x="163" y="0.0" width="162" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.29803921570000003" green="0.61960784310000006" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -786,6 +810,9 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                                         <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="4"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
@@ -923,7 +950,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myListings" rowHeight="132" id="oqX-NQ-m2A" customClass="MyListingsCell" customModule="ListingLocation" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myListings" rowHeight="132" id="oqX-NQ-m2A" customClass="MyListingsCell" customModule="ListingLocation" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="568" height="132"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oqX-NQ-m2A" id="gSz-4s-QwT">
@@ -946,10 +973,38 @@
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3, abc xyz, california, US" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASn-8H-c9v">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASn-8H-c9v">
                                                             <rect key="frame" x="128" y="8" width="404" height="29"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="29" id="493-6T-Aqg"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWZ-EG-uWT">
+                                                            <rect key="frame" x="128" y="45" width="180" height="29"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="29" id="6Fy-rb-L5h"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOq-dM-3Yb">
+                                                            <rect key="frame" x="316" y="45" width="180" height="29"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="29" id="UO8-Ua-4nA"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgo-kU-BKX">
+                                                            <rect key="frame" x="351" y="80" width="181" height="29"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="181" id="Z10-YS-P5x"/>
+                                                                <constraint firstAttribute="height" constant="29" id="yaL-6j-cCf"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
@@ -959,9 +1014,17 @@
                                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstItem="ASn-8H-c9v" firstAttribute="leading" secondItem="545-T7-gIY" secondAttribute="trailing" constant="20" id="2Jw-h4-W3c"/>
+                                                        <constraint firstItem="lWZ-EG-uWT" firstAttribute="top" secondItem="ASn-8H-c9v" secondAttribute="bottom" constant="8" id="AMt-Pm-jzX"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Jgo-kU-BKX" secondAttribute="bottom" constant="6.5" id="Dl7-gX-pgP"/>
+                                                        <constraint firstItem="WOq-dM-3Yb" firstAttribute="top" secondItem="ASn-8H-c9v" secondAttribute="bottom" constant="8" id="ENA-h7-KE7"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Jgo-kU-BKX" secondAttribute="trailing" constant="20" id="Jgo-ml-Ovx"/>
                                                         <constraint firstItem="ASn-8H-c9v" firstAttribute="top" secondItem="gso-Rv-COJ" secondAttribute="top" constant="8" id="LH7-9t-ulb"/>
+                                                        <constraint firstItem="lWZ-EG-uWT" firstAttribute="leading" secondItem="545-T7-gIY" secondAttribute="trailing" constant="20" id="OPE-3K-piK"/>
                                                         <constraint firstAttribute="trailing" secondItem="ASn-8H-c9v" secondAttribute="trailing" constant="20" id="UC6-tg-WQU"/>
+                                                        <constraint firstItem="WOq-dM-3Yb" firstAttribute="width" secondItem="lWZ-EG-uWT" secondAttribute="width" id="e4L-QB-RVn"/>
+                                                        <constraint firstAttribute="trailing" secondItem="WOq-dM-3Yb" secondAttribute="trailing" constant="56" id="kFS-eo-kEi"/>
                                                         <constraint firstAttribute="bottom" secondItem="ASn-8H-c9v" secondAttribute="bottom" constant="78.5" id="nFr-Xd-9ZP"/>
+                                                        <constraint firstItem="WOq-dM-3Yb" firstAttribute="leading" secondItem="lWZ-EG-uWT" secondAttribute="trailing" constant="8" id="qFT-fj-zSs"/>
                                                         <constraint firstItem="545-T7-gIY" firstAttribute="top" secondItem="gso-Rv-COJ" secondAttribute="top" constant="8" id="ule-qM-1Ck"/>
                                                         <constraint firstItem="545-T7-gIY" firstAttribute="leading" secondItem="gso-Rv-COJ" secondAttribute="leading" constant="8" id="yDt-g1-GOV"/>
                                                     </constraints>
@@ -980,8 +1043,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="propertyCity" destination="lWZ-EG-uWT" id="nbn-VN-4hW"/>
                                             <outlet property="propertyImage" destination="545-T7-gIY" id="vIF-Tc-pQA"/>
+                                            <outlet property="propertyState" destination="WOq-dM-3Yb" id="G9G-Bp-qU1"/>
                                             <outlet property="proprtyAddress" destination="ASn-8H-c9v" id="9fq-cR-7w0"/>
+                                            <outlet property="sale_rent_status" destination="Jgo-kU-BKX" id="537-4U-Lxp"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1022,7 +1088,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UdM-GY-gBA">
                                         <rect key="frame" x="54" y="274" width="460" height="350"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MiJ-c4-ldK" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Name" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MiJ-c4-ldK" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
                                                 <rect key="frame" x="110" y="14" width="240" height="45"/>
                                                 <color key="backgroundColor" red="0.29803921570000003" green="0.61960784310000006" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -1035,9 +1101,12 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                                         <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CGQ-n8-tUy" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Email Address" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CGQ-n8-tUy" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
                                                 <rect key="frame" x="110" y="79" width="240" height="45"/>
                                                 <color key="backgroundColor" red="0.29803921570000003" green="0.61960784310000006" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -1050,9 +1119,12 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                                         <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NIh-fm-nH6" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Password" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NIh-fm-nH6" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
                                                 <rect key="frame" x="110" y="144" width="240" height="45"/>
                                                 <color key="backgroundColor" red="0.29803921570000003" green="0.61960784310000006" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -1064,6 +1136,9 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                                         <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="4"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
@@ -1537,7 +1612,7 @@
                                 <rect key="frame" x="0.0" y="189" width="568" height="131"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userDetails" rowHeight="90" id="fcV-Ef-fiR" customClass="UserDetailsCell" customModule="ListingLocation" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userDetails" rowHeight="90" id="fcV-Ef-fiR" customClass="UserDetailsCell" customModule="ListingLocation" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="568" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fcV-Ef-fiR" id="M2Q-qS-fLW">
@@ -1635,7 +1710,7 @@
                                             <outlet property="phoneTxt" destination="5uU-wc-Lnf" id="p0X-3s-63W"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="password" rowHeight="44" id="XOP-Fw-ljd" customClass="PasswordCell" customModule="ListingLocation" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="password" rowHeight="44" id="XOP-Fw-ljd" customClass="PasswordCell" customModule="ListingLocation" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="118" width="568" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XOP-Fw-ljd" id="38L-oj-pog">
@@ -1668,7 +1743,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Locations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OyB-FY-ksn">
-                                                    <rect key="frame" x="20" y="13" width="627" height="18"/>
+                                                    <rect key="frame" x="20" y="13" width="528" height="18"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.29803921570000003" green="0.61960784310000006" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1690,10 +1765,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X3P-8R-ydG">
-                                                    <rect key="frame" x="8" y="5" width="651" height="79"/>
+                                                    <rect key="frame" x="8" y="5" width="552" height="79"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6up-Dr-v8v">
-                                                            <rect key="frame" x="12" y="5" width="627" height="18"/>
+                                                            <rect key="frame" x="12" y="5" width="528" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="h3S-Zy-4eG"/>
                                                             </constraints>
@@ -1703,7 +1778,7 @@
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rI-JV-jQj">
-                                                            <rect key="frame" x="12" y="31" width="627" height="18"/>
+                                                            <rect key="frame" x="12" y="31" width="528" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="l1l-uA-KJg"/>
                                                             </constraints>
@@ -1713,7 +1788,7 @@
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lkz-Xa-aEt">
-                                                            <rect key="frame" x="12" y="57" width="627" height="18"/>
+                                                            <rect key="frame" x="12" y="57" width="528" height="18"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                             <state key="normal" title="Send Feedback/Report a bug">
                                                                 <color key="titleColor" red="0.29803921570000003" green="0.61960784310000006" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1750,10 +1825,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h2s-no-MH9">
-                                                    <rect key="frame" x="8" y="5" width="651" height="79"/>
+                                                    <rect key="frame" x="8" y="5" width="552" height="79"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaM-io-fif">
-                                                            <rect key="frame" x="12" y="31" width="627" height="18"/>
+                                                            <rect key="frame" x="12" y="31" width="528" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="liR-d0-Sjr"/>
                                                             </constraints>
@@ -1763,7 +1838,7 @@
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZd-Vc-vRa">
-                                                            <rect key="frame" x="12" y="5" width="627" height="18"/>
+                                                            <rect key="frame" x="12" y="5" width="528" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="kLQ-fW-Ono"/>
                                                             </constraints>
@@ -1773,7 +1848,7 @@
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKd-mf-CzS">
-                                                            <rect key="frame" x="12" y="57" width="627" height="18"/>
+                                                            <rect key="frame" x="12" y="57" width="528" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="3c7-VS-g1v"/>
                                                             </constraints>

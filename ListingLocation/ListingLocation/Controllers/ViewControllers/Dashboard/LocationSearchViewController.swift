@@ -61,6 +61,7 @@ class LocationSearchViewController: UIViewController {
     
     func configureComponentsLayout(){
         UILabel.appearance(whenContainedInInstancesOf: [UISearchBar.self]).textColor = UIColor.white
+        UISearchBar.appearance().setImage(UIImage(named: "icon_search"), for: UISearchBarIcon.search, state: UIControlState.normal)
     }
 }
 
