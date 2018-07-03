@@ -17,6 +17,7 @@ class MyListingsCell: UITableViewCell {
     @IBOutlet var propertyState: UILabel?
     @IBOutlet var propertyCity: UILabel?
     @IBOutlet var sale_rent_status: UILabel?
+    var alertListingLocation: UIAlertController?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,5 +54,23 @@ class MyListingsCell: UITableViewCell {
             self.propertyImage?.sd_setImage(with: NSURL(string: "https://" + imageUrl)! as URL, placeholderImage: UIImage(named: "property"), completed: nil)
         }
      }
+    
+    @IBAction func downloadBtnTapped(_ sender: UIButton){
+        if let image = self.propertyImage?.image {
+            UIImageWriteToSavedPhotosAlbum((image), self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
+        }
+    }
+    
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: error.localizedDescription)
+            UIApplication.shared.keyWindow?.rootViewController?.present(alertListingLocation!, animated: true, completion: nil)
+
+        } else {
+            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: "The property has been stored in photos.")
+            UIApplication.shared.keyWindow?.rootViewController?.present(alertListingLocation!, animated: true, completion: nil)
+        }
+    }
 
 }
+

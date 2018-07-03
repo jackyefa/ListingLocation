@@ -14,7 +14,7 @@ protocol LocationSearchDelegate{
     func send_location_with_coordinate(coordinate: CLLocationCoordinate2D)
 }
 
-class LocationSearchViewController: UIViewController {
+class LocationSearchViewController: BaseViewController {
     
     @IBOutlet weak var searchResultsTableView: UITableView!
     var searchCompleter = MKLocalSearchCompleter()

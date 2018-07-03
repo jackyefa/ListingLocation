@@ -75,7 +75,7 @@ class ListingFormViewController: BaseViewController {
     }
     
     func openAlertToStorePropertyImage(){
-        self.alertListingLocation = UIAlertController.confirmAlertWithTwoButtonTitles(title: appTitle, message: "Do you want to store property's image. You can store it later from Listings screen.", btnTitle1: "Yes", btnTitle2: "No", handler:
+        self.alertListingLocation = UIAlertController.confirmAlertWithTwoButtonTitles(title: appTitle, message: "Do you want to store image in your pictures? You can store it later from My Listings.", btnTitle1: "Yes", btnTitle2: "No", handler:
             {(objAlertAction : UIAlertAction!) -> Void in
                 if let image = self.propertyImage {
                     UIImageWriteToSavedPhotosAlbum((image), self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
@@ -212,21 +212,5 @@ extension ListingFormViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         self.propertyIndex = row
     }
 }
-/*
- @IBAction func downloadBtnTapped(_ sender: UIButton){
- var screenshotImage :UIImage?
- let layer = UIApplication.shared.keyWindow!.layer
- let scale = UIScreen.main.scale
- UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
- guard let context = UIGraphicsGetCurrentContext() else {
- return
- }
- layer.render(in:context)
- screenshotImage = UIGraphicsGetImageFromCurrentImageContext()
- UIGraphicsEndImageContext()
- if let image = screenshotImage {
- UIImageWriteToSavedPhotosAlbum((image), self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
- }
- }
- */
+
 
