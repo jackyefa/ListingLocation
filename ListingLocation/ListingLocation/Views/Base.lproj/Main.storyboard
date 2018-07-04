@@ -330,7 +330,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FpG-G4-l59">
                                 <rect key="frame" x="0.0" y="0.0" width="568" height="76"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="1. Search address here and 2. Place marker pin in your property window or site" translatesAutoresizingMaskIntoConstraints="NO" id="t52-oM-Cb0">
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="1. Search address here and 2. Place         in your property window or site" translatesAutoresizingMaskIntoConstraints="NO" id="t52-oM-Cb0">
                                         <rect key="frame" x="0.0" y="20" width="568" height="56"/>
                                         <color key="backgroundColor" red="0.29803921570000003" green="0.61960784310000006" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -342,12 +342,21 @@
                                             <outlet property="delegate" destination="cuf-bv-KPu" id="5y3-Hj-mQ0"/>
                                         </connections>
                                     </searchBar>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="annot_pin" translatesAutoresizingMaskIntoConstraints="NO" id="K7Q-Dd-xVb">
+                                        <rect key="frame" x="315" y="34" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="AQh-RJ-CpK"/>
+                                            <constraint firstAttribute="width" constant="28" id="kRe-h1-Os5"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.29803921570000003" green="0.61960784310000006" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="76" id="2Hq-wL-8ad"/>
                                     <constraint firstAttribute="bottom" secondItem="t52-oM-Cb0" secondAttribute="bottom" id="ADH-8a-eKo"/>
                                     <constraint firstItem="t52-oM-Cb0" firstAttribute="leading" secondItem="FpG-G4-l59" secondAttribute="leading" id="OpY-Jz-0mM"/>
+                                    <constraint firstItem="K7Q-Dd-xVb" firstAttribute="leading" secondItem="FpG-G4-l59" secondAttribute="leading" constant="315" id="fEw-09-Ncq"/>
+                                    <constraint firstItem="K7Q-Dd-xVb" firstAttribute="top" secondItem="FpG-G4-l59" secondAttribute="top" constant="34" id="gwT-Lb-CWq"/>
                                     <constraint firstAttribute="trailing" secondItem="t52-oM-Cb0" secondAttribute="trailing" id="qwc-G8-rfW"/>
                                 </constraints>
                             </view>
@@ -368,12 +377,13 @@
                         <viewLayoutGuide key="safeArea" id="tSq-dc-6Ii"/>
                     </view>
                     <connections>
+                        <outlet property="annotation_image" destination="K7Q-Dd-xVb" id="yG6-R6-iM3"/>
                         <outlet property="searchResultsTableView" destination="l0H-5F-nII" id="nnF-2m-clb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xf4-b2-PL8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2701" y="915"/>
+            <point key="canvasLocation" x="2700" y="915"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="qnB-cB-BdB">
@@ -839,25 +849,38 @@
                                             <action selector="sale_rent_ChangedWithSegControl:" destination="0B4-LN-kl8" eventType="valueChanged" id="RhU-s4-4Hx"/>
                                         </connections>
                                     </segmentedControl>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please, fill out the form after icon had been placed!" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ylJ-ZX-Fhz" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="52" width="488" height="30"/>
-                                        <color key="backgroundColor" red="0.29803921570000003" green="0.61960784310000006" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="14z-Sz-5qk">
+                                        <rect key="frame" x="20" y="48" width="488" height="35"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLEASE FILL OUT THE FORM AFTER ICON        HAD BEEN PLACED!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZ5-rF-dtK">
+                                                <rect key="frame" x="0.0" y="2" width="488" height="30"/>
+                                                <color key="backgroundColor" red="0.29803921570000003" green="0.61960784310000006" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="sgY-rZ-omr"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="annot_pin" translatesAutoresizingMaskIntoConstraints="NO" id="WXZ-WW-jJx">
+                                                <rect key="frame" x="302" y="3" width="28" height="28"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="488" id="LGX-1x-GoS"/>
-                                            <constraint firstAttribute="height" constant="30" id="MgP-Bq-lfb"/>
+                                            <constraint firstAttribute="width" constant="488" id="7if-5G-HsJ"/>
+                                            <constraint firstAttribute="height" constant="35" id="9bP-Vl-rOT"/>
+                                            <constraint firstItem="gZ5-rF-dtK" firstAttribute="top" secondItem="14z-Sz-5qk" secondAttribute="top" constant="2" id="JJl-js-wIj"/>
+                                            <constraint firstItem="gZ5-rF-dtK" firstAttribute="leading" secondItem="14z-Sz-5qk" secondAttribute="leading" id="Qei-EF-aIW"/>
+                                            <constraint firstAttribute="trailing" secondItem="gZ5-rF-dtK" secondAttribute="trailing" id="fbC-7A-wHl"/>
                                         </constraints>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="4"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </textField>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="PAT-w1-b9W" firstAttribute="centerX" secondItem="LFa-lu-yWp" secondAttribute="centerX" id="0px-eT-bBF"/>
@@ -870,6 +893,7 @@
                                     <constraint firstItem="HCA-S4-oup" firstAttribute="top" secondItem="mCo-Jr-HEt" secondAttribute="bottom" constant="50" id="DTl-VZ-yE7"/>
                                     <constraint firstItem="PAT-w1-b9W" firstAttribute="top" secondItem="CCg-05-4vH" secondAttribute="bottom" constant="12" id="EAP-ee-oGj"/>
                                     <constraint firstItem="vhl-pR-Y1P" firstAttribute="top" secondItem="9hy-ha-vcA" secondAttribute="bottom" constant="16" id="Lni-mg-ggE"/>
+                                    <constraint firstItem="14z-Sz-5qk" firstAttribute="centerX" secondItem="LFa-lu-yWp" secondAttribute="centerX" id="NfI-bI-vnO"/>
                                     <constraint firstItem="flc-aS-F7Z" firstAttribute="trailing" secondItem="9hy-ha-vcA" secondAttribute="trailing" id="QWZ-Rq-ptN"/>
                                     <constraint firstItem="mCo-Jr-HEt" firstAttribute="leading" secondItem="LFa-lu-yWp" secondAttribute="leading" id="WgB-wP-mBL"/>
                                     <constraint firstAttribute="bottom" secondItem="vhl-pR-Y1P" secondAttribute="bottom" constant="20" id="asC-HW-H0m"/>
@@ -881,8 +905,7 @@
                                     <constraint firstItem="CCg-05-4vH" firstAttribute="top" secondItem="flc-aS-F7Z" secondAttribute="bottom" constant="8" id="mgl-c7-Xu5"/>
                                     <constraint firstItem="flc-aS-F7Z" firstAttribute="trailing" secondItem="ACD-ES-mhp" secondAttribute="trailing" id="peM-Jx-pdG"/>
                                     <constraint firstItem="fiA-xb-leE" firstAttribute="top" secondItem="LFa-lu-yWp" secondAttribute="top" constant="10" id="puJ-AG-p9d"/>
-                                    <constraint firstItem="ylJ-ZX-Fhz" firstAttribute="centerX" secondItem="LFa-lu-yWp" secondAttribute="centerX" id="tOJ-ah-jvy"/>
-                                    <constraint firstItem="ylJ-ZX-Fhz" firstAttribute="top" secondItem="mCo-Jr-HEt" secondAttribute="bottom" constant="12" id="v1e-4I-EY6"/>
+                                    <constraint firstItem="14z-Sz-5qk" firstAttribute="top" secondItem="mCo-Jr-HEt" secondAttribute="bottom" constant="8" id="vyX-UU-dQ8"/>
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ii-VC-8ol">
@@ -1949,13 +1972,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="annot_pin" width="100" height="100"/>
         <image name="app_logo" width="722" height="901"/>
         <image name="arrow_black" width="24" height="24"/>
         <image name="black_pin" width="100" height="100"/>
         <image name="cancel_white" width="24" height="24"/>
         <image name="facebook_icon" width="128" height="128"/>
         <image name="plus_marker" width="22" height="30"/>
-        <image name="property" width="227" height="120"/>
+        <image name="property" width="128" height="128"/>
         <image name="save" width="32" height="32"/>
         <image name="twitter_icon" width="128" height="128"/>
         <image name="user-image-d16b8d1d8e124c1a09c509906927a0ef4c732cf81e21670c484b03366806b0fd" width="267" height="189"/>

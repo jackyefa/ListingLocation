@@ -51,4 +51,4 @@ let UPDATE_PROFILE_SUCCESS_MESSAGE = "Thanks! Your profile has been updated."
 let FORGOT_PASSWORD_SUCCESS_MESSAGE = "Thanks! Reset password link has been sent to your email."
 
 let ADD_LISTING_POPUP_TEXT = "Adding.."
-let LISTING_ADDED_MESSAGE = "Thanks! The property added successfully."
+let LISTING_ADDED_MESSAGE = "Thanks! The image had been added to your listings."

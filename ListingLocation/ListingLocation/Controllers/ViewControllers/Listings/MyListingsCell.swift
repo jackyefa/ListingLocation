@@ -67,7 +67,7 @@ class MyListingsCell: UITableViewCell {
             UIApplication.shared.keyWindow?.rootViewController?.present(alertListingLocation!, animated: true, completion: nil)
 
         } else {
-            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: "The property has been stored in photos.")
+            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: "My Listing Location", message: "The image had been stored in your pictures.")
             UIApplication.shared.keyWindow?.rootViewController?.present(alertListingLocation!, animated: true, completion: nil)
         }
     }

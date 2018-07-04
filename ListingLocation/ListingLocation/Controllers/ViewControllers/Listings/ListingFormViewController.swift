@@ -63,7 +63,7 @@ class ListingFormViewController: BaseViewController {
         apiParams = self.getApiParamsToAddListing()
         
         APIManager.sharedAPIManager.user_addListing_apiCall(apiParams!, success:{(responseDictionary: NSDictionary) -> () in
-            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: LISTING_ADDED_MESSAGE, handler: {(objAlertAction: UIAlertAction!) -> Void in
+            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: "My Listing Location", message: LISTING_ADDED_MESSAGE, handler: {(objAlertAction: UIAlertAction!) -> Void in
                 self.openAlertToStorePropertyImage()
                 NotificationCenter.default.post(name: UPDATE_DASHBOARD_NOTIFICATION, object: nil)
             })
@@ -75,7 +75,7 @@ class ListingFormViewController: BaseViewController {
     }
     
     func openAlertToStorePropertyImage(){
-        self.alertListingLocation = UIAlertController.confirmAlertWithTwoButtonTitles(title: appTitle, message: "Do you want to store image in your pictures? You can store it later from My Listings.", btnTitle1: "Yes", btnTitle2: "No", handler:
+        self.alertListingLocation = UIAlertController.confirmAlertWithTwoButtonTitles(title: "My Listing Location", message: "Do you want to store image in your pictures? You can store it later from My Listings.", btnTitle1: "Yes", btnTitle2: "No", handler:
             {(objAlertAction : UIAlertAction!) -> Void in
                 if let image = self.propertyImage {
                     UIImageWriteToSavedPhotosAlbum((image), self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
@@ -184,7 +184,7 @@ class ListingFormViewController: BaseViewController {
             self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: error.localizedDescription)
             self.present(self.alertListingLocation!, animated:true, completion:nil)
         } else {
-            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: "The property has been stored in photos.")
+            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: "My Listing Location", message: "The image had been stored in your pictures.")
             self.present(self.alertListingLocation!, animated: true, completion: nil)
         }
     }

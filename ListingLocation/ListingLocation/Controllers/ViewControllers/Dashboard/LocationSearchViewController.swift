@@ -17,6 +17,7 @@ protocol LocationSearchDelegate{
 class LocationSearchViewController: BaseViewController {
     
     @IBOutlet weak var searchResultsTableView: UITableView!
+    @IBOutlet var annotation_image: UIImageView?
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()
     var locationSearchDelegate: LocationSearchDelegate?
@@ -69,7 +70,12 @@ extension LocationSearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchCompleter.queryFragment = searchText
+        self.annotation_image?.isHidden = true
+        if searchBar.text?.count == 0{
+            self.annotation_image?.isHidden = false
+        }
     }
+
 }
 
 extension LocationSearchViewController: MKLocalSearchCompleterDelegate {

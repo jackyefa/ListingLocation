@@ -34,7 +34,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Listing Locarion would like to use your current location to show all property.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Listing Location provides you to store the location.</string>
+	<string>Image will be added to your pictures.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Listing Location provides you to access library.</string>
 	<key>UILaunchStoryboardName</key>
