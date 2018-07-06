@@ -15,6 +15,7 @@ class DashboardViewController: BaseViewController {
     
     @IBOutlet var mapView: MKMapView?
     @IBOutlet var segmentControl: UISegmentedControl?
+    @IBOutlet var annotBaseView: UIView?
     
     @IBOutlet var annotationImage: UIImageView?
     
@@ -48,6 +49,7 @@ class DashboardViewController: BaseViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        self.annotBaseView?.frame = CGRect(x: 50, y: 0, width: (self.annotBaseView?.frame.size.width)!, height: (self.annotBaseView?.frame.size.height)!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -102,7 +104,7 @@ class DashboardViewController: BaseViewController {
     }
     
     // MARK:- NavigationBar Bar button Methods
-        
+    
     func showMenuIconOnNavigationBar(){
         let menuBtn: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_menu"), style: .plain, target: self, action: #selector(showLeftMenu))
         menuBtn.tintColor = UIColor.white
@@ -153,27 +155,28 @@ class DashboardViewController: BaseViewController {
     }
     
     @objc func openaddListingVc(){
-         var screenshotImage :UIImage?
-         UIGraphicsBeginImageContext(view.bounds.size)
-         guard let context = UIGraphicsGetCurrentContext() else {
-         return
-         }
-         view.layer.render(in:context)
-         screenshotImage = UIGraphicsGetImageFromCurrentImageContext()
-         UIGraphicsEndImageContext()
+        var screenshotImage :UIImage?
+        UIGraphicsBeginImageContext(view.bounds.size)
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return
+        }
+        view.layer.render(in:context)
+        screenshotImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
         
         UIGraphicsBeginImageContext((mapView?.frame.size)!)
         screenshotImage?.draw(at: CGPoint(x: 0, y: 0))
         let croppedImage: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-         if let image = croppedImage {
-         let listingFormVcObj: ListingFormViewController = self.storyboard?.instantiateViewController(withIdentifier: "ListingFormVc") as! ListingFormViewController
+        if let image = croppedImage {
+            let listingFormVcObj: ListingFormViewController = self.storyboard?.instantiateViewController(withIdentifier: "ListingFormVc") as! ListingFormViewController
             listingFormVcObj.propertyImage = image
-         listingFormVcObj.modalPresentationStyle = .overCurrentContext
-         listingFormVcObj.modalTransitionStyle = .crossDissolve
-         self.navigationController?.present(listingFormVcObj, animated: true, completion: nil)
-         }
+            listingFormVcObj.listingFormDelegate = self
+            listingFormVcObj.modalPresentationStyle = .overCurrentContext
+            listingFormVcObj.modalTransitionStyle = .crossDissolve
+            self.navigationController?.present(listingFormVcObj, animated: true, completion: nil)
+        }
     }
     
     // MARK:- Common Methods
@@ -209,6 +212,14 @@ class DashboardViewController: BaseViewController {
     
 }
 
+// MARK: - ListingFormDelegate implementation
+
+extension DashboardViewController: ListingFormDelegate{
+    func moveAnnotationView() {
+        self.annotBaseView?.frame = CGRect(x: 50, y: 0, width: (self.annotBaseView?.frame.size.width)!, height: (self.annotBaseView?.frame.size.height)!)
+    }
+}
+
 // MARK: - LocationServiceDelegate Delegate methods
 
 extension DashboardViewController : LocationServiceDelegate {
@@ -218,7 +229,7 @@ extension DashboardViewController : LocationServiceDelegate {
     }
     
     func tracingLocationDidFailWithError(_ title: String, errorMessage: String) {
-     //   self.showPopupWith_title_message(strTitle: title, strMessage: errorMessage)
+        //   self.showPopupWith_title_message(strTitle: title, strMessage: errorMessage)
     }
 }
 

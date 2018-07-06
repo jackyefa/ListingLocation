@@ -10,8 +10,13 @@ import UIKit
 import Foundation
 import MapKit
 
+protocol ListingFormDelegate{
+    func moveAnnotationView()
+}
+
 class ListingFormViewController: BaseViewController {
     
+    var listingFormDelegate: ListingFormDelegate?
     @IBOutlet var listing_scroll_view: UIScrollView?
     @IBOutlet var property_image: UIImageView?
     var propertyImage: UIImage?
@@ -92,10 +97,12 @@ class ListingFormViewController: BaseViewController {
     
     @IBAction func cancelBtnTapped(_ sender: UIButton){
         self.dismiss(animated: true, completion: nil)
+        self.listingFormDelegate?.moveAnnotationView()
     }
     
     @IBAction func addButtonTapped(_ sender: UIButton){
         self.view.endEditing(true)
+        self.listingFormDelegate?.moveAnnotationView()
         let validationError: String = self.validateTextFiedText()
         validationError.isEmpty ? self.addListing_api_call() : self.showPopupWith_title_message(strTitle: appTitle, strMessage: validationError)
     }
