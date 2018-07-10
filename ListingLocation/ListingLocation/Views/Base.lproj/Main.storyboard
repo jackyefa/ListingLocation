@@ -993,7 +993,7 @@
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gso-Rv-COJ">
                                                     <rect key="frame" x="8" y="8" width="552" height="115.5"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="545-T7-gIY">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="545-T7-gIY">
                                                             <rect key="frame" x="8" y="8" width="100" height="100"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="100" id="IDv-Be-hyf"/>
@@ -1089,6 +1089,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="downloadBtn" destination="6RG-sH-x0q" id="e4n-Ps-RU0"/>
                                             <outlet property="propertyCity" destination="lWZ-EG-uWT" id="nbn-VN-4hW"/>
                                             <outlet property="propertyImage" destination="545-T7-gIY" id="vIF-Tc-pQA"/>
                                             <outlet property="propertyState" destination="WOq-dM-3Yb" id="G9G-Bp-qU1"/>

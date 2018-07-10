@@ -79,7 +79,7 @@ class DashboardViewController: BaseViewController {
         APIManager.sharedAPIManager.user_dashboard_apiCall( success: {(responseDictionary: DashboardResponse) -> () in
             self.allProperties = responseDictionary.allProperties
             self.userProperties = responseDictionary.userProperties
-            self.dropPinsFromApiFResponse()
+          //  self.dropPinsFromApiFResponse()
             
         },failure: { (error: NSError) -> () in
             self.showPopupWith_title_message(strTitle: appTitle, strMessage: error.localizedDescription)

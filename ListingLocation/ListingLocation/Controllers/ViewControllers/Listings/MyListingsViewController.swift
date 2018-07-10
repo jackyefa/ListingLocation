@@ -76,8 +76,21 @@ extension MyListingsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let myListingsCell = tableView.dequeueReusableCell(withIdentifier: "myListings", for: indexPath) as! MyListingsCell
         myListingsCell.assignDataToCell(userProperty: userProperties![indexPath.row])
+        myListingsCell.myListingsDelegate = self
         myListingsCell.selectionStyle = .none
         return myListingsCell
     }
     
 }
+
+// MARK:- MyListings Delegate
+
+extension MyListingsViewController: MyListingsCellDelegate{
+    
+    func downloadBtnAction(listingID: Int64) {
+        property_id_Array.append(listingID)
+        property_id_default.set(property_id_Array, forKey:"property_id")
+        property_id_default.synchronize()
+    }
+}
+

@@ -16,6 +16,7 @@ let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
 let emptyString: String = String()
 let noDataText: String = "N/A"
 let appTitle: String = "Listing Location"
+var property_id_Array:[Int64] = NSMutableArray() as! [Int64]
 
 // MARK: - Application Notification Identifiers
 

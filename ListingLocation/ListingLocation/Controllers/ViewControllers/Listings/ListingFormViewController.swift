@@ -31,6 +31,7 @@ class ListingFormViewController: BaseViewController {
     var apiParams: NSDictionary?
     var selectedAnnotation: MKPointAnnotation?
     var geocoder = CLGeocoder()
+    var callBackPropertyID: Int64?
     
     var propertTypeArray = ["Sale","Rent"]
     var propertyIndex: Int = 0
@@ -68,9 +69,11 @@ class ListingFormViewController: BaseViewController {
         apiParams = self.getApiParamsToAddListing()
         
         APIManager.sharedAPIManager.user_addListing_apiCall(apiParams!, success:{(responseDictionary: NSDictionary) -> () in
+            if((responseDictionary["id"]) != nil){
+                self.callBackPropertyID = responseDictionary["id"] as? Int64
+            }
             self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: "My Listing Location", message: LISTING_ADDED_MESSAGE, handler: {(objAlertAction: UIAlertAction!) -> Void in
                 self.openAlertToStorePropertyImage()
-                NotificationCenter.default.post(name: UPDATE_DASHBOARD_NOTIFICATION, object: nil)
             })
             self.present(self.alertListingLocation!, animated: true, completion: nil)
             
@@ -192,6 +195,11 @@ class ListingFormViewController: BaseViewController {
             self.present(self.alertListingLocation!, animated:true, completion:nil)
         } else {
             self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: "My Listing Location", message: "The image had been stored in your pictures.")
+            
+            if let p_id = callBackPropertyID{
+                property_id_Array.append(p_id)
+            }
+            
             self.present(self.alertListingLocation!, animated: true, completion: nil)
         }
     }

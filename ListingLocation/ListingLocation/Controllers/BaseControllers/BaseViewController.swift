@@ -145,6 +145,7 @@ class BaseViewController: UIViewController {
         auth_token = ""
         user_email = ""
         address = ""
+        property_id_default.removeObject(forKey: "property_id")
         self.navigationController?.popToRootViewController(animated: true)
     }
     

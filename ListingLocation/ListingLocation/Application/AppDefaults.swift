@@ -10,6 +10,8 @@ import Foundation
 
 // MARK: - Default Persistant Storage
 
+var property_id_default = UserDefaults.standard
+
 var auth_token: String {
     get {
         var token: String = String()
@@ -104,6 +106,20 @@ var id: Int64{
     }
     set(newValue){
         UserDefaults.standard.set(newValue, forKey: "user_id")
+        UserDefaults.standard.synchronize()
+    }
+}
+
+var property_images: NSMutableArray{
+    get{
+        var propertyImage: NSMutableArray = NSMutableArray()
+        if ((UserDefaults.standard.object(forKey: "property_image")) != nil){
+            propertyImage = UserDefaults.standard.object(forKey: "property_image") as! NSMutableArray
+        }
+        return propertyImage
+    }
+    set(newValue){
+        UserDefaults.standard.set(newValue, forKey: "property_image")
         UserDefaults.standard.synchronize()
     }
 }
