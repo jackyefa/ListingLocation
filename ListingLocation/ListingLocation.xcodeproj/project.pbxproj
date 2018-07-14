@@ -45,7 +45,6 @@
 		181D762E20A71BC90083F2B9 /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D762D20A71BC90083F2B9 /* LocationSearchViewController.swift */; };
 		184D3A7D20AC0AEF0087DC6F /* ListingFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D3A7C20AC0AEF0087DC6F /* ListingFormViewController.swift */; };
 		18B3CBF420A9B1F90051A9D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B3CBF320A9B1F90051A9D4 /* ProfileViewController.swift */; };
-		18E11BFC20AC7323000FF23A /* LockOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E11BFB20AC7323000FF23A /* LockOrientation.swift */; };
 		18F730ED20B697F70070EF9E /* Listings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F730EC20B697F60070EF9E /* Listings.swift */; };
 		18F730EF20B6E6680070EF9E /* DashboardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F730EE20B6E6680070EF9E /* DashboardResponse.swift */; };
 		18FB6FAC20AAAD3C006626D7 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB6FAB20AAAD3C006626D7 /* LeftMenuViewController.swift */; };
@@ -117,7 +116,6 @@
 		181D762D20A71BC90083F2B9 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
 		184D3A7C20AC0AEF0087DC6F /* ListingFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingFormViewController.swift; sourceTree = "<group>"; };
 		18B3CBF320A9B1F90051A9D4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		18E11BFB20AC7323000FF23A /* LockOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockOrientation.swift; sourceTree = "<group>"; };
 		18F730EC20B697F60070EF9E /* Listings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listings.swift; sourceTree = "<group>"; };
 		18F730EE20B6E6680070EF9E /* DashboardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardResponse.swift; sourceTree = "<group>"; };
 		18FB6FAB20AAAD3C006626D7 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
@@ -279,7 +277,6 @@
 				181D762920A6C48F0083F2B9 /* LocationManager.swift */,
 				181D75DF20A57C330083F2B9 /* LLTextField.swift */,
 				181D75E120A57C440083F2B9 /* LLButton.swift */,
-				18E11BFB20AC7323000FF23A /* LockOrientation.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -664,7 +661,6 @@
 				181D75C620A568370083F2B9 /* APIConstants.swift in Sources */,
 				181D75D620A568A60083F2B9 /* String+Additions.swift in Sources */,
 				18F730ED20B697F70070EF9E /* Listings.swift in Sources */,
-				18E11BFC20AC7323000FF23A /* LockOrientation.swift in Sources */,
 				181D75DE20A578400083F2B9 /* User.swift in Sources */,
 				18B3CBF420A9B1F90051A9D4 /* ProfileViewController.swift in Sources */,
 				181D75D220A568A60083F2B9 /* Alert+Additions.swift in Sources */,

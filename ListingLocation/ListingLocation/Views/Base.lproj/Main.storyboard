@@ -384,7 +384,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xf4-b2-PL8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2700" y="915"/>
+            <point key="canvasLocation" x="2701" y="893"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="qnB-cB-BdB">
@@ -666,7 +666,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dxX-7G-qi5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2700" y="1871"/>
+            <point key="canvasLocation" x="2701" y="1860"/>
         </scene>
         <!--Listing Form View Controller-->
         <scene sceneID="8og-j9-tQU">
@@ -698,11 +698,11 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  MLS# / Non MLS [0 if none]" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9hy-ha-vcA" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="515" width="488" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Building Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9hy-ha-vcA" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
+                                        <rect key="frame" x="265" y="515" width="243" height="30"/>
                                         <color key="backgroundColor" red="0.29803921568627451" green="0.61960784313725492" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="488" id="Qwa-G1-KBa"/>
+                                            <constraint firstAttribute="width" constant="243" id="Qwa-G1-KBa"/>
                                             <constraint firstAttribute="height" constant="30" id="hEM-Uk-ZXO"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -882,6 +882,25 @@
                                             <constraint firstAttribute="trailing" secondItem="gZ5-rF-dtK" secondAttribute="trailing" id="fbC-7A-wHl"/>
                                         </constraints>
                                     </view>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  MLS# " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3uv-KN-imu" customClass="LLTextField" customModule="ListingLocation" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="515" width="243" height="30"/>
+                                        <color key="backgroundColor" red="0.29803921570000003" green="0.61960784310000006" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="243" id="3CG-y3-3uf"/>
+                                            <constraint firstAttribute="height" constant="30" id="FcN-jS-CCg"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="PAT-w1-b9W" firstAttribute="centerX" secondItem="LFa-lu-yWp" secondAttribute="centerX" id="0px-eT-bBF"/>
@@ -894,11 +913,13 @@
                                     <constraint firstItem="HCA-S4-oup" firstAttribute="top" secondItem="mCo-Jr-HEt" secondAttribute="bottom" constant="50" id="DTl-VZ-yE7"/>
                                     <constraint firstItem="PAT-w1-b9W" firstAttribute="top" secondItem="CCg-05-4vH" secondAttribute="bottom" constant="12" id="EAP-ee-oGj"/>
                                     <constraint firstItem="vhl-pR-Y1P" firstAttribute="top" secondItem="9hy-ha-vcA" secondAttribute="bottom" constant="16" id="Lni-mg-ggE"/>
+                                    <constraint firstItem="9hy-ha-vcA" firstAttribute="leading" secondItem="3uv-KN-imu" secondAttribute="trailing" constant="2" id="MvN-bs-leN"/>
                                     <constraint firstItem="14z-Sz-5qk" firstAttribute="centerX" secondItem="LFa-lu-yWp" secondAttribute="centerX" id="NfI-bI-vnO"/>
                                     <constraint firstItem="flc-aS-F7Z" firstAttribute="trailing" secondItem="9hy-ha-vcA" secondAttribute="trailing" id="QWZ-Rq-ptN"/>
                                     <constraint firstItem="mCo-Jr-HEt" firstAttribute="leading" secondItem="LFa-lu-yWp" secondAttribute="leading" id="WgB-wP-mBL"/>
                                     <constraint firstAttribute="bottom" secondItem="vhl-pR-Y1P" secondAttribute="bottom" constant="20" id="asC-HW-H0m"/>
                                     <constraint firstItem="flc-aS-F7Z" firstAttribute="trailing" secondItem="PAT-w1-b9W" secondAttribute="trailing" id="bOm-08-dJq"/>
+                                    <constraint firstItem="3uv-KN-imu" firstAttribute="top" secondItem="ACD-ES-mhp" secondAttribute="bottom" constant="8" id="beI-aY-92P"/>
                                     <constraint firstItem="vhl-pR-Y1P" firstAttribute="centerX" secondItem="LFa-lu-yWp" secondAttribute="centerX" id="dIW-BS-ryv"/>
                                     <constraint firstItem="mCo-Jr-HEt" firstAttribute="top" secondItem="LFa-lu-yWp" secondAttribute="top" id="eKn-xk-pzB"/>
                                     <constraint firstItem="fiA-xb-leE" firstAttribute="leading" secondItem="LFa-lu-yWp" secondAttribute="leading" constant="20" id="hAa-yl-dXC"/>
@@ -953,11 +974,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zyn-gf-XqD"/>
                     </view>
-                    <size key="freeformSize" width="568" height="320"/>
                     <connections>
+                        <outlet property="buildingName" destination="9hy-ha-vcA" id="l2A-vg-Iva"/>
                         <outlet property="cityTxt" destination="TPR-g1-fc3" id="khD-B9-KSP"/>
                         <outlet property="custom_header_view" destination="3Ii-VC-8ol" id="VJm-s8-yNW"/>
-                        <outlet property="idNumberTxt" destination="9hy-ha-vcA" id="SFo-Xq-NTD"/>
+                        <outlet property="idNumberTxt" destination="3uv-KN-imu" id="0Cw-FJ-tA5"/>
                         <outlet property="listing_scroll_view" destination="LFa-lu-yWp" id="z9c-ni-xWL"/>
                         <outlet property="property_image" destination="PAT-w1-b9W" id="syz-Gx-Eya"/>
                         <outlet property="proprtyAddressTxt" destination="HCA-S4-oup" id="sXF-fK-VSm"/>

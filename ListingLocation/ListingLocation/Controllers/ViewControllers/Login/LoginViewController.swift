@@ -43,7 +43,6 @@ class LoginViewController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        AppUtility.lockOrientation(.landscape)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

@@ -31,8 +31,6 @@ class BaseViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // Do any additional setup after appear the view.
-        AppUtility.lockOrientation(.landscape)
-       // AppUtility.lockOrientation(.landscape, andRotateTo: .landscapeLeft)
     }
     
     

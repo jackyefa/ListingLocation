@@ -16,13 +16,9 @@ class DashboardViewController: BaseViewController {
     @IBOutlet var mapView: MKMapView?
     @IBOutlet var segmentControl: UISegmentedControl?
     @IBOutlet var annotBaseView: UIView?
-    
     @IBOutlet var annotationImage: UIImageView?
-    
     var locationCoordinate = CLLocationCoordinate2D()
     var span = MKCoordinateSpanMake(0.05, 0.05)
-    var allProperties: [Listings]?
-    var userProperties: [Listings]?
     
     // MARK:- Life Cycle Methods.
     
@@ -35,7 +31,6 @@ class DashboardViewController: BaseViewController {
         self.showMenuIconOnNavigationBar()
         self.setUpSideMenuAndDefaults()
         self.mapView?.delegate = self
-        self.dashboard_Api_call()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,34 +68,6 @@ class DashboardViewController: BaseViewController {
             })
         })
         self.present(self.alertListingLocation!, animated:true, completion:nil)
-    }
-    
-    @objc func dashboard_Api_call(){
-        APIManager.sharedAPIManager.user_dashboard_apiCall( success: {(responseDictionary: DashboardResponse) -> () in
-            self.allProperties = responseDictionary.allProperties
-            self.userProperties = responseDictionary.userProperties
-          //  self.dropPinsFromApiFResponse()
-            
-        },failure: { (error: NSError) -> () in
-            self.showPopupWith_title_message(strTitle: appTitle, strMessage: error.localizedDescription)
-        })
-    }
-    
-    func dropPinsFromApiFResponse(){
-        for all_location in allProperties!{
-            let annotation = MKPointAnnotation()
-            if (all_location.latitude != nil){
-                annotation.coordinate = CLLocationCoordinate2D(latitude: all_location.latitude!, longitude: all_location.longitude!)
-                mapView?.addAnnotation(annotation)
-            }
-        }
-        for user_location in userProperties!{
-            let annotation = MKPointAnnotation()
-            if (user_location.latitude != nil){
-                annotation.coordinate = CLLocationCoordinate2D(latitude: user_location.latitude!, longitude: user_location.longitude!)
-                mapView?.addAnnotation(annotation)
-            }
-        }
     }
     
     // MARK:- NavigationBar Bar button Methods
@@ -143,11 +110,6 @@ class DashboardViewController: BaseViewController {
         }
     }
     
-    @IBAction func profileBtnTapped(_ sender: UIButton){
-        let profileVcObj: ProfileViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileVc") as! ProfileViewController
-        self.navigationController?.pushViewController(profileVcObj, animated: true)
-    }
-    
     @IBAction func panAnnotation(sender: UIPanGestureRecognizer){
         let translation = sender.translation(in: self.view)
         sender.view!.center = CGPoint(x: sender.view!.center.x + translation.x, y: sender.view!.center.y + translation.y)
@@ -188,9 +150,7 @@ class DashboardViewController: BaseViewController {
         }
         //Notifications
         NotificationCenter.default.addObserver(self, selector: #selector(logoutUser_Api_call), name: LOGOUT_USER_NOTIFICATION, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(dashboard_Api_call), name: UPDATE_DASHBOARD_NOTIFICATION, object: nil)
         self.mapView?.showsUserLocation = false
-        
     }
     
     func showCurrentLocationOnMapView(_ location: CLLocation) {
@@ -229,7 +189,6 @@ extension DashboardViewController : LocationServiceDelegate {
     }
     
     func tracingLocationDidFailWithError(_ title: String, errorMessage: String) {
-        //   self.showPopupWith_title_message(strTitle: title, strMessage: errorMessage)
     }
 }
 

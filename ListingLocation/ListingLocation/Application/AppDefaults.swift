@@ -109,17 +109,3 @@ var id: Int64{
         UserDefaults.standard.synchronize()
     }
 }
-
-var property_images: NSMutableArray{
-    get{
-        var propertyImage: NSMutableArray = NSMutableArray()
-        if ((UserDefaults.standard.object(forKey: "property_image")) != nil){
-            propertyImage = UserDefaults.standard.object(forKey: "property_image") as! NSMutableArray
-        }
-        return propertyImage
-    }
-    set(newValue){
-        UserDefaults.standard.set(newValue, forKey: "property_image")
-        UserDefaults.standard.synchronize()
-    }
-}

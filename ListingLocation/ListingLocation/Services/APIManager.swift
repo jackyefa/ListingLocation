@@ -60,14 +60,14 @@ public class APIManager {
     func user_signUp_apiCall(_ apiParams: NSDictionary, success:@escaping (_ responseDictionary: NSDictionary) ->(), failure:@escaping (_ error: NSError) ->()) {
         
         sharedAPIClient.baseApiCallWith_HttpHeader(API_SIGNUP, method: .post, apiParameters: apiParams, loadingViewText: SIGNUP_POPUP_TEXT, baseSuccessBlock: { (responseObject: DataResponse) -> () in
-            
             self.update_user_authToken(responseObject.response!)
             
-            let emptyDataError: NSError = getFailureError(["error": "empty error."])
+            let emptyDataError: NSError = getFailureError(["error": "User already exist."])
             guard let responseDictionary: NSDictionary = responseObject.result.value as? NSDictionary else{
                 failure(emptyDataError)
                 return
             }
+            
             let userData = Mapper<User>().map(JSONObject: responseDictionary["user"])
             if let user_name = userData?.name{
                 name = user_name

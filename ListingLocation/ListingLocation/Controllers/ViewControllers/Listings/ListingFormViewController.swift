@@ -28,6 +28,7 @@ class ListingFormViewController: BaseViewController {
     @IBOutlet var zipcodeTxt: LLTextField?
     @IBOutlet var segmentControl: UISegmentedControl?
     @IBOutlet var idNumberTxt: LLTextField?
+    @IBOutlet var buildingName: LLTextField?
     var apiParams: NSDictionary?
     var selectedAnnotation: MKPointAnnotation?
     var geocoder = CLGeocoder()
@@ -169,6 +170,7 @@ class ListingFormViewController: BaseViewController {
         self.stateTxt?.initiliase_customTextField_with_blue_background()
         self.zipcodeTxt?.initiliase_customTextField_with_blue_background()
         self.idNumberTxt?.initiliase_customTextField_with_blue_background()
+        self.buildingName?.initiliase_customTextField_with_blue_background()
     }
     
     func validateTextFiedText() -> String {

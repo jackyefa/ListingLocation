@@ -15,7 +15,6 @@ import SVProgressHUD
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var orientationLock = UIInterfaceOrientationMask.all
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -24,8 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         LocationManager.sharedInstance.startUpdatingLocation()
         self.setUpDefaultSettingsOfSVProgessHUD()
-        AppUtility.lockOrientation(.landscape)
-        AppUtility.lockOrientation(.landscape, andRotateTo: .landscapeLeft)
         return true
     }
 
@@ -54,11 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
     
-    // MARK: - Delegate method for orientation locking
     
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        return self.orientationLock
-    }
 
     // MARK: - Core Data stack
 
