@@ -34,10 +34,6 @@ class ListingFormViewController: BaseViewController {
     var geocoder = CLGeocoder()
     var callBackPropertyID: Int64?
     
-    var propertTypeArray = ["Sale","Rent"]
-    var propertyIndex: Int = 0
-    var propertyPicker: UIPickerView = UIPickerView()
-    
     // MARK:- Life Cycle Methods.
     
     override func viewDidLoad() {
@@ -73,24 +69,17 @@ class ListingFormViewController: BaseViewController {
             if((responseDictionary["id"]) != nil){
                 self.callBackPropertyID = responseDictionary["id"] as? Int64
             }
-            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: "My Listing Location", message: LISTING_ADDED_MESSAGE, handler: {(objAlertAction: UIAlertAction!) -> Void in
-                self.openAlertToStorePropertyImage()
-            })
-            self.present(self.alertListingLocation!, animated: true, completion: nil)
+            self.storePropertyImage()
             
         }, failure: {(error: NSError) -> () in
             self.showPopupWith_title_message(strTitle: appTitle, strMessage: error.localizedDescription)
         })
     }
     
-    func openAlertToStorePropertyImage(){
-        self.alertListingLocation = UIAlertController.confirmAlertWithTwoButtonTitles(title: "My Listing Location", message: "Do you want to store image in your pictures? You can store it later from My Listings.", btnTitle1: "Yes", btnTitle2: "No", handler:
-            {(objAlertAction : UIAlertAction!) -> Void in
-                if let image = self.propertyImage {
-                    UIImageWriteToSavedPhotosAlbum((image), self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
-                }
-        })
-        self.present(self.alertListingLocation!, animated: true, completion: nil)
+    func storePropertyImage(){
+        if let image = self.propertyImage {
+            UIImageWriteToSavedPhotosAlbum((image), self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
+        }
     }
     
     @objc func cancelPicker(){
@@ -151,6 +140,7 @@ class ListingFormViewController: BaseViewController {
     }
     
     func configureComponentsLayout(){
+        self.segmentControl?.tag = 10
         self.property_image?.layer.cornerRadius = 4
         self.property_image?.layer.borderWidth = 0.4
         self.property_image?.layer.borderColor = UIColor.lightGray.cgColor
@@ -196,38 +186,10 @@ class ListingFormViewController: BaseViewController {
             self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: error.localizedDescription)
             self.present(self.alertListingLocation!, animated:true, completion:nil)
         } else {
-            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: "My Listing Location", message: "The image had been stored in your pictures.")
-            
-            if let p_id = callBackPropertyID{
-                property_id_Array.append(p_id)
-            }
-            
-            self.present(self.alertListingLocation!, animated: true, completion: nil)
         }
     }
     
 }
 
-// MARK: - Pickerview delegate and data source
-
-extension ListingFormViewController: UIPickerViewDelegate, UIPickerViewDataSource{
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.propertTypeArray.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
-        self.propertyIndex = row
-        return propertTypeArray[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.propertyIndex = row
-    }
-}
 
 

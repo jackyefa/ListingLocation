@@ -1054,7 +1054,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgo-kU-BKX">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgo-kU-BKX">
                                                             <rect key="frame" x="351" y="80" width="181" height="29"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="181" id="Z10-YS-P5x"/>
@@ -1064,23 +1064,11 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6RG-sH-x0q">
-                                                            <rect key="frame" x="516" y="10" width="26" height="26"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="26" id="OR1-GN-8ey"/>
-                                                                <constraint firstAttribute="height" constant="26" id="Wg1-V1-1QH"/>
-                                                            </constraints>
-                                                            <state key="normal" image="save"/>
-                                                            <connections>
-                                                                <action selector="downloadBtnTapped:" destination="oqX-NQ-m2A" eventType="touchUpInside" id="91e-KW-jbu"/>
-                                                            </connections>
-                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstItem="ASn-8H-c9v" firstAttribute="leading" secondItem="545-T7-gIY" secondAttribute="trailing" constant="20" id="2Jw-h4-W3c"/>
                                                         <constraint firstItem="lWZ-EG-uWT" firstAttribute="top" secondItem="ASn-8H-c9v" secondAttribute="bottom" constant="8" id="AMt-Pm-jzX"/>
-                                                        <constraint firstAttribute="trailing" secondItem="6RG-sH-x0q" secondAttribute="trailing" constant="10" id="Cdf-aq-cwk"/>
                                                         <constraint firstAttribute="bottom" secondItem="Jgo-kU-BKX" secondAttribute="bottom" constant="6.5" id="Dl7-gX-pgP"/>
                                                         <constraint firstItem="WOq-dM-3Yb" firstAttribute="top" secondItem="ASn-8H-c9v" secondAttribute="bottom" constant="8" id="ENA-h7-KE7"/>
                                                         <constraint firstAttribute="trailing" secondItem="Jgo-kU-BKX" secondAttribute="trailing" constant="20" id="Jgo-ml-Ovx"/>
@@ -1089,7 +1077,6 @@
                                                         <constraint firstAttribute="trailing" secondItem="ASn-8H-c9v" secondAttribute="trailing" constant="60" id="UC6-tg-WQU"/>
                                                         <constraint firstItem="WOq-dM-3Yb" firstAttribute="width" secondItem="lWZ-EG-uWT" secondAttribute="width" id="e4L-QB-RVn"/>
                                                         <constraint firstAttribute="trailing" secondItem="WOq-dM-3Yb" secondAttribute="trailing" constant="56" id="kFS-eo-kEi"/>
-                                                        <constraint firstItem="6RG-sH-x0q" firstAttribute="top" secondItem="gso-Rv-COJ" secondAttribute="top" constant="10" id="kzv-gx-a61"/>
                                                         <constraint firstAttribute="bottom" secondItem="ASn-8H-c9v" secondAttribute="bottom" constant="78.5" id="nFr-Xd-9ZP"/>
                                                         <constraint firstItem="WOq-dM-3Yb" firstAttribute="leading" secondItem="lWZ-EG-uWT" secondAttribute="trailing" constant="8" id="qFT-fj-zSs"/>
                                                         <constraint firstItem="545-T7-gIY" firstAttribute="top" secondItem="gso-Rv-COJ" secondAttribute="top" constant="8" id="ule-qM-1Ck"/>
@@ -1110,7 +1097,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="downloadBtn" destination="6RG-sH-x0q" id="e4n-Ps-RU0"/>
                                             <outlet property="propertyCity" destination="lWZ-EG-uWT" id="nbn-VN-4hW"/>
                                             <outlet property="propertyImage" destination="545-T7-gIY" id="vIF-Tc-pQA"/>
                                             <outlet property="propertyState" destination="WOq-dM-3Yb" id="G9G-Bp-qU1"/>
@@ -2003,7 +1989,6 @@
         <image name="facebook_icon" width="128" height="128"/>
         <image name="plus_marker" width="22" height="30"/>
         <image name="property" width="128" height="128"/>
-        <image name="save" width="32" height="32"/>
         <image name="twitter_icon" width="128" height="128"/>
         <image name="user-image-d16b8d1d8e124c1a09c509906927a0ef4c732cf81e21670c484b03366806b0fd" width="267" height="189"/>
         <image name="user_marker" width="22" height="30"/>
