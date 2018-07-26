@@ -77,9 +77,9 @@ class UpdatePasswordViewController: BaseViewController {
         self.container_view?.layer.cornerRadius = 8
         self.container_view?.clipsToBounds = true
         self.updateBtn?.layer.cornerRadius = 8
-        self.currentPasswordTxt?.initializeCustomTextFieldWith_BottomLineView(withSecuredEntery: true)
-        self.newPasswordTxt?.initializeCustomTextFieldWith_BottomLineView(withSecuredEntery: true)
-        self.confirmPasswordTxt?.initializeCustomTextFieldWith_BottomLineView(withSecuredEntery: true)
+        self.currentPasswordTxt?.initiliase_customTextField_with_blue_background()
+        self.newPasswordTxt?.initiliase_customTextField_with_blue_background()
+        self.confirmPasswordTxt?.initiliase_customTextField_with_blue_background()
     }
     
     func validateTextFiedText() -> String {

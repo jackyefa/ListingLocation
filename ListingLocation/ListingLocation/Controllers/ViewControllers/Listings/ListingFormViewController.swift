@@ -69,7 +69,10 @@ class ListingFormViewController: BaseViewController {
             if((responseDictionary["id"]) != nil){
                 self.callBackPropertyID = responseDictionary["id"] as? Int64
             }
-            self.storePropertyImage()
+            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: LISTING_ADDED_MESSAGE, handler: {(objAlertAction: UIAlertAction!) -> Void in
+                self.storePropertyImage()
+            })
+            self.present(self.alertListingLocation!, animated: true, completion: nil)
             
         }, failure: {(error: NSError) -> () in
             self.showPopupWith_title_message(strTitle: appTitle, strMessage: error.localizedDescription)

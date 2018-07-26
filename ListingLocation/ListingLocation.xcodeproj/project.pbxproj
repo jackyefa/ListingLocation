@@ -50,7 +50,6 @@
 		18FB6FAC20AAAD3C006626D7 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB6FAB20AAAD3C006626D7 /* LeftMenuViewController.swift */; };
 		18FB6FAE20AB06E5006626D7 /* UserDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB6FAD20AB06E5006626D7 /* UserDetailsCell.swift */; };
 		18FB6FB020AB0713006626D7 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB6FAF20AB0713006626D7 /* LocationCell.swift */; };
-		18FB6FB220AB075D006626D7 /* RateUsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB6FB120AB075D006626D7 /* RateUsCell.swift */; };
 		18FB6FB420AB0796006626D7 /* LegalAndPolicyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB6FB320AB0796006626D7 /* LegalAndPolicyCell.swift */; };
 		986EA9CB09FE8602FB5E9170 /* Pods_ListingLocationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABCA81A702E7DBDECAA77230 /* Pods_ListingLocationTests.framework */; };
 /* End PBXBuildFile section */
@@ -121,7 +120,6 @@
 		18FB6FAB20AAAD3C006626D7 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		18FB6FAD20AB06E5006626D7 /* UserDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsCell.swift; sourceTree = "<group>"; };
 		18FB6FAF20AB0713006626D7 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
-		18FB6FB120AB075D006626D7 /* RateUsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateUsCell.swift; sourceTree = "<group>"; };
 		18FB6FB320AB0796006626D7 /* LegalAndPolicyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalAndPolicyCell.swift; sourceTree = "<group>"; };
 		2A35D3DE9CE8C0ECF9BC82DB /* Pods-ListingLocationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListingLocationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ListingLocationTests/Pods-ListingLocationTests.release.xcconfig"; sourceTree = "<group>"; };
 		31AA5BCEC3AE6BAAED25886E /* Pods_ListingLocation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ListingLocation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -378,7 +376,6 @@
 				18FB6FAD20AB06E5006626D7 /* UserDetailsCell.swift */,
 				180F35D320B29E6400934987 /* PasswordCell.swift */,
 				18FB6FAF20AB0713006626D7 /* LocationCell.swift */,
-				18FB6FB120AB075D006626D7 /* RateUsCell.swift */,
 				18FB6FB320AB0796006626D7 /* LegalAndPolicyCell.swift */,
 				180F35D520B2A2D100934987 /* UpdatePasswordViewController.swift */,
 				180F35D720B2CAB500934987 /* UpdateProfileViewController.swift */,
@@ -685,7 +682,6 @@
 				184D3A7D20AC0AEF0087DC6F /* ListingFormViewController.swift in Sources */,
 				1802E1DD20DD1CC3007CDFAC /* MyListingsCell.swift in Sources */,
 				181D75D520A568A60083F2B9 /* UIFont+Additions.swift in Sources */,
-				18FB6FB220AB075D006626D7 /* RateUsCell.swift in Sources */,
 				181D75D320A568A60083F2B9 /* UIColor+Additions.swift in Sources */,
 				181D762E20A71BC90083F2B9 /* LocationSearchViewController.swift in Sources */,
 				180F35D820B2CAB500934987 /* UpdateProfileViewController.swift in Sources */,

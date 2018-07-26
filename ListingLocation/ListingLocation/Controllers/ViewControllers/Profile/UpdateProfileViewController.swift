@@ -16,6 +16,8 @@ class UpdateProfileViewController: BaseViewController {
     @IBOutlet var nameTxt: LLTextField?
     @IBOutlet var phoneTxt: LLTextField?
     @IBOutlet var addressTxt: LLTextField?
+    @IBOutlet var rateUsBtn: LLButton?
+    @IBOutlet var reportBugBtn: LLButton?
     
     // MARK:- Life Cycle Methods.
 
@@ -39,7 +41,11 @@ class UpdateProfileViewController: BaseViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        
+        self.nameTxt?.initiliase_customTextField_with_blue_background()
+        self.phoneTxt?.initiliase_customTextField_with_blue_background()
+        self.addressTxt?.initiliase_customTextField_with_blue_background()
+        self.rateUsBtn?.initializeButton_withRedTheme()
+        self.reportBugBtn?.initializeButton_withRedTheme()
     }
     
     // MARK:- Button tap actions and update_profile API_call
@@ -49,7 +55,7 @@ class UpdateProfileViewController: BaseViewController {
     }
     
     @IBAction func updateBtnTapped(_ sender: UIButton){
-        let apiParams: NSDictionary = ["name": self.nameTxt!.text!, "phone": self.phoneTxt!.text!, "address": self.addressTxt!.text!]
+        let apiParams: NSDictionary = ["name": self.nameTxt!.text!, "phone": self.phoneTxt!.text!, "address": ""]
         
         if(self.nameTxt?.text?.isEmpty)!{
             self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: "Please input name.")
@@ -88,9 +94,6 @@ class UpdateProfileViewController: BaseViewController {
         self.container_view?.layer.cornerRadius = 8
         self.container_view?.clipsToBounds = true
         self.updateBtn?.layer.cornerRadius = 8
-        self.nameTxt?.initializeCustomTextFieldWith_BottomLineView(withSecuredEntery: false)
-        self.phoneTxt?.initializeCustomTextFieldWith_BottomLineView(withSecuredEntery: false)
-        self.addressTxt?.initializeCustomTextFieldWith_BottomLineView(withSecuredEntery: false)
         
         //Default name, address and phone
         if !(name.isEmpty){
@@ -99,9 +102,7 @@ class UpdateProfileViewController: BaseViewController {
         if(phone != 0){
             phoneTxt?.text = String(phone)
         }
-        if !(address.isEmpty){
-            self.addressTxt?.text = address
-        }
+        self.addressTxt?.text = user_email
     }
 
 }

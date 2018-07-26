@@ -89,7 +89,7 @@ class ProfileViewController: BaseViewController {
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -109,10 +109,6 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
             return locationCell
             
         case 3:
-            let rateUsCell = tableView.dequeueReusableCell(withIdentifier: "rateUs", for: indexPath) as! RateUsCell
-            return rateUsCell
-            
-        case 4:
             let legalAndPolicyCell = tableView.dequeueReusableCell(withIdentifier: "legalAndPolicy", for: indexPath) as! LegalAndPolicyCell
             return legalAndPolicyCell
         default:
@@ -136,6 +132,10 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
             updatePasswordVcObj.modalPresentationStyle = .overCurrentContext
             updatePasswordVcObj.modalTransitionStyle = .crossDissolve
             self.navigationController?.present(updatePasswordVcObj, animated: true, completion: nil)
+            
+        case 2:
+            let myListingsVcObj: MyListingsViewController = self.storyboard?.instantiateViewController(withIdentifier: "MyListingsVc") as! MyListingsViewController
+            self.navigationController?.pushViewController(myListingsVcObj, animated: true)
             
         default:
             print("Any row selected!!")
