@@ -30,7 +30,7 @@
 		<true/>
 	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Listing Locarion would like to use your current location to show all property.</string>
+	<string>Listing Location would like to use your current location to show all property.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Listing Locarion would like to use your current location to show all property.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
