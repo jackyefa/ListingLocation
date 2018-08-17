@@ -12,8 +12,8 @@ import UIKit
 class ForgotPasswordViewController: BaseViewController {
     
     @IBOutlet var txtEmail: LLTextField?
-    @IBOutlet var btnForgotPass: LLButton?
-    @IBOutlet weak var topImageHeight: NSLayoutConstraint?
+    @IBOutlet var containerView: UIView?
+    @IBOutlet var forgotPasswordBtn: LLButton?
     
     // MARK:- Life Cycle Methods.
     
@@ -21,11 +21,12 @@ class ForgotPasswordViewController: BaseViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.configureComponentLayout()
+        self.showIconBackOnNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.setupNavigationBarDefaulyLayoutView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,7 +44,10 @@ class ForgotPasswordViewController: BaseViewController {
     
     override func viewDidLayoutSubviews() {
         self.txtEmail?.initiliase_customTextField_with_blue_background()
-        self.btnForgotPass?.initializeButton_withRedTheme()
+        self.containerView?.layer.borderWidth = 3
+        self.containerView?.layer.borderColor = UIColor.appBlueThemeColor().cgColor
+        self.containerView?.layer.masksToBounds = true
+        self.forgotPasswordBtn?.initiliseBtnWithRedBoreder()
     }
     
     // MARK:- API CALL - USER FORGOT PASSWORD
@@ -72,16 +76,10 @@ class ForgotPasswordViewController: BaseViewController {
         validationError.isEmpty ? self.userForgotPassword_apiCall() : self.showPopupWith_title_message(strTitle: appTitle, strMessage: validationError)
     }
     
-    @IBAction func backTapped(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
     // MARK:- Common Methods
     
     func configureComponentLayout() {
-        if self.view.frame.size.width != 320 {
-            self.topImageHeight?.constant = 300.0
-        }
+        self.title = "Forgot Password"
     }
     
     func validateTextFiedText() -> String {

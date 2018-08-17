@@ -17,6 +17,10 @@ class User: Mappable {
     var phone: Int64?
     var id: Int64?
     var address_response: String?
+    var city: String?
+    var state: String?
+    var zipCode: String?
+    var property_count: Int64?
     
     required init?(map: Map) {
     }
@@ -27,6 +31,10 @@ class User: Mappable {
         phone <- map["phone"]
         id <- map["id"]
         address_response <- map["address"]
+        city <- map["city"]
+        state <- map["state"]
+        zipCode <- map["zipcode"]
+        property_count <- map["property_count"]
     }
 }
 

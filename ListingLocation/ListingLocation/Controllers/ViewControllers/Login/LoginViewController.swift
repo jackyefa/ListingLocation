@@ -13,10 +13,10 @@ class LoginViewController: BaseViewController {
     
     @IBOutlet var txtEmail: LLTextField?
     @IBOutlet var txtPassword: LLTextField?
-    @IBOutlet var btnSignIn: LLButton?
-    @IBOutlet var btnSignUp: LLButton?
     @IBOutlet var rememberMeBtn: UIButton?
-    @IBOutlet weak var topImageHeight: NSLayoutConstraint?
+    @IBOutlet var containerView: UIView?
+    @IBOutlet var loginBtn: LLButton?
+    @IBOutlet var signupBtn: LLButton?
     
     // MARK:- Life Cycle Methods.
     
@@ -31,7 +31,7 @@ class LoginViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.setupNavigationBarDefaulyLayoutView()
         
         if !(remember_email.isEmpty){
             self.txtEmail?.text = remember_email
@@ -57,14 +57,15 @@ class LoginViewController: BaseViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        self.btnSignIn?.initializeButton_withRedTheme()
-        self.btnSignUp?.initializeButton_withRedTheme()
-        
         self.txtEmail?.initiliase_customTextField_with_blue_background()
         self.txtPassword?.initiliase_customTextField_with_blue_background()
         self.rememberMeBtn?.layer.borderColor = UIColor.darkGray.cgColor
         self.rememberMeBtn?.layer.borderWidth = 2
         self.rememberMeBtn?.layer.cornerRadius = 2
+        self.title = "Sign In - Register"
+        self.containerView?.layer.borderWidth = 3
+        self.containerView?.layer.borderColor = UIColor.appBlueThemeColor().cgColor
+        self.containerView?.layer.masksToBounds = true
     }
     
     // MARK:- API CALL - USER LOGIN
@@ -120,23 +121,13 @@ class LoginViewController: BaseViewController {
         self.navigationController?.pushViewController(forgotPasswordVc, animated: true)
     }
     
-    @IBAction func signInViaFacebookTapped(_ sender: UIButton) {
-        
-    }
-    
-    @IBAction func signUpViaTwitterTapped(_ sender: UIButton) {
-        
-    }
-    
     // MARK:- Common Methods
     
     func configureComponentLayout() {
-        if self.view.frame.size.width != 320 {
-            self.topImageHeight?.constant = 300.0
-        }
         self.rememberMeBtn?.layer.cornerRadius = 4
         self.rememberMeBtn?.layer.masksToBounds = false
-        
+        self.signupBtn?.initiliseBtnWithRedBoreder()
+        self.loginBtn?.initiliseBtnWithRedBoreder()
     }
     
     func validateTextFiedText() -> String {

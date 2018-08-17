@@ -29,9 +29,10 @@ class ListingFormViewController: BaseViewController {
     @IBOutlet var segmentControl: UISegmentedControl?
     @IBOutlet var idNumberTxt: LLTextField?
     @IBOutlet var buildingName: LLTextField?
+    @IBOutlet var countryName: LLTextField?
+    
     var apiParams: NSDictionary?
     var selectedAnnotation: MKPointAnnotation?
-    var geocoder = CLGeocoder()
     var callBackPropertyID: Int64?
     
     // MARK:- Life Cycle Methods.
@@ -123,10 +124,11 @@ class ListingFormViewController: BaseViewController {
         dictParams["id_number"] = self.idNumberTxt!.text!
         if (self.segmentControl?.tag == 10){
             dictParams["property_type"] = "sale"
-        }
-        else{
+        }else{
             dictParams["property_type"] = "rent"
         }
+        dictParams["country"] = self.countryName!.text!
+        dictParams["building_name"] = self.buildingName!.text!
         
         if (selectedAnnotation?.coordinate != nil){
             dictParams["latitude"] = self.selectedAnnotation?.coordinate.latitude
@@ -155,7 +157,6 @@ class ListingFormViewController: BaseViewController {
         self.listing_scroll_view?.layer.cornerRadius = 8
         self.listing_scroll_view?.layer.borderColor = UIColor.appBlueThemeColor().cgColor
         self.listing_scroll_view?.layer.borderWidth = 2
-        
         //TextFields
         self.proprtyAddressTxt?.initiliase_customTextField_with_blue_background()
         self.unitTxt?.initiliase_customTextField_with_blue_background()
@@ -164,6 +165,7 @@ class ListingFormViewController: BaseViewController {
         self.zipcodeTxt?.initiliase_customTextField_with_blue_background()
         self.idNumberTxt?.initiliase_customTextField_with_blue_background()
         self.buildingName?.initiliase_customTextField_with_blue_background()
+        self.countryName?.initiliase_customTextField_with_blue_background()
     }
     
     func validateTextFiedText() -> String {
@@ -193,6 +195,3 @@ class ListingFormViewController: BaseViewController {
     }
     
 }
-
-
-

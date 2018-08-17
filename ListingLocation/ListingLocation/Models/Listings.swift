@@ -15,12 +15,14 @@ class Listings: Mappable {
     var unit: Int64?
     var property_city: String?
     var property_state: String?
-    var property_zipcode: Int64?
+    var property_zipcode: String?
     var property_type: String?
     var id_number: Int64?
     var latitude: Double?
     var longitude: Double?
     var property_image: String?
+    var building_name: String?
+    var country: String?
     
     required init?(map: Map) {
     }
@@ -36,5 +38,7 @@ class Listings: Mappable {
         latitude <- map["latitude"]
         longitude <- map["longitude"]
         property_image <- map["image"]
+        building_name <- map["building_name"]
+        country <- map["country"]
     }
 }

@@ -36,6 +36,8 @@ class LLTextField : UITextField {
         self.font = UIFont.normalFontOfSize(size: 15.0)
         self.textColor = UIColor.white
         self.clearButtonMode = UITextFieldViewMode.whileEditing
+        self.layer.borderColor = UIColor.appRedButtonColor().cgColor
+        self.layer.borderWidth = 1.5
     }
     
     func initialize_customTextFieldWith_letfImage(_ imageName: String, withSecuredEntery: Bool) {

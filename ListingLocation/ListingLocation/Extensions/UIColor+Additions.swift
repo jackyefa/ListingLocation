@@ -204,7 +204,7 @@ extension UIColor {
     // MARK: - Custom methods using hex code
     
     class func appBlueThemeColor() -> UIColor{
-        return UIColor().convertHexStringToColor(hexString: "4c9edf")
+        return UIColor().convertHexStringToColor(hexString: "14018b")
     }
     
     class func textFieldBackgroundBlueColor() -> UIColor{

@@ -14,8 +14,9 @@ class SignUpViewController: BaseViewController {
     @IBOutlet var txtName: LLTextField?
     @IBOutlet var txtEmail: LLTextField?
     @IBOutlet var txtPassword: LLTextField?
-    @IBOutlet var btnSignUp: LLButton?
-    @IBOutlet weak var topImageHeight: NSLayoutConstraint?
+    @IBOutlet var txtConfirmPassword: LLTextField?
+    @IBOutlet var containerView: UIView?
+    @IBOutlet var signUpBtn: LLButton?
     
     // MARK:- Life Cycle Methods.
     
@@ -23,24 +24,20 @@ class SignUpViewController: BaseViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.configureComponentLayout()
+        self.showIconBackOnNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.setupNavigationBarDefaulyLayoutView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-       // AppUtility.lockOrientation(.landscape)
-        // Or to rotate and lock
-        // AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        // Don't forget to reset when view is being removed
-       // AppUtility.lockOrientation(.all)
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,7 +49,11 @@ class SignUpViewController: BaseViewController {
         self.txtName?.initiliase_customTextField_with_blue_background()
         self.txtEmail?.initiliase_customTextField_with_blue_background()
         self.txtPassword?.initiliase_customTextField_with_blue_background()
-        self.btnSignUp?.initializeButton_withRedTheme()
+        self.txtConfirmPassword?.initiliase_customTextField_with_blue_background()
+        self.containerView?.layer.borderWidth = 3
+        self.containerView?.layer.borderColor = UIColor.appBlueThemeColor().cgColor
+        self.containerView?.layer.masksToBounds = true
+        self.signUpBtn?.initiliseBtnWithRedBoreder()
     }
     
     // MARK:- API CALL - USER REGISTER
@@ -78,24 +79,10 @@ class SignUpViewController: BaseViewController {
         validationError.isEmpty ? self.userSignup_apiCall() : self.showPopupWith_title_message(strTitle: appTitle, strMessage: validationError)
     }
     
-    @IBAction func signUpViaFacebookTapped(_ sender: UIButton) {
-        
-    }
-    
-    @IBAction func signUpViaTwitterTapped(_ sender: UIButton) {
-        
-    }
-    
-    @IBAction func backTapped(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
     // MARK:- Common Methods
     
     func configureComponentLayout() {
-        if self.view.frame.size.width != 320 {
-            self.topImageHeight?.constant = 300.0
-        }
+        self.title = "Sign Up"
     }
     
     func validateTextFiedText() -> String {
@@ -108,6 +95,8 @@ class SignUpViewController: BaseViewController {
             validateError = "Please input valid email address."
         }else if self.txtPassword!.text!.isEmpty {
             validateError = "Please input valid password."
+        }else if self.txtPassword!.text! != self.txtConfirmPassword!.text!{
+            validateError = "Passwords did not matched."
         }
         return validateError
     }

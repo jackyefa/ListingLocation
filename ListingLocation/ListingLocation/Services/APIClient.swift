@@ -90,7 +90,7 @@ public class APIClient {
         if isReachable {
             
             self.showLoadingViewWith(loadingViewText)
-            let requestHeader: HTTPHeaders = auth_token.isEmpty ? apiParameters as! HTTPHeaders : ["X-AUTH-TOKEN": auth_token]
+            let requestHeader: HTTPHeaders = auth_token.isEmpty ? apiParameters as! HTTPHeaders : ["x-auth-token": auth_token]
             
             Alamofire.request(apiServiceUrl, method: method, parameters: apiParameters as? [String:Any], headers: requestHeader).responseJSON { (response: DataResponse<Any>) in
                 

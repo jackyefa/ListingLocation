@@ -17,7 +17,7 @@ let emptyParams: NSDictionary = NSDictionary()
 // MARK: - NETWORKING BASE URL & API END POINTS
 
 var DOMAIN = "https://location-listing.herokuapp.com"
-//var DOMAIN = "http://cd00914b.ngrok.io"
+//var DOMAIN = "http://604922a1.ngrok.io"
 var API_ROOT = DOMAIN + "/api/v1/"
 
 var API_LOGIN = API_ROOT + "sign_in"
@@ -25,9 +25,10 @@ var API_SIGNUP = API_ROOT + "sign_up"
 var API_FORGOTPWD = API_ROOT + "forgot_password"
 var API_LOGOUT = API_ROOT + "sign_out"
 var API_CHANGEPWD = API_ROOT + "update_password"
-var API_UPDATEPROFILE = API_ROOT + "profile_update"
+var API_UPDATEPROFILE = API_ROOT + "update"
 var API_ADDLISTING = API_ROOT + "add_property"
 var API_DASHBOARD = API_ROOT + "dashboard"
+var API_PROFILE = API_ROOT + "profile"
 
 // MARK: - LOADING POPUP TEXT ADN MESSAGE CONSTANTS
 

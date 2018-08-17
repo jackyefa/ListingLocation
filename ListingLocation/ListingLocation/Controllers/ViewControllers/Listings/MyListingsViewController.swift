@@ -13,6 +13,7 @@ class MyListingsViewController: BaseViewController {
     
     @IBOutlet var listingsTblView: UITableView?
     var userProperties: [Listings]?
+    @IBOutlet var containerView: UIView?
     
     // MARK:- Life Cycle Methods.
 
@@ -57,6 +58,9 @@ class MyListingsViewController: BaseViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.showIconBackOnNavigationBar()
         self.listingsTblView?.tableFooterView = UIView()
+        self.containerView?.layer.borderWidth = 3
+        self.containerView?.layer.borderColor = UIColor.appBlueThemeColor().cgColor
+        self.containerView?.layer.masksToBounds = true
     }
 
 }
@@ -75,9 +79,18 @@ extension MyListingsViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let myListingsCell = tableView.dequeueReusableCell(withIdentifier: "myListings", for: indexPath) as! MyListingsCell
-        myListingsCell.assignDataToCell(userProperty: userProperties![indexPath.row])
+        myListingsCell.assignDataToCell(userProperty: userProperties![indexPath.row], property_number: Int64(indexPath.row) + 1)
         myListingsCell.selectionStyle = .none
         return myListingsCell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+
     }
     
 }
