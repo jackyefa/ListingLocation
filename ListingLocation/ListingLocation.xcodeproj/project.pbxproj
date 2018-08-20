@@ -13,7 +13,6 @@
 		1802E1DD20DD1CC3007CDFAC /* MyListingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802E1DC20DD1CC3007CDFAC /* MyListingsCell.swift */; };
 		180F35D420B29E6400934987 /* PasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180F35D320B29E6400934987 /* PasswordCell.swift */; };
 		180F35D620B2A2D100934987 /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180F35D520B2A2D100934987 /* UpdatePasswordViewController.swift */; };
-		180F35D820B2CAB500934987 /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180F35D720B2CAB500934987 /* UpdateProfileViewController.swift */; };
 		18122B5820A4CD07006DD8BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18122B5720A4CD07006DD8BC /* AppDelegate.swift */; };
 		18122B5D20A4CD07006DD8BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18122B5B20A4CD07006DD8BC /* Main.storyboard */; };
 		18122B6020A4CD07006DD8BC /* ListingLocation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18122B5E20A4CD07006DD8BC /* ListingLocation.xcdatamodeld */; };
@@ -49,9 +48,6 @@
 		18F730ED20B697F70070EF9E /* Listings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F730EC20B697F60070EF9E /* Listings.swift */; };
 		18F730EF20B6E6680070EF9E /* DashboardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F730EE20B6E6680070EF9E /* DashboardResponse.swift */; };
 		18FB6FAC20AAAD3C006626D7 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB6FAB20AAAD3C006626D7 /* LeftMenuViewController.swift */; };
-		18FB6FAE20AB06E5006626D7 /* UserDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB6FAD20AB06E5006626D7 /* UserDetailsCell.swift */; };
-		18FB6FB020AB0713006626D7 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB6FAF20AB0713006626D7 /* LocationCell.swift */; };
-		18FB6FB420AB0796006626D7 /* LegalAndPolicyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB6FB320AB0796006626D7 /* LegalAndPolicyCell.swift */; };
 		986EA9CB09FE8602FB5E9170 /* Pods_ListingLocationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABCA81A702E7DBDECAA77230 /* Pods_ListingLocationTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,7 +74,6 @@
 		1802E1DC20DD1CC3007CDFAC /* MyListingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListingsCell.swift; sourceTree = "<group>"; };
 		180F35D320B29E6400934987 /* PasswordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCell.swift; sourceTree = "<group>"; };
 		180F35D520B2A2D100934987 /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
-		180F35D720B2CAB500934987 /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
 		18122B5420A4CD07006DD8BC /* ListingLocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListingLocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18122B5720A4CD07006DD8BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18122B5C20A4CD07006DD8BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -120,9 +115,6 @@
 		18F730EC20B697F60070EF9E /* Listings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listings.swift; sourceTree = "<group>"; };
 		18F730EE20B6E6680070EF9E /* DashboardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardResponse.swift; sourceTree = "<group>"; };
 		18FB6FAB20AAAD3C006626D7 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
-		18FB6FAD20AB06E5006626D7 /* UserDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsCell.swift; sourceTree = "<group>"; };
-		18FB6FAF20AB0713006626D7 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
-		18FB6FB320AB0796006626D7 /* LegalAndPolicyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalAndPolicyCell.swift; sourceTree = "<group>"; };
 		2A35D3DE9CE8C0ECF9BC82DB /* Pods-ListingLocationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListingLocationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ListingLocationTests/Pods-ListingLocationTests.release.xcconfig"; sourceTree = "<group>"; };
 		31AA5BCEC3AE6BAAED25886E /* Pods_ListingLocation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ListingLocation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DFB5307AB0F8994B772F0DB /* Pods-ListingLocationUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListingLocationUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ListingLocationUITests/Pods-ListingLocationUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -376,12 +368,8 @@
 			isa = PBXGroup;
 			children = (
 				18B3CBF320A9B1F90051A9D4 /* ProfileViewController.swift */,
-				18FB6FAD20AB06E5006626D7 /* UserDetailsCell.swift */,
 				180F35D320B29E6400934987 /* PasswordCell.swift */,
-				18FB6FAF20AB0713006626D7 /* LocationCell.swift */,
-				18FB6FB320AB0796006626D7 /* LegalAndPolicyCell.swift */,
 				180F35D520B2A2D100934987 /* UpdatePasswordViewController.swift */,
-				180F35D720B2CAB500934987 /* UpdateProfileViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -670,15 +658,12 @@
 				1802E1DB20DD1693007CDFAC /* MyListingsViewController.swift in Sources */,
 				180F35D420B29E6400934987 /* PasswordCell.swift in Sources */,
 				181D75E220A57C440083F2B9 /* LLButton.swift in Sources */,
-				18FB6FAE20AB06E5006626D7 /* UserDetailsCell.swift in Sources */,
 				18F730EF20B6E6680070EF9E /* DashboardResponse.swift in Sources */,
 				181D75DB20A578010083F2B9 /* APIManager.swift in Sources */,
 				18122B5820A4CD07006DD8BC /* AppDelegate.swift in Sources */,
 				181D75DC20A578010083F2B9 /* APIClient.swift in Sources */,
 				18122B6020A4CD07006DD8BC /* ListingLocation.xcdatamodeld in Sources */,
-				18FB6FB420AB0796006626D7 /* LegalAndPolicyCell.swift in Sources */,
 				181D762A20A6C48F0083F2B9 /* LocationManager.swift in Sources */,
-				18FB6FB020AB0713006626D7 /* LocationCell.swift in Sources */,
 				181D75CC20A5686B0083F2B9 /* BaseViewController.swift in Sources */,
 				181D75E920A5B2010083F2B9 /* SignUpViewController.swift in Sources */,
 				18D96B772126E45400429CD3 /* LLLabel.swift in Sources */,
@@ -688,7 +673,6 @@
 				181D75D520A568A60083F2B9 /* UIFont+Additions.swift in Sources */,
 				181D75D320A568A60083F2B9 /* UIColor+Additions.swift in Sources */,
 				181D762E20A71BC90083F2B9 /* LocationSearchViewController.swift in Sources */,
-				180F35D820B2CAB500934987 /* UpdateProfileViewController.swift in Sources */,
 				181D75E020A57C330083F2B9 /* LLTextField.swift in Sources */,
 				181D75D420A568A60083F2B9 /* Date+Additions.swift in Sources */,
 			);

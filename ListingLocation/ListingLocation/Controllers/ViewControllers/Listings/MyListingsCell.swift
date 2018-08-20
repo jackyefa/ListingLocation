@@ -52,7 +52,7 @@ class MyListingsCell: UITableViewCell {
         if let property_city = userProperty.property_city{
             self.propertyCity?.text = property_city
         }
-        if let property_type = userProperty.property_type{
+        if let property_type = userProperty.property_type?.capitalized{
             self.sale_rent_status?.text = property_type
         }
         if let imageUrl: String = userProperty.property_image, !imageUrl.isEmpty {
@@ -69,5 +69,15 @@ class MyListingsCell: UITableViewCell {
         self.proprtyCount?.text = String(property_number)
      }
 
+}
+
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).uppercased() + dropFirst()
+    }
+    
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
+    }
 }
 

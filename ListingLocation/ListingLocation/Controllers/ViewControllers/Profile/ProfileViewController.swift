@@ -172,7 +172,11 @@ class ProfileViewController: BaseViewController {
             self.addressTxt?.text = address
         }
         if let phoneNumber: Int64 = phone{
-            self.phoneNumberTxt?.text = String(phoneNumber)
+            if(String(phoneNumber) == "0"){
+                self.phoneNumberTxt?.text = ""
+            }else{
+                self.phoneNumberTxt?.text = String(phoneNumber)
+            }
         }
         self.emailTxt?.text = user_email
         if let city = self.userProfile?.city{
