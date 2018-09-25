@@ -12,6 +12,7 @@ import SDWebImage
 
 class MyListingsCell: UITableViewCell {
     
+    @IBOutlet var bg_view: UIView?
     @IBOutlet var proprtyCount: LLLabel?
     @IBOutlet var proprtyAddress: LLLabel?
     @IBOutlet var propertyUnit: LLLabel?
@@ -20,13 +21,15 @@ class MyListingsCell: UITableViewCell {
     @IBOutlet var propertyZipcode: LLLabel?
     @IBOutlet var propertyImage: UIImageView?
     @IBOutlet var sale_rent_status: LLLabel?
+    @IBOutlet var buildingName: LLLabel?
+    @IBOutlet var mlNumber: LLLabel?
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.layer.cornerRadius = 5
-        self.layer.borderWidth = 1.5
-        self.layer.borderColor = UIColor.lightGray.cgColor
+        self.bg_view?.layer.cornerRadius = 5
+        self.bg_view?.layer.borderWidth = 1.5
+        self.bg_view?.layer.borderColor = UIColor.lightGray.cgColor
         self.proprtyCount?.initiliseLabelWithRedBoreder()
         self.proprtyAddress?.initiliseLabelWithRedBoreder()
         self.propertyUnit?.initiliseLabelWithRedBoreder()
@@ -34,6 +37,8 @@ class MyListingsCell: UITableViewCell {
         self.propertyState?.initiliseLabelWithRedBoreder()
         self.propertyZipcode?.initiliseLabelWithRedBoreder()
         self.sale_rent_status?.initiliseLabelWithRedBoreder()
+        self.mlNumber?.initiliseLabelWithRedBoreder()
+        self.buildingName?.initiliseLabelWithRedBoreder()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -65,6 +70,12 @@ class MyListingsCell: UITableViewCell {
         }
         if let property_zipcode = userProperty.property_zipcode{
             self.propertyZipcode?.text = property_zipcode
+        }
+        if let property_building_name = userProperty.building_name{
+            self.buildingName?.text = property_building_name
+        }
+        if let ml_number = userProperty.id_number{
+         self.mlNumber?.text = ml_number
         }
         self.proprtyCount?.text = String(property_number)
      }

@@ -30,16 +30,21 @@ class ListingFormViewController: BaseViewController {
     @IBOutlet var idNumberTxt: LLTextField?
     @IBOutlet var buildingName: LLTextField?
     @IBOutlet var countryName: LLTextField?
+    @IBOutlet var submitBtn: LLButton?
     
     var apiParams: NSDictionary?
     var selectedAnnotation: MKPointAnnotation?
     var callBackPropertyID: Int64?
+    let geoCoder = CLGeocoder()
+    var location_coordinate = CLLocationCoordinate2D()
+    var location = CLLocation()
     
     // MARK:- Life Cycle Methods.
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.reverseGeocoding()
         self.configureComponentsLayout()
     }
     
@@ -84,6 +89,7 @@ class ListingFormViewController: BaseViewController {
         if let image = self.propertyImage {
             UIImageWriteToSavedPhotosAlbum((image), self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
         }
+        self.dismiss(animated: true, completion: nil)
     }
     
     @objc func cancelPicker(){
@@ -146,6 +152,8 @@ class ListingFormViewController: BaseViewController {
     
     func configureComponentsLayout(){
         self.segmentControl?.tag = 10
+        self.segmentControl?.layer.borderWidth = 1.5
+        self.segmentControl?.layer.borderColor = UIColor.appRedButtonColor().cgColor
         self.property_image?.layer.cornerRadius = 4
         self.property_image?.layer.borderWidth = 0.4
         self.property_image?.layer.borderColor = UIColor.lightGray.cgColor
@@ -153,6 +161,7 @@ class ListingFormViewController: BaseViewController {
         if (propertyImage != nil){
             self.property_image?.image = propertyImage
         }
+        self.submitBtn?.initiliseBtnWithRedBoreder()
         //Scroll view
         self.listing_scroll_view?.layer.cornerRadius = 8
         self.listing_scroll_view?.layer.borderColor = UIColor.appBlueThemeColor().cgColor
@@ -182,6 +191,30 @@ class ListingFormViewController: BaseViewController {
             validateError = "Please enter zipcode."
         }
         return validateError
+    }
+    
+    func reverseGeocoding(){
+        location = CLLocation(latitude: location_coordinate.latitude, longitude: location_coordinate.longitude)
+        geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
+            // Place details
+            var placeMark: CLPlacemark!
+            placeMark = placemarks?[0]
+            if let state = placeMark.administrativeArea {
+                self.stateTxt?.text = state
+            }
+            if let address = placeMark.name {
+                self.proprtyAddressTxt?.text = address
+            }
+            if let city = placeMark?.addressDictionary!["City"] {
+                self.cityTxt?.text = city as? String
+            }
+            if let zip = placeMark.postalCode {
+                self.zipcodeTxt?.text = zip
+            }
+            if let country = placeMark.country {
+                self.countryName?.text = country
+            }
+        })
     }
     
     // Method for storing image in photos library with error handling.

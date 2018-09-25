@@ -14,9 +14,10 @@ class User: Mappable {
     
     var email: String?
     var name: String?
-    var phone: Int64?
+    var phone: String?
     var id: Int64?
     var address_response: String?
+    var address_two: String?
     var city: String?
     var state: String?
     var zipCode: String?
@@ -31,6 +32,7 @@ class User: Mappable {
         phone <- map["phone"]
         id <- map["id"]
         address_response <- map["address"]
+        address_two <- map["address_2"]
         city <- map["city"]
         state <- map["state"]
         zipCode <- map["zipcode"]

@@ -13,6 +13,7 @@
 		1802E1DD20DD1CC3007CDFAC /* MyListingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802E1DC20DD1CC3007CDFAC /* MyListingsCell.swift */; };
 		180F35D420B29E6400934987 /* PasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180F35D320B29E6400934987 /* PasswordCell.swift */; };
 		180F35D620B2A2D100934987 /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180F35D520B2A2D100934987 /* UpdatePasswordViewController.swift */; };
+		18106FA821478F90005FC801 /* FlyoverCoverageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18106FA721478F90005FC801 /* FlyoverCoverageViewController.swift */; };
 		18122B5820A4CD07006DD8BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18122B5720A4CD07006DD8BC /* AppDelegate.swift */; };
 		18122B5D20A4CD07006DD8BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18122B5B20A4CD07006DD8BC /* Main.storyboard */; };
 		18122B6020A4CD07006DD8BC /* ListingLocation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18122B5E20A4CD07006DD8BC /* ListingLocation.xcdatamodeld */; };
@@ -44,6 +45,8 @@
 		181D762E20A71BC90083F2B9 /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D762D20A71BC90083F2B9 /* LocationSearchViewController.swift */; };
 		184D3A7D20AC0AEF0087DC6F /* ListingFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D3A7C20AC0AEF0087DC6F /* ListingFormViewController.swift */; };
 		18B3CBF420A9B1F90051A9D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B3CBF320A9B1F90051A9D4 /* ProfileViewController.swift */; };
+		18BAB61521468BB800C97163 /* TermsOfUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BAB61421468BB800C97163 /* TermsOfUseViewController.swift */; };
+		18BAB61721468BD600C97163 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BAB61621468BD600C97163 /* PrivacyPolicyViewController.swift */; };
 		18D96B772126E45400429CD3 /* LLLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D96B762126E45400429CD3 /* LLLabel.swift */; };
 		18F730ED20B697F70070EF9E /* Listings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F730EC20B697F60070EF9E /* Listings.swift */; };
 		18F730EF20B6E6680070EF9E /* DashboardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F730EE20B6E6680070EF9E /* DashboardResponse.swift */; };
@@ -74,6 +77,7 @@
 		1802E1DC20DD1CC3007CDFAC /* MyListingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListingsCell.swift; sourceTree = "<group>"; };
 		180F35D320B29E6400934987 /* PasswordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCell.swift; sourceTree = "<group>"; };
 		180F35D520B2A2D100934987 /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
+		18106FA721478F90005FC801 /* FlyoverCoverageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyoverCoverageViewController.swift; sourceTree = "<group>"; };
 		18122B5420A4CD07006DD8BC /* ListingLocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListingLocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18122B5720A4CD07006DD8BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18122B5C20A4CD07006DD8BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 		181D762D20A71BC90083F2B9 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
 		184D3A7C20AC0AEF0087DC6F /* ListingFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingFormViewController.swift; sourceTree = "<group>"; };
 		18B3CBF320A9B1F90051A9D4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		18BAB61421468BB800C97163 /* TermsOfUseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseViewController.swift; sourceTree = "<group>"; };
+		18BAB61621468BD600C97163 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		18D96B762126E45400429CD3 /* LLLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLLabel.swift; sourceTree = "<group>"; };
 		18F730EC20B697F60070EF9E /* Listings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listings.swift; sourceTree = "<group>"; };
 		18F730EE20B6E6680070EF9E /* DashboardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardResponse.swift; sourceTree = "<group>"; };
@@ -252,6 +258,7 @@
 		18122B9F20A4CFE7006DD8BC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				18BAB61321468B6400C97163 /* TermsAndPolicy */,
 				18FB6FAA20AAAD07006626D7 /* LeftMenu */,
 				18B3CBF120A9B1C70051A9D4 /* Listings */,
 				18B3CBF220A9B1C80051A9D4 /* Profile */,
@@ -372,6 +379,16 @@
 				180F35D520B2A2D100934987 /* UpdatePasswordViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		18BAB61321468B6400C97163 /* TermsAndPolicy */ = {
+			isa = PBXGroup;
+			children = (
+				18BAB61421468BB800C97163 /* TermsOfUseViewController.swift */,
+				18BAB61621468BD600C97163 /* PrivacyPolicyViewController.swift */,
+				18106FA721478F90005FC801 /* FlyoverCoverageViewController.swift */,
+			);
+			path = TermsAndPolicy;
 			sourceTree = "<group>";
 		};
 		18FB6FAA20AAAD07006626D7 /* LeftMenu */ = {
@@ -657,12 +674,14 @@
 				18FB6FAC20AAAD3C006626D7 /* LeftMenuViewController.swift in Sources */,
 				1802E1DB20DD1693007CDFAC /* MyListingsViewController.swift in Sources */,
 				180F35D420B29E6400934987 /* PasswordCell.swift in Sources */,
+				18BAB61521468BB800C97163 /* TermsOfUseViewController.swift in Sources */,
 				181D75E220A57C440083F2B9 /* LLButton.swift in Sources */,
 				18F730EF20B6E6680070EF9E /* DashboardResponse.swift in Sources */,
 				181D75DB20A578010083F2B9 /* APIManager.swift in Sources */,
 				18122B5820A4CD07006DD8BC /* AppDelegate.swift in Sources */,
 				181D75DC20A578010083F2B9 /* APIClient.swift in Sources */,
 				18122B6020A4CD07006DD8BC /* ListingLocation.xcdatamodeld in Sources */,
+				18BAB61721468BD600C97163 /* PrivacyPolicyViewController.swift in Sources */,
 				181D762A20A6C48F0083F2B9 /* LocationManager.swift in Sources */,
 				181D75CC20A5686B0083F2B9 /* BaseViewController.swift in Sources */,
 				181D75E920A5B2010083F2B9 /* SignUpViewController.swift in Sources */,
@@ -672,6 +691,7 @@
 				1802E1DD20DD1CC3007CDFAC /* MyListingsCell.swift in Sources */,
 				181D75D520A568A60083F2B9 /* UIFont+Additions.swift in Sources */,
 				181D75D320A568A60083F2B9 /* UIColor+Additions.swift in Sources */,
+				18106FA821478F90005FC801 /* FlyoverCoverageViewController.swift in Sources */,
 				181D762E20A71BC90083F2B9 /* LocationSearchViewController.swift in Sources */,
 				181D75E020A57C330083F2B9 /* LLTextField.swift in Sources */,
 				181D75D420A568A60083F2B9 /* Date+Additions.swift in Sources */,

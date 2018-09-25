@@ -82,11 +82,11 @@ var address: String {
     }
 }
 
-var phone: Int64{
+var phone: String{
     get{
-        var phone: Int64 = Int64()
+        var phone: String = String()
         if ((UserDefaults.standard.object(forKey: "phone_number")) != nil){
-            phone = UserDefaults.standard.object(forKey: "phone_number") as! Int64
+            phone = UserDefaults.standard.object(forKey: "phone_number") as! String
         }
         return phone
     }

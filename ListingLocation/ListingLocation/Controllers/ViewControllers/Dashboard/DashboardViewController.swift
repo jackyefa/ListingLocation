@@ -18,7 +18,10 @@ class DashboardViewController: BaseViewController {
     @IBOutlet var annotBaseView: UIView?
     @IBOutlet var annotationImage: UIImageView?
     var locationCoordinate = CLLocationCoordinate2D()
-    var span = MKCoordinateSpanMake(0.05, 0.05)
+    let pitch: CGFloat = 65
+    let heading = 0.0
+    var camera: MKMapCamera?
+    var is_pin_moved: Bool = false
     
     // MARK:- Life Cycle Methods.
     
@@ -114,30 +117,38 @@ class DashboardViewController: BaseViewController {
         let translation = sender.translation(in: self.view)
         sender.view!.center = CGPoint(x: sender.view!.center.x + translation.x, y: sender.view!.center.y + translation.y)
         sender.setTranslation(CGPoint.zero, in: self.view)
+        self.is_pin_moved = true
     }
     
     @objc func openaddListingVc(){
-        var screenshotImage :UIImage?
-        UIGraphicsBeginImageContext(view.bounds.size)
-        guard let context = UIGraphicsGetCurrentContext() else {
-            return
-        }
-        view.layer.render(in:context)
-        screenshotImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        UIGraphicsBeginImageContext((mapView?.frame.size)!)
-        screenshotImage?.draw(at: CGPoint(x: 0, y: 0))
-        let croppedImage: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        if let image = croppedImage {
-            let listingFormVcObj: ListingFormViewController = self.storyboard?.instantiateViewController(withIdentifier: "ListingFormVc") as! ListingFormViewController
-            listingFormVcObj.propertyImage = image
-            listingFormVcObj.listingFormDelegate = self
-            listingFormVcObj.modalPresentationStyle = .overCurrentContext
-            listingFormVcObj.modalTransitionStyle = .crossDissolve
-            self.navigationController?.present(listingFormVcObj, animated: true, completion: nil)
+        if(is_pin_moved){
+            var screenshotImage :UIImage?
+            UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0.0)
+            guard let context = UIGraphicsGetCurrentContext() else {
+                return
+            }
+            view.layer.render(in:context)
+            screenshotImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            UIGraphicsBeginImageContextWithOptions((mapView?.frame.size)!, false, 0.0)
+            screenshotImage?.draw(at: CGPoint(x: 0, y: 0))
+            let croppedImage: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            if let image = croppedImage {
+                let listingFormVcObj: ListingFormViewController = self.storyboard?.instantiateViewController(withIdentifier: "ListingFormVc") as! ListingFormViewController
+                listingFormVcObj.propertyImage = image
+                listingFormVcObj.listingFormDelegate = self
+                listingFormVcObj.location_coordinate = locationCoordinate
+                listingFormVcObj.modalPresentationStyle = .overCurrentContext
+                listingFormVcObj.modalTransitionStyle = .crossDissolve
+                self.navigationController?.present(listingFormVcObj, animated: true, completion: nil)
+            }
+        }else{
+            self.alertListingLocation = UIAlertController.alertWithTitleAndMessage(title: appTitle, message: VIEW_MOVED_MESSAGE, handler: {(objAlertAction: UIAlertAction!) -> Void in
+            })
+            self.present(self.alertListingLocation!, animated: true, completion: nil)
         }
     }
     
@@ -151,12 +162,17 @@ class DashboardViewController: BaseViewController {
         //Notifications
         NotificationCenter.default.addObserver(self, selector: #selector(logoutUser_Api_call), name: LOGOUT_USER_NOTIFICATION, object: nil)
         self.mapView?.showsUserLocation = false
+        self.title = "Home"
     }
     
     func showCurrentLocationOnMapView(_ location: CLLocation) {
-        let span = MKCoordinateSpanMake(0.05, 0.05)
-        let region = MKCoordinateRegion(center: location.coordinate, span: span)
-        self.mapView?.setRegion(region, animated: true)
+        locationCoordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude,longitude: location.coordinate.longitude)
+        self.mapView?.isPitchEnabled = true
+        camera = MKMapCamera(lookingAtCenter: locationCoordinate,
+                             fromDistance: 200,
+                             pitch: pitch,
+                             heading: heading)
+        mapView?.camera = camera!
     }
     
     func setUpSideMenuAndDefaults(){
@@ -177,6 +193,7 @@ class DashboardViewController: BaseViewController {
 extension DashboardViewController: ListingFormDelegate{
     func moveAnnotationView() {
         self.annotBaseView?.frame = CGRect(x: 50, y: 0, width: (self.annotBaseView?.frame.size.width)!, height: (self.annotBaseView?.frame.size.height)!)
+        self.is_pin_moved = false
     }
 }
 
@@ -197,10 +214,14 @@ extension DashboardViewController : LocationServiceDelegate {
 extension DashboardViewController: LocationSearchDelegate{
     
     func send_location_with_coordinate(coordinate: CLLocationCoordinate2D) {
-        let span = MKCoordinateSpanMake(0.003, 0.003)
+        self.annotBaseView?.frame = CGRect(x: 50, y: 0, width: (self.annotBaseView?.frame.size.width)!, height: (self.annotBaseView?.frame.size.height)!)
         locationCoordinate = CLLocationCoordinate2D(latitude: coordinate.latitude,longitude: coordinate.longitude)
-        let region = MKCoordinateRegion(center: locationCoordinate, span: span)
-        mapView?.setRegion(region, animated: true)
+        self.mapView?.isPitchEnabled = true
+        camera = MKMapCamera(lookingAtCenter: locationCoordinate,
+                             fromDistance: 200,
+                             pitch: pitch,
+                             heading: heading)
+        mapView?.camera = camera!
     }
 }
 

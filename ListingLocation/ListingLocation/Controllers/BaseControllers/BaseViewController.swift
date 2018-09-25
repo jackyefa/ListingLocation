@@ -139,7 +139,7 @@ class BaseViewController: UIViewController {
         //Take Action on Notification
         name = ""
         id = Int64()
-        phone = Int64()
+        phone = ""
         auth_token = ""
         user_email = ""
         address = ""

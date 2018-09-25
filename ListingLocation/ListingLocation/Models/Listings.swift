@@ -12,12 +12,12 @@ import ObjectMapper
 class Listings: Mappable {
     
     var property_address: String?
-    var unit: Int64?
+    var unit: String?
     var property_city: String?
     var property_state: String?
     var property_zipcode: String?
     var property_type: String?
-    var id_number: Int64?
+    var id_number: String?
     var latitude: Double?
     var longitude: Double?
     var property_image: String?
@@ -34,7 +34,7 @@ class Listings: Mappable {
         property_state <- map["state"]
         property_zipcode <- map["zipcode"]
         property_type <- map["property_type"]
-        id_number <- map["id"]
+        id_number <- map["id_number"]
         latitude <- map["latitude"]
         longitude <- map["longitude"]
         property_image <- map["image"]
